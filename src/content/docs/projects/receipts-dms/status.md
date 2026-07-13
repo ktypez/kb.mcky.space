@@ -5,26 +5,18 @@ original_frontmatter:
   type: project-status
   id: receipts-dms-status
   project: receipts-dms
-  last_updated: '2026-07-13'
+  last_updated: 2026-07-13T00:00:00.000Z
   status: active
+  freshness: 2026-07-13T00:00:00.000Z
+  verified: 2026-07-13T00:00:00.000Z
+  expires: null
+  superseded_by: null
   anchors:
     - /home/paper/receipts-dms/
-  freshness: '2026-07-13'
+  links:
+    - type: relates-to
+      target: receipts-dms-profile
 
----
-
----
-type: project-status
-id: receipts-dms-status
-project: receipts-dms
-last_updated: 2026-07-13
-status: active
-freshness: 2026-07-13
-verified: 2026-07-13
-expires: null
-superseded_by: null
-anchors:
-  - /home/paper/receipts-dms/
 ---
 
 # สถานะ

@@ -33,8 +33,8 @@ original_frontmatter:
 - **Display Name:** EzzyTruck
 - **Description:** Shift logging & income PWA สำหรับคนขับรถบรรทุก
 - **Purpose:** ช่วยคนขับรถบรรทุกบันทึกกะการทำงานและติดตามรายได้
-- **Repository:** Unknown
-- **Owner:** Unknown
+- **Repository:** https://github.com/ktypez/truck
+- **Owner:** ktypez
 
 ## เทคโนโลยี (Technology)
 - **Languages:** TypeScript
@@ -63,7 +63,7 @@ original_frontmatter:
 ## สถาปัตยกรรม (Architecture)
 - **Structure:** React SPA / PWA ที่ใช้ lazy-loaded routes
 - **Entry Points:** `src/main.tsx`
-- **Important Packages:** `vite-plugin-pwa` สำหรับ PWA, `@tanstack/react-query` สำหรับ data fetching
+- **Important Packages:** `@tanstack/react-query` สำหรับ data fetching
 
 ## เอกสาร (Documentation)
 - **Agent Context:** [agent.md](./agent.md)

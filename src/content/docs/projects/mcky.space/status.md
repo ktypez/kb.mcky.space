@@ -5,10 +5,10 @@ original_frontmatter:
   type: project-status
   id: mcky-space-status
   project: mcky.space
-  last_updated: '2026-07-13'
+  last_updated: 2026-07-13T00:00:00.000Z
   status: active
-  freshness: '2026-07-13'
-  verified: 2026-07-11T00:00:00.000Z
+  freshness: 2026-07-13T00:00:00.000Z
+  verified: 2026-07-13T00:00:00.000Z
   expires: null
   superseded_by: null
   anchors:
@@ -19,25 +19,6 @@ original_frontmatter:
     - type: relates-to
       target: mcky-space-profile
 
----
-
----
-type: project-status
-id: mcky-space-status
-project: mcky.space
-last_updated: 2026-07-13
-status: active
-freshness: 2026-07-13
-verified: 2026-07-13
-expires: null
-superseded_by: null
-anchors:
-  - /home/mcky.space/
-links:
-  - type: relates-to
-    target: mcky-space-agent
-  - type: relates-to
-    target: mcky-space-profile
 ---
 
 # สถานะโปรเจกต์ — mcky.space
@@ -66,6 +47,7 @@ links:
 ## บันทึกการเปลี่ยนแปลง
 
 ### 2026-07-13
+- **KB refresh**: แก้ไข frontmatter ซ้ำซ้อน, อัปเดต timestamps
 - Sync OKF knowledge base across all 8 projects
 - Updated workspace index with current project inventory
 - Refreshed documentation timestamps and freshness

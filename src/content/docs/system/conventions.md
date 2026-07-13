@@ -73,7 +73,7 @@ Before starting any task, check if `./TODOS.md` exists in the current project ro
 For multi-step tasks:
 
 1. **Create** `~/OKF/plan/<todo-name>.md` — YAML frontmatter (id, version, status, created, updated) + goal, steps (checkboxes), files, verification
-2. **Run** `node scripts/build-site.js` — copies plan files to Starlight content
+2. **Run** `cd ~/kb.mcky.space && node scripts/build-site.cjs` — copies plan files to Starlight content
 3. **Execute** — use opencode's todowrite for in-session progress tracking
 4. **Update** plan.md at milestones — commit each update (git history = version log)
 5. **Persist** — plans stay in `plan/` directory after completion
@@ -135,3 +135,32 @@ External directories allowed:
 - `~/mcky.space/**`
 - `~/clientdata/**`
 - `~/habby/**`
+
+## Build Site
+
+Build and deploy the OKF knowledge base site to [kb.mcky.space](https://kb.mcky.space):
+
+```
+cd ~/kb.mcky.space
+npm run generate   # pull latest content from ~/OKF
+vercel --prod --yes
+```
+
+Or just say **"build site"** to trigger this workflow.
+
+**Note:** Vercel auto-deploys on git push to `main` on `ktypez/kb.mcky.space`, but `generate` must be run first since content lives in `~/OKF`.
+
+## KB Sync
+
+สั่ง **"sync kb"** หรือ **"refresh kb"** หรือ **"update kb"** เมื่อต้องการให้ตรวจสอบและอัปเดตฐานความรู้ทั้งหมดให้ตรงกับสถานะปัจจุบันของทุกโปรเจกต์
+
+**ขั้นตอนที่จะดำเนินการ:**
+1. อ่าน `package.json` และไฟล์ config ของทุกโปรเจกต์ (`~/truck`, `~/mcky.space`, `~/data.mcky.space`, `~/habby`, `~/collage`, `~/paper/receipts-dms`)
+2. เปรียบเทียบกับข้อมูลปัจจุบันใน `~/OKF/projects/*/`
+3. อัปเดต `profile.md`, `dependencies.md`, `commands.md`, `status.md`, `structure.md` ตามสภาพจริง
+4. อัปเดต `workspace.md` — ตารางเปรียบเทียบเทคโนโลยี + dev commands
+5. ตรวจสอบสถานะโปรเจกต์ (active/archived/experimental)
+6. commit + push การเปลี่ยนแปลง
+7. สร้าง site: `cd ~/kb.mcky.space && npm run generate && vercel --prod --yes`
+
+**คำที่ใช้ได้:** "sync kb", "refresh kb", "update kb", "อัปเดต kb", "ทำให้ kb ทันสมัย"
