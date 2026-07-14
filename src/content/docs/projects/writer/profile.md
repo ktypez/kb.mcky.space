@@ -36,7 +36,7 @@ original_frontmatter:
 
 ## เอกสาร (Documentation)
 
-- **Agent Context:** [agent.md](./agent.md)
+- **Agent Context:** [agent.md](/agent)
 
 ## สถานะ (Status)
 

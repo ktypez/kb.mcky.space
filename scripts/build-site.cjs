@@ -109,6 +109,12 @@ function copyFiles(srcDir, destSubdir, options = {}) {
   return files.length;
 }
 
+// Astro/Starlight slugifies URLs: lowercase + strip dots (dashes kept).
+// Sidebar links must match the generated slugs or they 404.
+function slugify(s) {
+  return s.toLowerCase().replace(/\./g, '');
+}
+
 function generateSidebar() {
   const yaml = require('js-yaml');
   const sidebar = [];
@@ -121,7 +127,7 @@ function generateSidebar() {
       .sort()
       .map(f => ({
         label: f.replace(/\.md$/, '').replace(/-/g, ' ').replace(/\b\w/g, c => c.toUpperCase()),
-        link: `/system/${f.replace(/\.md$/, '')}`,
+        link: `/system/${slugify(f.replace(/\.md$/, ''))}`,
       }));
     if (items.length) {
       sidebar.push({ label: 'System', items });
@@ -146,7 +152,7 @@ function generateSidebar() {
       if (files.length) {
         const subItems = files.map(f => ({
           label: f.replace(/\.md$/, '').replace(/-/g, ' ').replace(/\b\w/g, c => c.toUpperCase()),
-          link: `/projects/${proj}/${f.replace(/\.md$/, '')}`,
+          link: `/projects/${slugify(proj)}/${slugify(f.replace(/\.md$/, ''))}`,
         }));
         projectItems.push({ label: proj, items: subItems });
       }
@@ -164,7 +170,7 @@ function generateSidebar() {
       .sort()
       .map(f => ({
         label: f.replace(/\.md$/, '').replace(/-/g, ' ').replace(/\b\w/g, c => c.toUpperCase()),
-        link: `/plans/${f.replace(/\.md$/, '')}`,
+        link: `/plans/${slugify(f.replace(/\.md$/, ''))}`,
       }));
     if (items.length) {
       sidebar.push({ label: 'Plans', items });

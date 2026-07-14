@@ -26,8 +26,8 @@ original_frontmatter:
 
 ## Active Decisions (การตัดสินใจที่ active)
 
-- [DEC-014](knowledge/DEC-014.md) — ต่อ OKF MCP server เข้า OpenCode config
-- [DEC-015](knowledge/DEC-015.md) — เพิ่มฟิลด์บันทึก (`note` / บันทึกเพิ่มเติม) ให้ client
+- [DEC-014](knowledge/dec-014) — ต่อ OKF MCP server เข้า OpenCode config
+- [DEC-015](knowledge/dec-015) — เพิ่มฟิลด์บันทึก (`note` / บันทึกเพิ่มเติม) ให้ client
 
 ## Superseded Decisions
 

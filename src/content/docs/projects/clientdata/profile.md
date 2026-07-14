@@ -74,8 +74,8 @@ original_frontmatter:
 
 ## Documentation (เอกสาร)
 
-- **Agent Context:** [agent.md](./agent.md)
-- **Status:** [status.md](./status.md)
+- **Agent Context:** [agent.md](/agent)
+- **Status:** [status.md](/status)
 
 ## Quality (คุณภาพ)
 

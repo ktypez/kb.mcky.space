@@ -65,8 +65,8 @@ original_frontmatter:
 - **Important Packages:** `marked` สำหรับประมวลผล markdown
 
 ## เอกสาร
-- **Agent Context:** [agent.md](./agent.md)
-- **Status:** [status.md](./status.md)
+- **Agent Context:** [agent.md](/agent)
+- **Status:** [status.md](/status)
 
 ## คุณภาพ
 - **Tests:** ไม่มี (ข้ามไป)

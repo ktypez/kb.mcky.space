@@ -66,8 +66,8 @@ original_frontmatter:
 - **Important Packages:** `@tanstack/react-query` สำหรับ data fetching
 
 ## เอกสาร (Documentation)
-- **Agent Context:** [agent.md](./agent.md)
-- **Status:** [status.md](./status.md)
+- **Agent Context:** [agent.md](/agent)
+- **Status:** [status.md](/status)
 
 ## คุณภาพ (Quality)
 - **Tests:** Vitest, Testing Library

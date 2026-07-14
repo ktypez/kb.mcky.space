@@ -73,7 +73,7 @@ original_frontmatter:
 
 ## บุคลิกภาพ Agent (Agent Personalities)
 
-workspace นี้ขับเคลื่อนโดยก๊อบลิน (goblins) แต่ละตัวมีความคลั่งไคล้เฉพาะทาง รายละเอียดเต็มใน [Personalities](./personalities.md)
+workspace นี้ขับเคลื่อนโดยก๊อบลิน (goblins) แต่ละตัวมีความคลั่งไคล้เฉพาะทาง รายละเอียดเต็มใน [Personalities](/personalities)
 
 | Agent | Personality | ความคลั่งไคล้ (Obsession) |
 |-------|-------------|-----------|

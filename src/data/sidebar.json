@@ -4,7 +4,7 @@
     "items": [
       {
         "label": "TODOS",
-        "link": "/system/TODOS"
+        "link": "/system/todos"
       },
       {
         "label": "Conventions",
@@ -106,27 +106,27 @@
         "items": [
           {
             "label": "Agent",
-            "link": "/projects/data.mcky.space/agent"
+            "link": "/projects/datamckyspace/agent"
           },
           {
             "label": "Commands",
-            "link": "/projects/data.mcky.space/commands"
+            "link": "/projects/datamckyspace/commands"
           },
           {
             "label": "Dependencies",
-            "link": "/projects/data.mcky.space/dependencies"
+            "link": "/projects/datamckyspace/dependencies"
           },
           {
             "label": "Profile",
-            "link": "/projects/data.mcky.space/profile"
+            "link": "/projects/datamckyspace/profile"
           },
           {
             "label": "Status",
-            "link": "/projects/data.mcky.space/status"
+            "link": "/projects/datamckyspace/status"
           },
           {
             "label": "Structure",
-            "link": "/projects/data.mcky.space/structure"
+            "link": "/projects/datamckyspace/structure"
           }
         ]
       },
@@ -172,35 +172,35 @@
         "items": [
           {
             "label": "Agent",
-            "link": "/projects/mcky.space/agent"
+            "link": "/projects/mckyspace/agent"
           },
           {
             "label": "Assets",
-            "link": "/projects/mcky.space/assets"
+            "link": "/projects/mckyspace/assets"
           },
           {
             "label": "Commands",
-            "link": "/projects/mcky.space/commands"
+            "link": "/projects/mckyspace/commands"
           },
           {
             "label": "Decisions",
-            "link": "/projects/mcky.space/decisions"
+            "link": "/projects/mckyspace/decisions"
           },
           {
             "label": "Dependencies",
-            "link": "/projects/mcky.space/dependencies"
+            "link": "/projects/mckyspace/dependencies"
           },
           {
             "label": "Profile",
-            "link": "/projects/mcky.space/profile"
+            "link": "/projects/mckyspace/profile"
           },
           {
             "label": "Status",
-            "link": "/projects/mcky.space/status"
+            "link": "/projects/mckyspace/status"
           },
           {
             "label": "Structure",
-            "link": "/projects/mcky.space/structure"
+            "link": "/projects/mckyspace/structure"
           }
         ]
       },
