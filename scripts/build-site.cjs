@@ -60,14 +60,13 @@ function extractTitle(fm, body, filename) {
   return filename.replace(/\.md$/, '');
 }
 
-function serializeStarlightFm(title, fm, body, archived = false) {
+function serializeStarlightFm(title, fm, body) {
   const yaml = require('js-yaml');
 
   // Starlight frontmatter — only standard fields exposed
   const starlightFm = {
     title,
     description: fm?.description || '',
-    ...(archived && { draft: true }),
   };
 
   // Preserve original frontmatter as raw JSON for reference
@@ -86,7 +85,7 @@ function ensureCleanDir(dir) {
 }
 
 function copyFiles(srcDir, destSubdir, options = {}) {
-  const { archived = false, prefix = '' } = options;
+  const { prefix = '' } = options;
   const files = walkMd(srcDir);
   const destDir = path.join(DOCS_DIR, destSubdir);
   fs.mkdirSync(destDir, { recursive: true });
@@ -101,11 +100,11 @@ function copyFiles(srcDir, destSubdir, options = {}) {
     fs.mkdirSync(path.dirname(destFile), { recursive: true });
 
     const title = extractTitle(fm, body, path.basename(file));
-    const starlightContent = serializeStarlightFm(title, fm, body, archived);
+    const starlightContent = serializeStarlightFm(title, fm, body);
     fs.writeFileSync(destFile, starlightContent, 'utf-8');
   }
 
-  console.log(`    ${destSubdir}/ (${files.length} files)${archived ? ' [archived]' : ''}`);
+  console.log(`    ${destSubdir}/ (${files.length} files)`);
   return files.length;
 }
 
@@ -130,7 +129,7 @@ function generateSidebar() {
         link: `/system/${slugify(f.replace(/\.md$/, ''))}`,
       }));
     if (items.length) {
-      sidebar.push({ label: 'System', items });
+      sidebar.push({ label: 'System', items, collapsed: false });
     }
   }
 
@@ -158,7 +157,7 @@ function generateSidebar() {
       }
     }
     if (projectItems.length) {
-      sidebar.push({ label: 'Projects', items: projectItems });
+      sidebar.push({ label: 'Projects', items: projectItems, collapsed: true });
     }
   }
 
@@ -173,7 +172,7 @@ function generateSidebar() {
         link: `/plans/${slugify(f.replace(/\.md$/, ''))}`,
       }));
     if (items.length) {
-      sidebar.push({ label: 'Plans', items });
+      sidebar.push({ label: 'Plans', items, collapsed: true });
     }
   }
 
@@ -204,9 +203,7 @@ if (fs.existsSync(projectsSrc)) {
 
   for (const proj of projectDirs) {
     const projSrc = path.join(projectsSrc, proj);
-    // Determine if archived — check for draft: true in frontmatter or archived in name
-    const archived = proj.endsWith('_archive') || proj.endsWith('_archived');
-    copyFiles(projSrc, `projects/${proj}`, { archived });
+    copyFiles(projSrc, `projects/${proj}`);
   }
 }
 
