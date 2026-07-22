@@ -1,26 +1,19 @@
 {
   "name": "okf-site",
   "type": "module",
-  "version": "1.0.0",
+  "version": "2.0.0",
+  "private": true,
   "engines": {
     "node": "22.x || 24.x"
   },
   "scripts": {
-    "dev": "astro dev",
-    "build": "astro build",
-    "preview": "astro preview",
-    "generate": "node scripts/build-site.cjs",
-    "prebuild": "node scripts/build-site.cjs",
-    "postinstall": "patch-package"
+    "sync": "node scripts/sync.mjs",
+    "dev": "vitepress dev",
+    "build": "vitepress build",
+    "preview": "vitepress preview",
+    "prebuild": "node scripts/sync.mjs"
   },
   "dependencies": {
-    "@astrojs/starlight": "^0.41.3",
-    "@fontsource/geist-mono": "^5.2.8",
-    "@fontsource/geist-sans": "^5.2.5",
-    "astro": "^7.0.7",
-    "js-yaml": "^4.1.0"
-  },
-  "devDependencies": {
-    "patch-package": "^8.0.1"
+    "vitepress": "^1.6.4"
   }
 }

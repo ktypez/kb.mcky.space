@@ -1,6 +1,9 @@
 # build output
 dist/
-# generated types
+.vitepress/dist/
+# vitepress cache
+.vitepress/cache/
+# generated types (old Astro)
 .astro/
 
 # dependencies

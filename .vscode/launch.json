@@ -2,10 +2,10 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "command": "./node_modules/.bin/astro dev",
-      "name": "Development server",
+      "name": "VitePress dev server",
+      "type": "node-terminal",
       "request": "launch",
-      "type": "node-terminal"
+      "command": "npx vitepress dev .vitepress"
     }
   ]
 }
