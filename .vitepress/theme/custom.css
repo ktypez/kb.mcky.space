@@ -165,6 +165,21 @@ html.dark {
   color: var(--vp-c-text-2) !important;
   font-size: 1.125rem !important;
 }
+.VPHomeHero .actions {
+  display: grid !important;
+  grid-template-columns: 1fr 1fr !important;
+  gap: 10px !important;
+  max-width: 360px !important;
+  margin: 0 auto !important;
+}
+.VPHomeHero .actions .action {
+  margin: 0 !important;
+}
+.VPHomeHero .actions .action .VPButton {
+  width: 100% !important;
+  text-align: center !important;
+  justify-content: center !important;
+}
 
 /* ── Home Feature Cards ── */
 .VPHomeFeatures .items {
