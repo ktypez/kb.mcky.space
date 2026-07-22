@@ -1,4 +1,5 @@
 import { defineConfig } from 'vitepress'
+import { withPwa } from '@vite-pwa/vitepress'
 import { readdirSync, existsSync, readFileSync } from 'fs'
 import { resolve, dirname } from 'path'
 import { fileURLToPath } from 'url'
@@ -107,7 +108,7 @@ function escapeMdPlugin(): Plugin {
   }
 }
 
-export default defineConfig({
+export default withPwa(defineConfig({
   title: 'OKF Knowledge Base',
   description: 'Open Knowledge Framework — structured context for every project',
   lang: 'th',
@@ -135,4 +136,22 @@ export default defineConfig({
       copyright: 'MIT License',
     },
   },
-})
+  pwa: {
+    registerType: 'autoUpdate',
+    outDir: resolve(ROOT, '.vitepress/dist'),
+    manifest: {
+      name: 'OKF Knowledge Base',
+      short_name: 'OKF',
+      description: 'Open Knowledge Framework — structured context for every project',
+      theme_color: '#000000',
+      background_color: '#ffffff',
+      display: 'standalone',
+      icons: [
+        { src: '/favicon.svg', sizes: 'any', type: 'image/svg+xml' },
+      ],
+    },
+    workbox: {
+      globPatterns: ['**/*.{js,css,html,svg,png,ico,woff2}'],
+    },
+  },
+}))
