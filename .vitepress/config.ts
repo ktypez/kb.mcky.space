@@ -100,8 +100,6 @@ function escapeMdPlugin(): Plugin {
         m
           .replace(/\{\{/g, '&#123;&#123;')
           .replace(/\}\}/g, '&#125;&#125;')
-          .replace(/</g, '&lt;')
-          .replace(/>/g, '&gt;')
       )
       return result !== code ? result : undefined
     },
