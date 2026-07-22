@@ -3,6 +3,7 @@ import { ref, computed } from 'vue'
 import raw from '../../../src/data/sync-log.json'
 
 interface Entry {
+  id: number
   date: string
   title: string | null
   body: string
@@ -10,7 +11,7 @@ interface Entry {
 
 const data: { updated: string; entries: Entry[] } = raw as any
 
-const expanded = ref<Set<string>>(new Set())
+const expanded = ref<Set<number>>(new Set())
 const showArchived = ref(false)
 const selectedMonth = ref('all')
 
@@ -37,9 +38,14 @@ function fmtDate(iso: string) {
   return d.toLocaleDateString('th-TH', { day: 'numeric', month: 'short', year: 'numeric', timeZone: 'UTC' })
 }
 
-function toggle(date: string) {
-  if (expanded.value.has(date)) expanded.value.delete(date)
-  else expanded.value.add(date)
+function toggle(id: number) {
+  if (expanded.value.has(id)) expanded.value.delete(id)
+  else expanded.value.add(id)
+}
+
+function shortDate(iso: string) {
+  const d = new Date(iso + 'T00:00:00Z')
+  return d.toLocaleDateString('th-TH', { day: 'numeric', month: 'short', timeZone: 'UTC' })
 }
 
 const visible = computed(() => {
@@ -73,16 +79,22 @@ const visible = computed(() => {
 
     <!-- Recent -->
     <div class="tl-track">
-      <div v-for="e in visible.recent" :key="e.date" class="tl-item">
-        <div class="tl-dot" />
-        <div class="tl-card" :class="{ open: expanded.has(e.date) }" @click="toggle(e.date)">
+      <div v-for="e in visible.recent" :key="e.id" class="tl-item">
+        <div class="tl-marker">
+          <span class="tl-dot" />
+          <time class="tl-date-label">{{ shortDate(e.date) }}</time>
+        </div>
+        <div
+          class="tl-card"
+          :class="{ open: expanded.has(e.id) }"
+          @click="toggle(e.id)"
+        >
           <div class="tl-card-header">
-            <time class="tl-date">{{ fmtDate(e.date) }}</time>
             <span v-if="e.title" class="tl-title">{{ e.title }}</span>
             <span v-else class="tl-title muted">(no title)</span>
-            <span class="tl-chevron">{{ expanded.has(e.date) ? '▴' : '▾' }}</span>
+            <span class="tl-chevron">{{ expanded.has(e.id) ? '▴' : '▾' }}</span>
           </div>
-          <div v-if="expanded.has(e.date)" class="tl-card-body">
+          <div v-if="expanded.has(e.id)" class="tl-card-body">
             <div class="tl-body-inner" v-html="e.body" />
           </div>
         </div>
@@ -95,22 +107,30 @@ const visible = computed(() => {
         <span class="tl-chevron">{{ showArchived ? '▾' : '▸' }}</span>
         Archived entries ({{ visible.archived.length }})
       </button>
-      <div v-if="showArchived" class="tl-track">
-        <div v-for="e in visible.archived" :key="e.date" class="tl-item">
-          <div class="tl-dot muted" />
-          <div class="tl-card" :class="{ open: expanded.has(e.date) }" @click="toggle(e.date)">
-            <div class="tl-card-header">
-              <time class="tl-date">{{ fmtDate(e.date) }}</time>
-              <span v-if="e.title" class="tl-title">{{ e.title }}</span>
-              <span v-else class="tl-title muted">(no title)</span>
-              <span class="tl-chevron">{{ expanded.has(e.date) ? '▴' : '▾' }}</span>
+      <Transition name="fade">
+        <div v-if="showArchived" class="tl-track">
+          <div v-for="e in visible.archived" :key="e.id" class="tl-item">
+            <div class="tl-marker">
+              <span class="tl-dot muted" />
+              <time class="tl-date-label muted">{{ shortDate(e.date) }}</time>
             </div>
-            <div v-if="expanded.has(e.date)" class="tl-card-body">
-              <div class="tl-body-inner" v-html="e.body" />
+            <div
+              class="tl-card"
+              :class="{ open: expanded.has(e.id) }"
+              @click="toggle(e.id)"
+            >
+              <div class="tl-card-header">
+                <span v-if="e.title" class="tl-title">{{ e.title }}</span>
+                <span v-else class="tl-title muted">(no title)</span>
+                <span class="tl-chevron">{{ expanded.has(e.id) ? '▴' : '▾' }}</span>
+              </div>
+              <div v-if="expanded.has(e.id)" class="tl-card-body">
+                <div class="tl-body-inner" v-html="e.body" />
+              </div>
             </div>
           </div>
         </div>
-      </div>
+      </Transition>
     </div>
 
     <p v-if="!data.entries.length" class="tl-empty">No entries yet.</p>
@@ -163,71 +183,93 @@ const visible = computed(() => {
   content: '';
   position: absolute;
   left: 10px;
-  top: 8px;
-  bottom: 8px;
+  top: 0;
+  bottom: 0;
   width: 2px;
   background: var(--vp-c-border);
 }
 
 /* ── item ── */
 .tl-item {
-  position: relative;
-  margin-bottom: 12px;
+  margin-bottom: 16px;
 }
 
-/* ── dot ── */
+/* ── marker (dot + date label) ── */
+.tl-marker {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 6px;
+  position: relative;
+  z-index: 1;
+}
 .tl-dot {
-  position: absolute;
-  left: -18px;
-  top: 14px;
+  flex-shrink: 0;
   width: 10px;
   height: 10px;
   border-radius: 50%;
   background: var(--vp-c-brand-1);
   border: 2px solid var(--vp-c-bg);
-  z-index: 1;
+  margin-left: -19px; /* pull left so center aligns with timeline line */
 }
 .tl-dot.muted {
   background: var(--vp-c-text-3);
 }
+.tl-date-label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--vp-c-text-2);
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+.tl-date-label.muted {
+  color: var(--vp-c-text-3);
+}
 
 /* ── card ── */
 .tl-card {
+  position: relative;
   border: 1px solid var(--vp-c-border);
   border-radius: 8px;
   background: var(--vp-c-bg-soft);
   cursor: pointer;
   transition: border-color 0.15s, box-shadow 0.15s;
 }
+.tl-card::before {
+  content: '';
+  position: absolute;
+  top: -1px;
+  left: -1px;
+  bottom: -1px;
+  width: 3px;
+  border-radius: 8px 0 0 8px;
+  background: transparent;
+  transition: background 0.2s;
+}
 .tl-card:hover {
-  border-color: var(--vp-c-brand-1);
+  border-color: var(--vp-c-border);
+}
+.tl-card:hover::before {
+  background: var(--vp-c-brand-1);
 }
 .tl-card.open {
   border-color: var(--vp-c-brand-1);
-  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.06);
+}
+.tl-card.open::before {
+  background: var(--vp-c-brand-1);
 }
 
 .tl-card-header {
   display: flex;
-  align-items: baseline;
+  align-items: center;
   gap: 0.5rem;
   padding: 10px 14px;
-}
-.tl-date {
-  flex-shrink: 0;
-  font-size: 0.8rem;
-  font-weight: 600;
-  color: var(--vp-c-brand-1);
-  font-variant-numeric: tabular-nums;
 }
 .tl-title {
   flex: 1;
   font-size: 0.92rem;
   font-weight: 500;
   color: var(--vp-c-text-1);
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
 }
 .tl-title.muted {
   color: var(--vp-c-text-3);
@@ -290,6 +332,16 @@ const visible = computed(() => {
 }
 .tl-archive-btn:hover {
   color: var(--vp-c-brand-1);
+}
+
+/* ── archived section fade ── */
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.2s ease;
+}
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
 }
 
 /* ── empty ── */

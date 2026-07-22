@@ -62,6 +62,7 @@ function parseSyncLog(filePath) {
   let match;
   while ((match = entryRe.exec(body)) !== null) {
     entries.push({
+      id: entries.length + 1,
       date: match[1],
       title: match[2] || null,
       body: mdBodyToHtml(match[3].trim()),
