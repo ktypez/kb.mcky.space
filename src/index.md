@@ -13,6 +13,9 @@ hero:
       text: Browse Projects
       link: /projects/truck/profile
     - theme: alt
+      text: Setup
+      link: /setup
+    - theme: alt
       text: System Docs
       link: /system/conventions
     - theme: alt
