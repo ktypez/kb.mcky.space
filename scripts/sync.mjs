@@ -16,9 +16,18 @@ if (!fs.existsSync(OKF_ROOT)) {
   process.exit(0);
 }
 
-// Clean + recreate src
-fs.rmSync(SRC, { recursive: true, force: true });
+// Clean src — keep index.md (custom home page)
 fs.mkdirSync(SRC, { recursive: true });
+const preserve = ['index.md'];
+for (const entry of fs.readdirSync(SRC)) {
+  if (!preserve.includes(entry)) {
+    fs.rmSync(path.join(SRC, entry), { recursive: true, force: true });
+  }
+}
+// Remove old workspace.md if exists (will be recreated)
+if (fs.existsSync(path.join(SRC, 'workspace.md'))) {
+  fs.rmSync(path.join(SRC, 'workspace.md'));
+}
 
 function slug(name) {
   return name.replace(/\./g, '-').toLowerCase();
@@ -42,8 +51,8 @@ function copyDir(srcDir, destDir) {
 
 console.log('  Syncing OKF → src/');
 
-// Root docs
-fs.copyFileSync(path.join(OKF_ROOT, 'index.md'), path.join(SRC, 'index.md'));
+// Root docs — okf index → workspace.md (index.md is custom home page)
+fs.copyFileSync(path.join(OKF_ROOT, 'index.md'), path.join(SRC, 'workspace.md'));
 if (fs.existsSync(path.join(OKF_ROOT, 'SETUP.md'))) {
   fs.copyFileSync(path.join(OKF_ROOT, 'SETUP.md'), path.join(SRC, 'setup.md'));
 }

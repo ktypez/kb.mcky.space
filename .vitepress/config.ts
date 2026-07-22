@@ -22,9 +22,13 @@ function readDir(dir: string) {
 
 function buildSidebar() {
   const sidebar: any[] = [
-    { text: 'Index', link: '/' },
+    { text: 'Home', link: '/' },
     { text: 'Setup', link: '/setup' },
   ]
+  // Workspace (OKF workspace index)
+  if (existsSync(resolve(SRC, 'workspace.md'))) {
+    sidebar.push({ text: 'Workspace', link: '/workspace' })
+  }
 
   // System docs
   const systemDir = resolve(SRC, 'system')
@@ -108,7 +112,6 @@ export default defineConfig({
   description: 'Open Knowledge Framework — structured context for every project',
   lang: 'th',
   srcDir: './src',
-  cleanUrls: true,
   lastUpdated: true,
   ignoreDeadLinks: true,
   vite: {

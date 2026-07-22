@@ -1,8 +1,12 @@
 # build output
 dist/
 .vitepress/dist/
+# vercel build artifacts
+.vercel/output/
 # vitepress cache
 .vitepress/cache/
+.vitepress/.temp/
+.vitepress/.vitepress/
 # generated types (old Astro)
 .astro/
 
