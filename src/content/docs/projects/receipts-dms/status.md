@@ -5,24 +5,16 @@ original_frontmatter:
   type: project-status
   id: receipts-dms-status
   project: receipts-dms
-  last_updated: 2026-07-13T00:00:00.000Z
+  last_updated: 2026-07-21T00:00:00.000Z
   status: active
-  freshness: 2026-07-13T00:00:00.000Z
-  verified: 2026-07-13T00:00:00.000Z
-  expires: null
-  superseded_by: null
-  anchors:
-    - /home/paper/receipts-dms/
   links:
-    - type: relates-to
-      target: receipts-dms-profile
+    profile: receipts-dms-profile
+    agent: receipts-dms-agent
 
 ---
 
 # สถานะ
 
-**Role:** production
-**Deployment:** Cloudflare Pages (paper.mcky.space)
 **Last deploy:** 2026-07-10
 
 ## ฟีเจอร์
@@ -69,6 +61,10 @@ categories: id, name, created_at
 | `/login` | เข้าสู่ระบบ (ไม่ต้อง auth) |
 
 ## บันทึกการเปลี่ยนแปลง
+
+### 2026-07-21
+- Rebuild OKF files — standardized frontmatter to new schema
+- Removed deprecated freshness/verified/expires/superseded_by fields
 
 ### 2026-07-13
 - Sync OKF knowledge base across all 8 projects

@@ -1,1 +1,16 @@
-{"projectId":"prj_RpBHnpmfVfWY7xq8AmH6FUScEDRI","orgId":"team_xWYnJlpmKenca1NC2UI7VQzV","projectName":"site"}
+{
+  "projectId": "prj_RpBHnpmfVfWY7xq8AmH6FUScEDRI",
+  "orgId": "team_xWYnJlpmKenca1NC2UI7VQzV",
+  "projectName": "site",
+  "settings": {
+    "createdAt": 1783559288744,
+    "framework": "astro",
+    "devCommand": null,
+    "installCommand": "npm install",
+    "buildCommand": "npm run build",
+    "outputDirectory": "dist",
+    "rootDirectory": null,
+    "directoryListing": false,
+    "nodeVersion": "24.x"
+  }
+}

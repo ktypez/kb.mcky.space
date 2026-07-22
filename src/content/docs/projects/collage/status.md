@@ -5,39 +5,15 @@ original_frontmatter:
   type: project-status
   id: collage-status
   project: collage
-  last_updated: 2026-07-13T00:00:00.000Z
+  last_updated: 2026-07-22T00:00:00.000Z
   status: active
-  freshness: 2026-07-13T00:00:00.000Z
-  verified: 2026-07-13T00:00:00.000Z
-  expires: null
-  superseded_by: null
-  anchors:
-    - /home/collage/
   links:
-    - type: relates-to
-      target: collage-profile
-    - type: relates-to
-      target: collage-agent
+    profile: collage-profile
+    agent: collage-agent
 
----
-
-- /home/collage/
-links:
-  - type: relates-to
-    target: collage-profile
-  - type: relates-to
-    target: collage-agent
 ---
 
 # สถานะโปรเจกต์ — collage
-
-## Stack
-
-- **Backend**: Node.js (ESM), Express 4.21, sharp 0.33
-- **Frontend**: Vanilla HTML/CSS/JS, LIFF SDK v2
-- **Webhook**: Vercel Serverless Function, @line/bot-sdk
-- **Storage**: Cloudflare R2 (S3-compatible)
-- **Deploy**: Render.com (backend) + Vercel (frontend + webhook)
 
 ## Routes
 
@@ -47,7 +23,7 @@ links:
 | `POST /api/collage` | สร้าง collage จากรูปที่อัปโหลด |
 | `GET /api/image/:filename` | ดึง collage จาก R2 |
 | `GET /health` | ตรวจสอบสถานะ |
-| `POST /api/cleanup` | ลบ collage เก่า (>30 วัน) |
+| `POST /api/cleanup` | ลบ collages เก่า (>30 วัน) |
 
 ### Frontend (Vercel)
 | Path | Description |
@@ -89,7 +65,7 @@ links:
 - คง guard NaN ตามไอเดีย "วัดความสูงจากรูปแรกของแถว"
 
 ### 2026-07-12 (2)
-- Fix บั๊ก layout รูปกระจุกข้างบน (rowTops สะสม Y)
+- Fix บั๊ก layout รูปกระจกข้างบน (rowTops สะสม Y)
 - Auto-cleanup R2: 90 -> 30 วัน
 
 ### 2026-07-12 (1)

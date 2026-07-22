@@ -187,7 +187,22 @@ console.log('  OKF Site Builder');
 console.log('  ' + '-'.repeat(40));
 console.log('');
 
-// 1. System docs
+// 0. Clean docs directory first
+console.log('  Cleaning docs directory...');
+ensureCleanDir(DOCS_DIR);
+
+// 1. Root index doc
+const indexMd = path.join(OKF_ROOT, 'index.md');
+if (fs.existsSync(indexMd)) {
+  console.log('  Copied index.md');
+  const raw = fs.readFileSync(indexMd, 'utf-8');
+  const { fm, body } = parseFrontmatter(raw);
+  const title = extractTitle(fm, body, 'index.md');
+  const out = path.join(DOCS_DIR, 'index.md');
+  fs.writeFileSync(out, serializeStarlightFm(title, fm, body), 'utf-8');
+}
+
+// 2. System docs
 const systemSrc = path.join(OKF_ROOT, 'system');
 console.log('  Copying system docs...');
 copyFiles(systemSrc, 'system');

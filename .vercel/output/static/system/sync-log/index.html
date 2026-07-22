@@ -1,0 +1,419 @@
+<!DOCTYPE html><html lang="en" dir="ltr" data-theme="dark" data-has-toc data-has-sidebar class="astro-vdxcvpsm"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/><title>Sync Log | OKF Knowledge Base</title><link rel="shortcut icon" href="/favicon.svg" type="image/svg+xml"/><meta name="generator" content="Astro v7.0.7"/><meta name="generator" content="Starlight v0.41.3"/><meta property="og:title" content="Sync Log"/><meta property="og:type" content="article"/><meta property="og:locale" content="en"/><meta property="og:description" content="Open Knowledge Framework — structured context for every project"/><meta property="og:site_name" content="OKF Knowledge Base"/><meta name="twitter:card" content="summary_large_image"/><meta name="description" content="Open Knowledge Framework — structured context for every project"/><script>
+	window.StarlightThemeProvider = (() => {
+		const storedTheme =
+			typeof localStorage !== 'undefined' && localStorage.getItem('starlight-theme');
+		const theme =
+			storedTheme ||
+			(window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+		document.documentElement.dataset.theme = theme === 'light' ? 'light' : 'dark';
+		return {
+			updatePickers(theme = storedTheme || 'auto') {
+				document.querySelectorAll('starlight-theme-select').forEach((picker) => {
+					const select = picker.querySelector('select');
+					if (select) select.value = theme;
+					/** @type {HTMLTemplateElement | null} */
+					const tmpl = document.querySelector(`#theme-icons`);
+					const newIcon = tmpl && tmpl.content.querySelector('.' + theme);
+					if (newIcon) {
+						const oldIcon = picker.querySelector('svg.label-icon');
+						if (oldIcon) {
+							oldIcon.replaceChildren(...newIcon.cloneNode(true).childNodes);
+						}
+					}
+				});
+			},
+		};
+	})();
+</script><template id="theme-icons"><svg aria-hidden="true" class="light astro-n5k4ipy7" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1em;"><path d="M5 12a1 1 0 0 0-1-1H3a1 1 0 0 0 0 2h1a1 1 0 0 0 1-1Zm.64 5-.71.71a1 1 0 0 0 0 1.41 1 1 0 0 0 1.41 0l.71-.71A1 1 0 0 0 5.64 17ZM12 5a1 1 0 0 0 1-1V3a1 1 0 0 0-2 0v1a1 1 0 0 0 1 1Zm5.66 2.34a1 1 0 0 0 .7-.29l.71-.71a1 1 0 1 0-1.41-1.41l-.66.71a1 1 0 0 0 0 1.41 1 1 0 0 0 .66.29Zm-12-.29a1 1 0 0 0 1.41 0 1 1 0 0 0 0-1.41l-.71-.71a1.004 1.004 0 1 0-1.43 1.41l.73.71ZM21 11h-1a1 1 0 0 0 0 2h1a1 1 0 0 0 0-2Zm-2.64 6A1 1 0 0 0 17 18.36l.71.71a1 1 0 0 0 1.41 0 1 1 0 0 0 0-1.41l-.76-.66ZM12 6.5a5.5 5.5 0 1 0 5.5 5.5A5.51 5.51 0 0 0 12 6.5Zm0 9a3.5 3.5 0 1 1 0-7 3.5 3.5 0 0 1 0 7Zm0 3.5a1 1 0 0 0-1 1v1a1 1 0 0 0 2 0v-1a1 1 0 0 0-1-1Z"/></svg><svg aria-hidden="true" class="dark astro-n5k4ipy7" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1em;"><path d="M21.64 13a1 1 0 0 0-1.05-.14 8.049 8.049 0 0 1-3.37.73 8.15 8.15 0 0 1-8.14-8.1 8.59 8.59 0 0 1 .25-2A1 1 0 0 0 8 2.36a10.14 10.14 0 1 0 14 11.69 1 1 0 0 0-.36-1.05Zm-9.5 6.69A8.14 8.14 0 0 1 7.08 5.22v.27a10.15 10.15 0 0 0 10.14 10.14 9.784 9.784 0 0 0 2.1-.22 8.11 8.11 0 0 1-7.18 4.32v-.04Z"/></svg><svg aria-hidden="true" class="auto astro-n5k4ipy7" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1em;"><path d="M21 14h-1V7a3 3 0 0 0-3-3H7a3 3 0 0 0-3 3v7H3a1 1 0 0 0-1 1v2a3 3 0 0 0 3 3h14a3 3 0 0 0 3-3v-2a1 1 0 0 0-1-1ZM6 7a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v7H6V7Zm14 10a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-1h16v1Z"/></svg></template><link rel="stylesheet" href="/_astro/print.ehPL0gv-.css" media="print"><link rel="stylesheet" href="/_astro/common.3y5H_jd2.css"><script type="module" src="/_astro/page.B2uBVZjk.js"></script></head><body class="astro-vdxcvpsm"><a class="sl-skip-link astro-vxeigawq" href="#_top">Skip to content</a><div class="page sl-flex astro-gqpr5s5a"><header class="header astro-gqpr5s5a"><div class="header astro-nczgtkxc"><div class="title-wrapper sl-flex astro-nczgtkxc"><a href="/" class="site-title sl-flex astro-clw6ags5"><span class="astro-clw6ags5" translate="no">OKF Knowledge Base</span></a></div><div class="sl-flex print:hidden astro-nczgtkxc"><site-search class="astro-nczgtkxc astro-r5ar4xm7" data-translations="{&quot;placeholder&quot;:&quot;Search&quot;}"><button data-open-modal disabled aria-label="Search" aria-keyshortcuts="Control+K" class="astro-r5ar4xm7"><svg aria-hidden="true" class="astro-r5ar4xm7 astro-n5k4ipy7" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1em;"><path d="M21.71 20.29 18 16.61A9 9 0 1 0 16.61 18l3.68 3.68a.999.999 0 0 0 1.42 0 1 1 0 0 0 0-1.39ZM11 18a7 7 0 1 1 0-14 7 7 0 0 1 0 14Z"/></svg><span class="sl-hidden md:sl-block astro-r5ar4xm7" aria-hidden="true">Search</span><kbd class="sl-hidden md:sl-flex astro-r5ar4xm7" style="display: none;"><kbd class="astro-r5ar4xm7">Ctrl</kbd><kbd class="astro-r5ar4xm7">K</kbd></kbd></button><dialog style="padding:0" aria-label="Search" class="astro-r5ar4xm7"><div class="dialog-frame sl-flex astro-r5ar4xm7"><button data-close-modal class="sl-flex md:sl-hidden astro-r5ar4xm7">Cancel</button><div class="search-container astro-r5ar4xm7"><div id="starlight__search" class="astro-r5ar4xm7"></div></div></div></dialog></site-search><script>
+	(() => {
+		const openBtn = document.querySelector('button[data-open-modal]');
+		const shortcut = openBtn?.querySelector('kbd');
+		if (!openBtn || !(shortcut instanceof HTMLElement)) return;
+		const platformKey = shortcut.querySelector('kbd');
+		if (platformKey && /(Mac|iPhone|iPod|iPad)/i.test(navigator.platform)) {
+			platformKey.textContent = '⌘';
+			openBtn.setAttribute('aria-keyshortcuts', 'Meta+K');
+		}
+		shortcut.style.display = '';
+	})();
+</script><script type="module" src="/_astro/Search.astro_astro_type_script_index_0_lang.vTFUHulS.js"></script></div><div class="sl-hidden md:sl-flex print:hidden right-group astro-nczgtkxc"><div class="sl-flex social-icons astro-nczgtkxc"><a href="https://github.com/ktypez/OKF" rel="me" class="sl-flex astro-cg55etiy"><span class="sr-only astro-cg55etiy">GitHub</span><svg aria-hidden="true" class="astro-cg55etiy astro-n5k4ipy7" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1em;"><path d="M12 .3a12 12 0 0 0-3.8 23.38c.6.12.83-.26.83-.57L9 21.07c-3.34.72-4.04-1.61-4.04-1.61-.55-1.39-1.34-1.76-1.34-1.76-1.08-.74.09-.73.09-.73 1.2.09 1.83 1.24 1.83 1.24 1.08 1.83 2.81 1.3 3.5 1 .1-.78.42-1.31.76-1.61-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.14-.3-.54-1.52.1-3.18 0 0 1-.32 3.3 1.23a11.5 11.5 0 0 1 6 0c2.28-1.55 3.29-1.23 3.29-1.23.64 1.66.24 2.88.12 3.18a4.65 4.65 0 0 1 1.23 3.22c0 4.61-2.8 5.63-5.48 5.92.42.36.81 1.1.81 2.22l-.01 3.29c0 .31.2.69.82.57A12 12 0 0 0 12 .3Z"/></svg></a></div><starlight-theme-select><label style="--sl-select-width: 6.25em" class="astro-r2p65idu"><span class="sr-only astro-r2p65idu">Select theme</span><svg aria-hidden="true" class="icon label-icon astro-r2p65idu astro-n5k4ipy7" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1em;"><path d="M21 14h-1V7a3 3 0 0 0-3-3H7a3 3 0 0 0-3 3v7H3a1 1 0 0 0-1 1v2a3 3 0 0 0 3 3h14a3 3 0 0 0 3-3v-2a1 1 0 0 0-1-1ZM6 7a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v7H6V7Zm14 10a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-1h16v1Z"/></svg><select autocomplete="off" class="astro-r2p65idu"><option value="dark" class="astro-r2p65idu">Dark</option><option value="light" class="astro-r2p65idu">Light</option><option value="auto" selected class="astro-r2p65idu">Auto</option></select><svg aria-hidden="true" class="icon caret astro-r2p65idu astro-n5k4ipy7" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1em;"><path d="M17 9.17a1 1 0 0 0-1.41 0L12 12.71 8.46 9.17a1 1 0 1 0-1.41 1.42l4.24 4.24a1.002 1.002 0 0 0 1.42 0L17 10.59a1.002 1.002 0 0 0 0-1.42Z"/></svg></label></starlight-theme-select><script>
+	StarlightThemeProvider.updatePickers();
+</script><script type="module">var e=`starlight-theme`,t=e=>e===`auto`||e===`dark`||e===`light`?e:`auto`,n=()=>t(typeof localStorage<`u`&&localStorage.getItem(e));function r(t){typeof localStorage<`u`&&localStorage.setItem(e,t===`light`||t===`dark`?t:``)}var i=()=>matchMedia(`(prefers-color-scheme: light)`).matches?`light`:`dark`;function a(e){StarlightThemeProvider.updatePickers(e),document.documentElement.dataset.theme=e===`auto`?i():e,r(e)}matchMedia(`(prefers-color-scheme: light)`).addEventListener(`change`,()=>{n()===`auto`&&a(`auto`)});var o=class extends HTMLElement{constructor(){super(),a(n()),this.querySelector(`select`)?.addEventListener(`change`,e=>{e.currentTarget instanceof HTMLSelectElement&&a(t(e.currentTarget.value))})}};customElements.define(`starlight-theme-select`,o);</script><script type="module">var e=class extends HTMLElement{constructor(){super();let e=this.querySelector(`select`);e&&(e.addEventListener(`change`,e=>{e.currentTarget instanceof HTMLSelectElement&&(window.location.pathname=e.currentTarget.value)}),window.addEventListener(`pageshow`,t=>{if(!t.persisted)return;let n=e.querySelector(`option[selected]`)?.index;n!==e.selectedIndex&&(e.selectedIndex=n??0)}))}};customElements.define(`starlight-lang-select`,e);</script></div></div></header><nav class="sidebar print:hidden astro-gqpr5s5a" aria-label="Main"><starlight-menu-button class="print:hidden astro-vvx7mffu"><button aria-expanded="false" aria-label="Menu" aria-controls="starlight__sidebar" class="sl-flex md:sl-hidden astro-vvx7mffu"><svg aria-hidden="true" class="open-menu astro-vvx7mffu astro-n5k4ipy7" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1em;"><path d="M3 8h18a1 1 0 1 0 0-2H3a1 1 0 0 0 0 2Zm18 8H3a1 1 0 0 0 0 2h18a1 1 0 0 0 0-2Zm0-5H3a1 1 0 0 0 0 2h18a1 1 0 0 0 0-2Z"/></svg><svg aria-hidden="true" class="close-menu astro-vvx7mffu astro-n5k4ipy7" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1em;"><path d="m13.41 12 6.3-6.29a1.004 1.004 0 1 0-1.42-1.42L12 10.59l-6.29-6.3a1.004 1.004 0 0 0-1.42 1.42l6.3 6.29-6.3 6.29a1 1 0 0 0 0 1.42.998.998 0 0 0 1.42 0l6.29-6.3 6.29 6.3a.999.999 0 0 0 1.42 0 1 1 0 0 0 0-1.42L13.41 12Z"/></svg></button></starlight-menu-button><script type="module">var e=class extends HTMLElement{btn=this.querySelector(`button`);constructor(){super(),this.btn.addEventListener(`click`,()=>this.toggleExpanded());let e=this.closest(`nav`);e&&e.addEventListener(`keyup`,e=>this.closeOnEscape(e)),matchMedia(`(min-width: 50em)`).addEventListener(`change`,()=>this.setExpanded(!1))}setExpanded(e){this.setAttribute(`aria-expanded`,String(e)),document.body.toggleAttribute(`data-mobile-menu-expanded`,e),document.querySelectorAll(`.main-frame, .sl-skip-link`).forEach(t=>{t.toggleAttribute(`inert`,e)})}toggleExpanded(){this.setExpanded(this.getAttribute(`aria-expanded`)!==`true`)}closeOnEscape(e){e.code===`Escape`&&(this.setExpanded(!1),this.btn.focus())}};customElements.define(`starlight-menu-button`,e);</script><div id="starlight__sidebar" class="sidebar-pane astro-gqpr5s5a"><div class="sidebar-content sl-flex astro-gqpr5s5a"><sl-sidebar-state-persist data-hash="1tfhoz9" class="astro-f5yvicm7"><script aria-hidden="true">
+		(() => {
+			try {
+				if (!matchMedia('(min-width: 50em)').matches) return;
+				/** @type {HTMLElement | null} */
+				const target = document.querySelector('sl-sidebar-state-persist');
+				const state = JSON.parse(sessionStorage.getItem('sl-sidebar-state') || '0');
+				if (!target || !state || target.dataset.hash !== state.hash) return;
+				window._starlightScrollRestore = state.scroll;
+				customElements.define(
+					'sl-sidebar-restore',
+					class SidebarRestore extends HTMLElement {
+						connectedCallback() {
+							try {
+								const idx = parseInt(this.dataset.index || '');
+								const details = this.closest('details');
+								if (details && typeof state.open[idx] === 'boolean') details.open = state.open[idx];
+							} catch {}
+						}
+					}
+				);
+			} catch {}
+		})();
+	</script><ul class="top-level astro-ojxuodky"><li class="astro-ojxuodky"><details open class="astro-ojxuodky"><summary class="astro-ojxuodky"><span class="group-label astro-ojxuodky"><span class="large astro-ojxuodky">System</span></span><svg aria-hidden="true" class="caret astro-ojxuodky astro-n5k4ipy7" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1.25rem;"><path d="m14.83 11.29-4.24-4.24a1 1 0 1 0-1.42 1.41L12.71 12l-3.54 3.54a1 1 0 0 0 0 1.41 1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.24-4.24a1.002 1.002 0 0 0 0-1.42Z"/></svg></summary><sl-sidebar-restore data-index="0"></sl-sidebar-restore><ul class="astro-ojxuodky"><li class="astro-ojxuodky"><a href="/system/todos" class="astro-ojxuodky"><span class="astro-ojxuodky">TODOS</span></a></li><li class="astro-ojxuodky"><a href="/system/conventions" class="astro-ojxuodky"><span class="astro-ojxuodky">Conventions</span></a></li><li class="astro-ojxuodky"><a href="/system/glossary" class="astro-ojxuodky"><span class="astro-ojxuodky">Glossary</span></a></li><li class="astro-ojxuodky"><a href="/system/personalities" class="astro-ojxuodky"><span class="astro-ojxuodky">Personalities</span></a></li><li class="astro-ojxuodky"><a href="/system/sync-log" aria-current="page" class="astro-ojxuodky"><span class="astro-ojxuodky">Sync Log</span></a></li></ul></details></li><li class="astro-ojxuodky"><details class="astro-ojxuodky"><summary class="astro-ojxuodky"><span class="group-label astro-ojxuodky"><span class="large astro-ojxuodky">Projects</span></span><svg aria-hidden="true" class="caret astro-ojxuodky astro-n5k4ipy7" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1.25rem;"><path d="m14.83 11.29-4.24-4.24a1 1 0 1 0-1.42 1.41L12.71 12l-3.54 3.54a1 1 0 0 0 0 1.41 1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.24-4.24a1.002 1.002 0 0 0 0-1.42Z"/></svg></summary><sl-sidebar-restore data-index="1"></sl-sidebar-restore><ul class="astro-ojxuodky"><li class="astro-ojxuodky"><details open class="astro-ojxuodky"><summary class="astro-ojxuodky"><span class="group-label astro-ojxuodky"><span class="large astro-ojxuodky">clientdata</span></span><svg aria-hidden="true" class="caret astro-ojxuodky astro-n5k4ipy7" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1.25rem;"><path d="m14.83 11.29-4.24-4.24a1 1 0 1 0-1.42 1.41L12.71 12l-3.54 3.54a1 1 0 0 0 0 1.41 1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.24-4.24a1.002 1.002 0 0 0 0-1.42Z"/></svg></summary><sl-sidebar-restore data-index="2"></sl-sidebar-restore><ul class="astro-ojxuodky"><li class="astro-ojxuodky"><a href="/projects/clientdata/agent" class="astro-ojxuodky"><span class="astro-ojxuodky">Agent</span></a></li><li class="astro-ojxuodky"><a href="/projects/clientdata/profile" class="astro-ojxuodky"><span class="astro-ojxuodky">Profile</span></a></li><li class="astro-ojxuodky"><a href="/projects/clientdata/status" class="astro-ojxuodky"><span class="astro-ojxuodky">Status</span></a></li></ul></details></li><li class="astro-ojxuodky"><details open class="astro-ojxuodky"><summary class="astro-ojxuodky"><span class="group-label astro-ojxuodky"><span class="large astro-ojxuodky">collage</span></span><svg aria-hidden="true" class="caret astro-ojxuodky astro-n5k4ipy7" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1.25rem;"><path d="m14.83 11.29-4.24-4.24a1 1 0 1 0-1.42 1.41L12.71 12l-3.54 3.54a1 1 0 0 0 0 1.41 1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.24-4.24a1.002 1.002 0 0 0 0-1.42Z"/></svg></summary><sl-sidebar-restore data-index="3"></sl-sidebar-restore><ul class="astro-ojxuodky"><li class="astro-ojxuodky"><a href="/projects/collage/agent" class="astro-ojxuodky"><span class="astro-ojxuodky">Agent</span></a></li><li class="astro-ojxuodky"><a href="/projects/collage/profile" class="astro-ojxuodky"><span class="astro-ojxuodky">Profile</span></a></li><li class="astro-ojxuodky"><a href="/projects/collage/status" class="astro-ojxuodky"><span class="astro-ojxuodky">Status</span></a></li></ul></details></li><li class="astro-ojxuodky"><details open class="astro-ojxuodky"><summary class="astro-ojxuodky"><span class="group-label astro-ojxuodky"><span class="large astro-ojxuodky">data.mcky.space</span></span><svg aria-hidden="true" class="caret astro-ojxuodky astro-n5k4ipy7" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1.25rem;"><path d="m14.83 11.29-4.24-4.24a1 1 0 1 0-1.42 1.41L12.71 12l-3.54 3.54a1 1 0 0 0 0 1.41 1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.24-4.24a1.002 1.002 0 0 0 0-1.42Z"/></svg></summary><sl-sidebar-restore data-index="4"></sl-sidebar-restore><ul class="astro-ojxuodky"><li class="astro-ojxuodky"><a href="/projects/datamckyspace/agent" class="astro-ojxuodky"><span class="astro-ojxuodky">Agent</span></a></li><li class="astro-ojxuodky"><a href="/projects/datamckyspace/profile" class="astro-ojxuodky"><span class="astro-ojxuodky">Profile</span></a></li><li class="astro-ojxuodky"><a href="/projects/datamckyspace/status" class="astro-ojxuodky"><span class="astro-ojxuodky">Status</span></a></li></ul></details></li><li class="astro-ojxuodky"><details open class="astro-ojxuodky"><summary class="astro-ojxuodky"><span class="group-label astro-ojxuodky"><span class="large astro-ojxuodky">habby</span></span><svg aria-hidden="true" class="caret astro-ojxuodky astro-n5k4ipy7" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1.25rem;"><path d="m14.83 11.29-4.24-4.24a1 1 0 1 0-1.42 1.41L12.71 12l-3.54 3.54a1 1 0 0 0 0 1.41 1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.24-4.24a1.002 1.002 0 0 0 0-1.42Z"/></svg></summary><sl-sidebar-restore data-index="5"></sl-sidebar-restore><ul class="astro-ojxuodky"><li class="astro-ojxuodky"><a href="/projects/habby/agent" class="astro-ojxuodky"><span class="astro-ojxuodky">Agent</span></a></li><li class="astro-ojxuodky"><a href="/projects/habby/profile" class="astro-ojxuodky"><span class="astro-ojxuodky">Profile</span></a></li><li class="astro-ojxuodky"><a href="/projects/habby/status" class="astro-ojxuodky"><span class="astro-ojxuodky">Status</span></a></li></ul></details></li><li class="astro-ojxuodky"><details open class="astro-ojxuodky"><summary class="astro-ojxuodky"><span class="group-label astro-ojxuodky"><span class="large astro-ojxuodky">mcky.space</span></span><svg aria-hidden="true" class="caret astro-ojxuodky astro-n5k4ipy7" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1.25rem;"><path d="m14.83 11.29-4.24-4.24a1 1 0 1 0-1.42 1.41L12.71 12l-3.54 3.54a1 1 0 0 0 0 1.41 1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.24-4.24a1.002 1.002 0 0 0 0-1.42Z"/></svg></summary><sl-sidebar-restore data-index="6"></sl-sidebar-restore><ul class="astro-ojxuodky"><li class="astro-ojxuodky"><a href="/projects/mckyspace/agent" class="astro-ojxuodky"><span class="astro-ojxuodky">Agent</span></a></li><li class="astro-ojxuodky"><a href="/projects/mckyspace/profile" class="astro-ojxuodky"><span class="astro-ojxuodky">Profile</span></a></li><li class="astro-ojxuodky"><a href="/projects/mckyspace/status" class="astro-ojxuodky"><span class="astro-ojxuodky">Status</span></a></li></ul></details></li><li class="astro-ojxuodky"><details open class="astro-ojxuodky"><summary class="astro-ojxuodky"><span class="group-label astro-ojxuodky"><span class="large astro-ojxuodky">receipts-dms</span></span><svg aria-hidden="true" class="caret astro-ojxuodky astro-n5k4ipy7" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1.25rem;"><path d="m14.83 11.29-4.24-4.24a1 1 0 1 0-1.42 1.41L12.71 12l-3.54 3.54a1 1 0 0 0 0 1.41 1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.24-4.24a1.002 1.002 0 0 0 0-1.42Z"/></svg></summary><sl-sidebar-restore data-index="7"></sl-sidebar-restore><ul class="astro-ojxuodky"><li class="astro-ojxuodky"><a href="/projects/receipts-dms/agent" class="astro-ojxuodky"><span class="astro-ojxuodky">Agent</span></a></li><li class="astro-ojxuodky"><a href="/projects/receipts-dms/profile" class="astro-ojxuodky"><span class="astro-ojxuodky">Profile</span></a></li><li class="astro-ojxuodky"><a href="/projects/receipts-dms/status" class="astro-ojxuodky"><span class="astro-ojxuodky">Status</span></a></li></ul></details></li><li class="astro-ojxuodky"><details open class="astro-ojxuodky"><summary class="astro-ojxuodky"><span class="group-label astro-ojxuodky"><span class="large astro-ojxuodky">truck</span></span><svg aria-hidden="true" class="caret astro-ojxuodky astro-n5k4ipy7" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1.25rem;"><path d="m14.83 11.29-4.24-4.24a1 1 0 1 0-1.42 1.41L12.71 12l-3.54 3.54a1 1 0 0 0 0 1.41 1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.24-4.24a1.002 1.002 0 0 0 0-1.42Z"/></svg></summary><sl-sidebar-restore data-index="8"></sl-sidebar-restore><ul class="astro-ojxuodky"><li class="astro-ojxuodky"><a href="/projects/truck/agent" class="astro-ojxuodky"><span class="astro-ojxuodky">Agent</span></a></li><li class="astro-ojxuodky"><a href="/projects/truck/profile" class="astro-ojxuodky"><span class="astro-ojxuodky">Profile</span></a></li><li class="astro-ojxuodky"><a href="/projects/truck/status" class="astro-ojxuodky"><span class="astro-ojxuodky">Status</span></a></li></ul></details></li><li class="astro-ojxuodky"><details open class="astro-ojxuodky"><summary class="astro-ojxuodky"><span class="group-label astro-ojxuodky"><span class="large astro-ojxuodky">writer</span></span><svg aria-hidden="true" class="caret astro-ojxuodky astro-n5k4ipy7" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1.25rem;"><path d="m14.83 11.29-4.24-4.24a1 1 0 1 0-1.42 1.41L12.71 12l-3.54 3.54a1 1 0 0 0 0 1.41 1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.24-4.24a1.002 1.002 0 0 0 0-1.42Z"/></svg></summary><sl-sidebar-restore data-index="9"></sl-sidebar-restore><ul class="astro-ojxuodky"><li class="astro-ojxuodky"><a href="/projects/writer/agent" class="astro-ojxuodky"><span class="astro-ojxuodky">Agent</span></a></li><li class="astro-ojxuodky"><a href="/projects/writer/profile" class="astro-ojxuodky"><span class="astro-ojxuodky">Profile</span></a></li></ul></details></li></ul></details></li><li class="astro-ojxuodky"><details class="astro-ojxuodky"><summary class="astro-ojxuodky"><span class="group-label astro-ojxuodky"><span class="large astro-ojxuodky">Plans</span></span><svg aria-hidden="true" class="caret astro-ojxuodky astro-n5k4ipy7" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1.25rem;"><path d="m14.83 11.29-4.24-4.24a1 1 0 1 0-1.42 1.41L12.71 12l-3.54 3.54a1 1 0 0 0 0 1.41 1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.24-4.24a1.002 1.002 0 0 0 0-1.42Z"/></svg></summary><sl-sidebar-restore data-index="10"></sl-sidebar-restore><ul class="astro-ojxuodky"><li class="astro-ojxuodky"><a href="/plans/data-to-cloudflare-pages" class="astro-ojxuodky"><span class="astro-ojxuodky">Data To Cloudflare Pages</span></a></li><li class="astro-ojxuodky"><a href="/plans/rose-pine-theme-switch" class="astro-ojxuodky"><span class="astro-ojxuodky">Rose Pine Theme Switch</span></a></li></ul></details></li></ul><script aria-hidden="true">
+		(() => {
+			const scroller = document.getElementById('starlight__sidebar');
+			if (!window._starlightScrollRestore || !scroller) return;
+			scroller.scrollTop = window._starlightScrollRestore;
+			delete window._starlightScrollRestore;
+		})();
+	</script></sl-sidebar-state-persist><div class="md:sl-hidden"><div class="mobile-preferences sl-flex astro-b5gddk54"><div class="social-icons astro-b5gddk54"><a href="https://github.com/ktypez/OKF" rel="me" class="sl-flex astro-cg55etiy"><span class="sr-only astro-cg55etiy">GitHub</span><svg aria-hidden="true" class="astro-cg55etiy astro-n5k4ipy7" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1em;"><path d="M12 .3a12 12 0 0 0-3.8 23.38c.6.12.83-.26.83-.57L9 21.07c-3.34.72-4.04-1.61-4.04-1.61-.55-1.39-1.34-1.76-1.34-1.76-1.08-.74.09-.73.09-.73 1.2.09 1.83 1.24 1.83 1.24 1.08 1.83 2.81 1.3 3.5 1 .1-.78.42-1.31.76-1.61-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.14-.3-.54-1.52.1-3.18 0 0 1-.32 3.3 1.23a11.5 11.5 0 0 1 6 0c2.28-1.55 3.29-1.23 3.29-1.23.64 1.66.24 2.88.12 3.18a4.65 4.65 0 0 1 1.23 3.22c0 4.61-2.8 5.63-5.48 5.92.42.36.81 1.1.81 2.22l-.01 3.29c0 .31.2.69.82.57A12 12 0 0 0 12 .3Z"/></svg></a></div><starlight-theme-select><label style="--sl-select-width: 6.25em" class="astro-r2p65idu"><span class="sr-only astro-r2p65idu">Select theme</span><svg aria-hidden="true" class="icon label-icon astro-r2p65idu astro-n5k4ipy7" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1em;"><path d="M21 14h-1V7a3 3 0 0 0-3-3H7a3 3 0 0 0-3 3v7H3a1 1 0 0 0-1 1v2a3 3 0 0 0 3 3h14a3 3 0 0 0 3-3v-2a1 1 0 0 0-1-1ZM6 7a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v7H6V7Zm14 10a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-1h16v1Z"/></svg><select autocomplete="off" class="astro-r2p65idu"><option value="dark" class="astro-r2p65idu">Dark</option><option value="light" class="astro-r2p65idu">Light</option><option value="auto" selected class="astro-r2p65idu">Auto</option></select><svg aria-hidden="true" class="icon caret astro-r2p65idu astro-n5k4ipy7" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1em;"><path d="M17 9.17a1 1 0 0 0-1.41 0L12 12.71 8.46 9.17a1 1 0 1 0-1.41 1.42l4.24 4.24a1.002 1.002 0 0 0 1.42 0L17 10.59a1.002 1.002 0 0 0 0-1.42Z"/></svg></label></starlight-theme-select><script>
+	StarlightThemeProvider.updatePickers();
+</script></div></div></div></div></nav><div class="main-frame astro-gqpr5s5a"><script type="module">var e=document.getElementById(`starlight__sidebar`),t=e?.querySelector(`sl-sidebar-state-persist`),n=`sl-sidebar-state`,r=()=>{let r=[],i=t?.dataset.hash||``;try{let e=sessionStorage.getItem(n),t=JSON.parse(e||`{}`);Array.isArray(t.open)&&t.hash===i&&(r=t.open)}catch{}return{hash:i,open:r,scroll:e?.scrollTop||0}},i=e=>{try{sessionStorage.setItem(n,JSON.stringify(e))}catch{}},a=()=>i(r()),o=(e,t)=>{let n=r();n.open[t]=e,i(n)};t?.addEventListener(`click`,e=>{if(!(e.target instanceof Element))return;let t=e.target.closest(`summary`)?.closest(`details`);if(!t)return;let n=t.querySelector(`sl-sidebar-restore`),r=parseInt(n?.dataset.index||``);isNaN(r)||o(!t.open,r)}),addEventListener(`visibilitychange`,()=>{document.visibilityState===`hidden`&&a()}),addEventListener(`pageHide`,a);</script><div class="lg:sl-flex astro-abfeecmu"><aside class="right-sidebar-container print:hidden astro-abfeecmu"><div class="right-sidebar astro-abfeecmu"><div class="lg:sl-hidden astro-q5mffni3"><mobile-starlight-toc data-min-h="2" data-max-h="3" class="astro-5ulgm6bh"><nav aria-labelledby="starlight__on-this-page--mobile" class="astro-5ulgm6bh"><details id="starlight__mobile-toc" class="astro-5ulgm6bh"><summary id="starlight__on-this-page--mobile" class="sl-flex astro-5ulgm6bh"><span class="toggle sl-flex astro-5ulgm6bh">On this page<svg aria-hidden="true" class="caret astro-5ulgm6bh astro-n5k4ipy7" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1rem;"><path d="m14.83 11.29-4.24-4.24a1 1 0 1 0-1.42 1.41L12.71 12l-3.54 3.54a1 1 0 0 0 0 1.41 1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.24-4.24a1.002 1.002 0 0 0 0-1.42Z"/></svg></span><span class="display-current astro-5ulgm6bh"></span></summary><div class="dropdown astro-5ulgm6bh"><ul class="isMobile astro-cxyftcne" style="--depth: 0;"><li style="--depth: 0;" class="astro-cxyftcne"><a href="#_top" style="--depth: 0;" class="astro-cxyftcne"><span style="--depth: 0;" class="astro-cxyftcne">Overview</span></a></li><li style="--depth: 0;" class="astro-cxyftcne"><a href="#2026-07-21-full-okf-rebuild" style="--depth: 0;" class="astro-cxyftcne"><span style="--depth: 0;" class="astro-cxyftcne">2026-07-21 (Full OKF Rebuild)</span></a></li><li style="--depth: 0;" class="astro-cxyftcne"><a href="#2026-07-03-0000-utc" style="--depth: 0;" class="astro-cxyftcne"><span style="--depth: 0;" class="astro-cxyftcne">2026-07-03 00:00 UTC</span></a></li><li style="--depth: 0;" class="astro-cxyftcne"><a href="#2026-07-03-0005-utc-full-kb-populate" style="--depth: 0;" class="astro-cxyftcne"><span style="--depth: 0;" class="astro-cxyftcne">2026-07-03 00:05 UTC (Full KB Populate)</span></a></li><li style="--depth: 0;" class="astro-cxyftcne"><a href="#2026-07-04-0000-utc-ai-kb-migration" style="--depth: 0;" class="astro-cxyftcne"><span style="--depth: 0;" class="astro-cxyftcne">2026-07-04 00:00 UTC (AI-KB Migration)</span></a></li><li style="--depth: 0;" class="astro-cxyftcne"><a href="#2026-07-05-0000-utc" style="--depth: 0;" class="astro-cxyftcne"><span style="--depth: 0;" class="astro-cxyftcne">2026-07-05 00:00 UTC</span></a></li><li style="--depth: 0;" class="astro-cxyftcne"><a href="#2026-07-06-collage-kb-sync" style="--depth: 0;" class="astro-cxyftcne"><span style="--depth: 0;" class="astro-cxyftcne">2026-07-06 (Collage KB Sync)</span></a></li><li style="--depth: 0;" class="astro-cxyftcne"><a href="#2026-07-06-opencode-config--commands" style="--depth: 0;" class="astro-cxyftcne"><span style="--depth: 0;" class="astro-cxyftcne">2026-07-06 (OpenCode Config + Commands)</span></a></li><li style="--depth: 0;" class="astro-cxyftcne"><a href="#2026-07-06" style="--depth: 0;" class="astro-cxyftcne"><span style="--depth: 0;" class="astro-cxyftcne">2026-07-06</span></a></li><li style="--depth: 0;" class="astro-cxyftcne"><a href="#2026-07-10" style="--depth: 0;" class="astro-cxyftcne"><span style="--depth: 0;" class="astro-cxyftcne">2026-07-10</span></a></li><li style="--depth: 0;" class="astro-cxyftcne"><a href="#2026-07-11" style="--depth: 0;" class="astro-cxyftcne"><span style="--depth: 0;" class="astro-cxyftcne">2026-07-11</span></a></li><li style="--depth: 0;" class="astro-cxyftcne"><a href="#2026-07-12-add-current-personality-to-every-agent" style="--depth: 0;" class="astro-cxyftcne"><span style="--depth: 0;" class="astro-cxyftcne">2026-07-12 (Add current personality to every agent)</span></a></li><li style="--depth: 0;" class="astro-cxyftcne"><a href="#2026-07-12-personalities-doc" style="--depth: 0;" class="astro-cxyftcne"><span style="--depth: 0;" class="astro-cxyftcne">2026-07-12 (Personalities doc)</span></a></li><li style="--depth: 0;" class="astro-cxyftcne"><a href="#2026-07-12-language-policy-thai-first" style="--depth: 0;" class="astro-cxyftcne"><span style="--depth: 0;" class="astro-cxyftcne">2026-07-12 (Language policy: Thai first)</span></a></li><li style="--depth: 0;" class="astro-cxyftcne"><a href="#2026-07-12-translate-system-to-thai-led" style="--depth: 0;" class="astro-cxyftcne"><span style="--depth: 0;" class="astro-cxyftcne">2026-07-12 (Translate system/ to Thai-led)</span></a></li><li style="--depth: 0;" class="astro-cxyftcne"><a href="#2026-07-12-translate-all-projects-to-thai-led-except-knowledge" style="--depth: 0;" class="astro-cxyftcne"><span style="--depth: 0;" class="astro-cxyftcne">2026-07-12 (Translate all projects to Thai-led, except /knowledge)</span></a></li><li style="--depth: 0;" class="astro-cxyftcne"><a href="#2026-07-12-de-duplicate-duplicated-frontmatter" style="--depth: 0;" class="astro-cxyftcne"><span style="--depth: 0;" class="astro-cxyftcne">2026-07-12 (De-duplicate duplicated frontmatter)</span></a></li><li style="--depth: 0;" class="astro-cxyftcne"><a href="#2026-07-13-full-workspace-audit--okf-sync" style="--depth: 0;" class="astro-cxyftcne"><span style="--depth: 0;" class="astro-cxyftcne">2026-07-13 (Full workspace audit + OKF sync)</span></a></li></ul></div></details></nav></mobile-starlight-toc><script type="module" src="/_astro/MobileTableOfContents.astro_astro_type_script_index_0_lang.BcSo_yiZ.js"></script></div><div class="right-sidebar-panel sl-hidden lg:sl-block astro-q5mffni3"><div class="sl-container astro-q5mffni3"><starlight-toc data-min-h="2" data-max-h="3"><nav aria-labelledby="starlight__on-this-page"><h2 id="starlight__on-this-page">On this page</h2><ul class="astro-cxyftcne" style="--depth: 0;"><li style="--depth: 0;" class="astro-cxyftcne"><a href="#_top" style="--depth: 0;" class="astro-cxyftcne"><span style="--depth: 0;" class="astro-cxyftcne">Overview</span></a></li><li style="--depth: 0;" class="astro-cxyftcne"><a href="#2026-07-21-full-okf-rebuild" style="--depth: 0;" class="astro-cxyftcne"><span style="--depth: 0;" class="astro-cxyftcne">2026-07-21 (Full OKF Rebuild)</span></a></li><li style="--depth: 0;" class="astro-cxyftcne"><a href="#2026-07-03-0000-utc" style="--depth: 0;" class="astro-cxyftcne"><span style="--depth: 0;" class="astro-cxyftcne">2026-07-03 00:00 UTC</span></a></li><li style="--depth: 0;" class="astro-cxyftcne"><a href="#2026-07-03-0005-utc-full-kb-populate" style="--depth: 0;" class="astro-cxyftcne"><span style="--depth: 0;" class="astro-cxyftcne">2026-07-03 00:05 UTC (Full KB Populate)</span></a></li><li style="--depth: 0;" class="astro-cxyftcne"><a href="#2026-07-04-0000-utc-ai-kb-migration" style="--depth: 0;" class="astro-cxyftcne"><span style="--depth: 0;" class="astro-cxyftcne">2026-07-04 00:00 UTC (AI-KB Migration)</span></a></li><li style="--depth: 0;" class="astro-cxyftcne"><a href="#2026-07-05-0000-utc" style="--depth: 0;" class="astro-cxyftcne"><span style="--depth: 0;" class="astro-cxyftcne">2026-07-05 00:00 UTC</span></a></li><li style="--depth: 0;" class="astro-cxyftcne"><a href="#2026-07-06-collage-kb-sync" style="--depth: 0;" class="astro-cxyftcne"><span style="--depth: 0;" class="astro-cxyftcne">2026-07-06 (Collage KB Sync)</span></a></li><li style="--depth: 0;" class="astro-cxyftcne"><a href="#2026-07-06-opencode-config--commands" style="--depth: 0;" class="astro-cxyftcne"><span style="--depth: 0;" class="astro-cxyftcne">2026-07-06 (OpenCode Config + Commands)</span></a></li><li style="--depth: 0;" class="astro-cxyftcne"><a href="#2026-07-06" style="--depth: 0;" class="astro-cxyftcne"><span style="--depth: 0;" class="astro-cxyftcne">2026-07-06</span></a></li><li style="--depth: 0;" class="astro-cxyftcne"><a href="#2026-07-10" style="--depth: 0;" class="astro-cxyftcne"><span style="--depth: 0;" class="astro-cxyftcne">2026-07-10</span></a></li><li style="--depth: 0;" class="astro-cxyftcne"><a href="#2026-07-11" style="--depth: 0;" class="astro-cxyftcne"><span style="--depth: 0;" class="astro-cxyftcne">2026-07-11</span></a></li><li style="--depth: 0;" class="astro-cxyftcne"><a href="#2026-07-12-add-current-personality-to-every-agent" style="--depth: 0;" class="astro-cxyftcne"><span style="--depth: 0;" class="astro-cxyftcne">2026-07-12 (Add current personality to every agent)</span></a></li><li style="--depth: 0;" class="astro-cxyftcne"><a href="#2026-07-12-personalities-doc" style="--depth: 0;" class="astro-cxyftcne"><span style="--depth: 0;" class="astro-cxyftcne">2026-07-12 (Personalities doc)</span></a></li><li style="--depth: 0;" class="astro-cxyftcne"><a href="#2026-07-12-language-policy-thai-first" style="--depth: 0;" class="astro-cxyftcne"><span style="--depth: 0;" class="astro-cxyftcne">2026-07-12 (Language policy: Thai first)</span></a></li><li style="--depth: 0;" class="astro-cxyftcne"><a href="#2026-07-12-translate-system-to-thai-led" style="--depth: 0;" class="astro-cxyftcne"><span style="--depth: 0;" class="astro-cxyftcne">2026-07-12 (Translate system/ to Thai-led)</span></a></li><li style="--depth: 0;" class="astro-cxyftcne"><a href="#2026-07-12-translate-all-projects-to-thai-led-except-knowledge" style="--depth: 0;" class="astro-cxyftcne"><span style="--depth: 0;" class="astro-cxyftcne">2026-07-12 (Translate all projects to Thai-led, except /knowledge)</span></a></li><li style="--depth: 0;" class="astro-cxyftcne"><a href="#2026-07-12-de-duplicate-duplicated-frontmatter" style="--depth: 0;" class="astro-cxyftcne"><span style="--depth: 0;" class="astro-cxyftcne">2026-07-12 (De-duplicate duplicated frontmatter)</span></a></li><li style="--depth: 0;" class="astro-cxyftcne"><a href="#2026-07-13-full-workspace-audit--okf-sync" style="--depth: 0;" class="astro-cxyftcne"><span style="--depth: 0;" class="astro-cxyftcne">2026-07-13 (Full workspace audit + OKF sync)</span></a></li></ul></nav></starlight-toc><script type="module" src="/_astro/TableOfContents.astro_astro_type_script_index_0_lang.Csloo1VZ.js"></script></div></div></div></aside><div class="main-pane astro-abfeecmu"><main data-pagefind-body class="astro-vdxcvpsm" lang="en" dir="ltr"><div class="content-panel astro-oil7k7jf"><div class="sl-container astro-oil7k7jf"><h1 id="_top" class="astro-2sm4b3ln">Sync Log</h1></div></div><div class="content-panel astro-oil7k7jf"><div class="sl-container astro-oil7k7jf"><div class="sl-markdown-content"><div class="sl-heading-wrapper level-h1"><h1 id="sync-log">Sync Log</h1><a class="sl-anchor-link" href="#sync-log"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “Sync Log”</span></a></div>
+<div class="sl-heading-wrapper level-h2"><h2 id="2026-07-21-full-okf-rebuild">2026-07-21 (Full OKF Rebuild)</h2><a class="sl-anchor-link" href="#2026-07-21-full-okf-rebuild"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “2026-07-21 (Full OKF Rebuild)”</span></a></div>
+<ul>
+<li><strong>Trigger:</strong> User requested “rebuild entire OKF .md ที่เหลือใหม่หมด ไฟล์มันมั่วๆ”</li>
+<li><strong>Scope:</strong> All 73 .md files audited, 46 files rebuilt</li>
+<li><strong>Changes:</strong>
+<ul>
+<li>Standardized frontmatter schema across all project files (profile.md, agent.md, status.md, commands.md, dependencies.md, structure.md)</li>
+<li>Fixed broken references (deleted scripts: doctor-kb.js, backfill.js, build-graph.js, dispatch.js, claim-task.js, complete-task.js)</li>
+<li>Fixed data inconsistencies (Vite 7→8, active→archived, 90→30 days, PWA status)</li>
+<li>Fixed ID naming (mcky-* → mcky-space-*)</li>
+<li>Removed stray <code dir="auto">---</code> fences, deduplicated frontmatter</li>
+<li>Added frontmatter to sync-log.md</li>
+<li>Updated glossary with missing terms</li>
+<li>Rebuilt SQLite database and dashboard</li>
+</ul>
+</li>
+</ul>
+<div class="sl-heading-wrapper level-h2"><h2 id="2026-07-03-0000-utc">2026-07-03 00:00 UTC</h2><a class="sl-anchor-link" href="#2026-07-03-0000-utc"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “2026-07-03 00:00 UTC”</span></a></div>
+<ul>
+<li><strong>Projects Scanned:</strong> cafe, cafe-v2, clientdata, habby, mcky.space, truck</li>
+<li><strong>Files Created:</strong>
+<ul>
+<li><code dir="auto">/home/OKF/README.md</code></li>
+<li><code dir="auto">/home/OKF/index.md</code></li>
+<li><code dir="auto">/home/OKF/projects/cafe/profile.md</code></li>
+<li><code dir="auto">/home/OKF/projects/cafe-v2/profile.md</code></li>
+<li><code dir="auto">/home/OKF/projects/clientdata/profile.md</code></li>
+<li><code dir="auto">/home/OKF/projects/habby/profile.md</code></li>
+<li><code dir="auto">/home/OKF/projects/mcky.space/profile.md</code></li>
+<li><code dir="auto">/home/OKF/projects/truck/profile.md</code></li>
+<li><code dir="auto">/home/OKF/templates/project-template.md</code></li>
+</ul>
+</li>
+<li><strong>Files Updated:</strong>
+<ul>
+<li><code dir="auto">/home/OKF/index.md</code></li>
+</ul>
+</li>
+<li><strong>Files Skipped:</strong> N/A</li>
+<li><strong>Conflicts:</strong> None</li>
+<li><strong>Warnings:</strong> None</li>
+<li><strong>Duration:</strong> N/A</li>
+</ul>
+<div class="sl-heading-wrapper level-h2"><h2 id="2026-07-03-0005-utc-full-kb-populate">2026-07-03 00:05 UTC (Full KB Populate)</h2><a class="sl-anchor-link" href="#2026-07-03-0005-utc-full-kb-populate"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “2026-07-03 00:05 UTC (Full KB Populate)”</span></a></div>
+<ul>
+<li><strong>Projects Updated:</strong> All</li>
+<li><strong>Files Created:</strong>
+<ul>
+<li><code dir="auto">structure.md</code> (All projects)</li>
+<li><code dir="auto">dependencies.md</code> (All projects)</li>
+<li><code dir="auto">commands.md</code> (All projects)</li>
+<li><code dir="auto">status.md</code> (All projects)</li>
+</ul>
+</li>
+<li><strong>Files Updated:</strong>
+<ul>
+<li><code dir="auto">/home/OKF/index.md</code></li>
+<li><code dir="auto">/home/OKF/system/sync-log.md</code></li>
+</ul>
+</li>
+<li><strong>Coverage:</strong> 100% for Profiles, Structure, Dependencies, Commands, and Status.</li>
+</ul>
+<div class="sl-heading-wrapper level-h2"><h2 id="2026-07-04-0000-utc-ai-kb-migration">2026-07-04 00:00 UTC (AI-KB Migration)</h2><a class="sl-anchor-link" href="#2026-07-04-0000-utc-ai-kb-migration"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “2026-07-04 00:00 UTC (AI-KB Migration)”</span></a></div>
+<ul>
+<li><strong>Projects Scanned:</strong> cafe, cafe-v2, clientdata, habby, mcky.space, truck, writer</li>
+<li><strong>Action:</strong> Migrated rich content from <code dir="auto">~/AI-KB/</code> into <code dir="auto">~/OKF/</code> per conversion plan</li>
+<li><strong>Files Created:</strong>
+<ul>
+<li><code dir="auto">agent.md</code> (all projects) — from AI-KB agent profiles (personality, triggers, patterns)</li>
+<li><code dir="auto">status.md</code> (all projects) — expanded with routes, components, design system, changelog, API docs</li>
+<li><code dir="auto">profile.md</code> (all projects) — enriched with architecture/quality docs</li>
+<li><code dir="auto">/home/OKF/skills/INDEX.md</code></li>
+<li><code dir="auto">/home/OKF/system/conventions.md</code></li>
+<li><code dir="auto">/home/OKF/system/workspace.md</code></li>
+<li><code dir="auto">/home/OKF/system/inventory.md</code></li>
+<li><code dir="auto">/home/OKF/system/glossary.md</code></li>
+</ul>
+</li>
+<li><strong>Files Updated:</strong>
+<ul>
+<li><code dir="auto">/home/OKF/index.md</code> — added agent_role column, writer project, triggers section, system links</li>
+</ul>
+</li>
+<li><strong>Source Deprecated:</strong> <code dir="auto">~/AI-KB/</code> removed (all content migrated)</li>
+</ul>
+<div class="sl-heading-wrapper level-h2"><h2 id="2026-07-05-0000-utc">2026-07-05 00:00 UTC</h2><a class="sl-anchor-link" href="#2026-07-05-0000-utc"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “2026-07-05 00:00 UTC”</span></a></div>
+<ul>
+<li><strong>Trigger:</strong> manage-okf sync</li>
+<li><strong>Projects Scanned:</strong> cafe, clientdata, habby, mcky.space, truck, writer</li>
+<li><strong>New Discoveries:</strong> <code dir="auto">/home/DESIGN/</code> (single design doc, not a project), <code dir="auto">/home/reports/</code> (empty)</li>
+<li><strong>Conflicts:</strong> None</li>
+<li><strong>Warnings:</strong> None</li>
+<li><strong>OKF is already synchronized with the current workspace.</strong></li>
+</ul>
+<div class="sl-heading-wrapper level-h2"><h2 id="2026-07-06-collage-kb-sync">2026-07-06 (Collage KB Sync)</h2><a class="sl-anchor-link" href="#2026-07-06-collage-kb-sync"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “2026-07-06 (Collage KB Sync)”</span></a></div>
+<ul>
+<li><strong>Trigger:</strong> User requested collage KB update</li>
+<li><strong>Projects Scanned:</strong> collage</li>
+<li><strong>Files Updated:</strong>
+<ul>
+<li><code dir="auto">projects/collage/profile.md</code> — deployment targets (webhook on Vercel), added fontkit to major libs</li>
+<li><code dir="auto">projects/collage/structure.md</code> — added <code dir="auto">frontend/api/webhook.js</code>, <code dir="auto">frontend/package.json</code>, <code dir="auto">vercel.json</code></li>
+<li><code dir="auto">projects/collage/dependencies.md</code> — added fontkit (backend), <code dir="auto">@line/bot-sdk</code> (frontend)</li>
+<li><code dir="auto">projects/collage/status.md</code> — routes split by layer (Vercel vs Render), webhook API note</li>
+</ul>
+</li>
+<li><strong>Files Skipped:</strong> <code dir="auto">agent.md</code>, <code dir="auto">commands.md</code> — no changes needed</li>
+<li><strong>Conflicts:</strong> None</li>
+<li><strong>Warnings:</strong> None**</li>
+</ul>
+<div class="sl-heading-wrapper level-h2"><h2 id="2026-07-06-opencode-config--commands">2026-07-06 (OpenCode Config + Commands)</h2><a class="sl-anchor-link" href="#2026-07-06-opencode-config--commands"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “2026-07-06 (OpenCode Config + Commands)”</span></a></div>
+<ul>
+<li><strong>Trigger:</strong> User requested opencode config update for KB integration + make triggers work</li>
+<li><strong>Files Updated:</strong>
+<ul>
+<li><code dir="auto">~/.config/opencode/config.json</code> — expanded instructions (added workspace.md), per-project references, default_agent (kb), skills paths</li>
+<li><code dir="auto">~/.config/opencode/opencode.jsonc</code> — added <code dir="auto">~/collage/**</code> to permissions</li>
+</ul>
+</li>
+<li><strong>Files Created:</strong>
+<ul>
+<li><code dir="auto">~/.config/opencode/agents/kb-agent.md</code> — KB management agent (triggers, graph, dashboard)</li>
+<li><code dir="auto">~/.config/opencode/commands/update-md.md</code> — <code dir="auto">/update-md</code> sync project state to KB</li>
+<li><code dir="auto">~/.config/opencode/commands/cleanup.md</code> — <code dir="auto">/cleanup</code> health scan</li>
+<li><code dir="auto">~/.config/opencode/commands/doctor-kb.md</code> — <code dir="auto">/doctor-kb</code> knowledge lifecycle audit</li>
+<li><code dir="auto">~/.config/opencode/commands/dispatch.md</code> — <code dir="auto">/dispatch</code> task operator</li>
+<li><code dir="auto">~/.config/opencode/commands/dashboard.md</code> — <code dir="auto">/dashboard</code> graph dashboard control</li>
+<li><code dir="auto">~/.config/opencode/commands/update-config.md</code> — <code dir="auto">/update-config</code> sync opencode config with KB</li>
+</ul>
+</li>
+</ul>
+<div class="sl-heading-wrapper level-h2"><h2 id="2026-07-06">2026-07-06</h2><a class="sl-anchor-link" href="#2026-07-06"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “2026-07-06”</span></a></div>
+<ul>
+<li><strong>Updated:</strong> <code dir="auto">clientdata/lib/clients.ts</code> — <code dir="auto">searchClients()</code> now splits query into individual keywords (AND across keywords, OR across name/shopName). Enables multi-word search like <code dir="auto">*ลูกค้า all the wall</code> matching clients containing all 3 words anywhere in name/shopName.</li>
+<li><strong>Updated:</strong> <code dir="auto">clientdata/status.md</code> — added changelog entry for keyword search change</li>
+</ul>
+<div class="sl-heading-wrapper level-h2"><h2 id="2026-07-10">2026-07-10</h2><a class="sl-anchor-link" href="#2026-07-10"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “2026-07-10”</span></a></div>
+<ul>
+<li><strong>Projects Added:</strong>
+<ul>
+<li><code dir="auto">receipts-dms</code> — receipt document management (Vite 6 + React 19 + Cloudflare D1/R2)</li>
+</ul>
+</li>
+<li><strong>Files Created:</strong>
+<ul>
+<li><code dir="auto">projects/receipts-dms/profile.md</code></li>
+<li><code dir="auto">projects/receipts-dms/structure.md</code></li>
+<li><code dir="auto">projects/receipts-dms/dependencies.md</code></li>
+<li><code dir="auto">projects/receipts-dms/commands.md</code></li>
+<li><code dir="auto">projects/receipts-dms/status.md</code></li>
+</ul>
+</li>
+<li><strong>Files Updated:</strong>
+<ul>
+<li><code dir="auto">index.md</code> — added receipts-dms to project inventory, agent roles, technology summary</li>
+</ul>
+</li>
+</ul>
+<div class="sl-heading-wrapper level-h2"><h2 id="2026-07-11">2026-07-11</h2><a class="sl-anchor-link" href="#2026-07-11"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “2026-07-11”</span></a></div>
+<ul>
+<li><strong>Project Renamed:</strong> <code dir="auto">data</code> → <code dir="auto">data.mcky.space</code> (matches actual directory at <code dir="auto">/home/data.mcky.space/</code>)</li>
+<li><strong>Project Added:</strong> <code dir="auto">collage</code> — image collage maker + LINE LIFF bot</li>
+<li><strong>Path Fixed:</strong> <code dir="auto">receipts-dms</code> — source is <code dir="auto">~/paper/receipts-dms</code> not <code dir="auto">~/receipts-dms</code></li>
+<li><strong>Stack Updated:</strong> <code dir="auto">data.mcky.space</code> — corrected from Next.js 16 + Vercel to Vite 7 + Cloudflare Pages</li>
+<li><strong>Files Created:</strong>
+<ul>
+<li><code dir="auto">projects/collage/profile.md</code>, <code dir="auto">structure.md</code>, <code dir="auto">commands.md</code>, <code dir="auto">dependencies.md</code>, <code dir="auto">status.md</code>, <code dir="auto">agent.md</code></li>
+<li><code dir="auto">projects/data.mcky.space/structure.md</code>, <code dir="auto">commands.md</code>, <code dir="auto">dependencies.md</code></li>
+<li><code dir="auto">scripts/build-graph.js</code>, <code dir="auto">scripts/dispatch.js</code>, <code dir="auto">scripts/claim-task.js</code>, <code dir="auto">scripts/complete-task.js</code>, <code dir="auto">scripts/build-dashboard.js</code></li>
+<li><code dir="auto">graph.json</code></li>
+</ul>
+</li>
+<li><strong>Files Updated:</strong>
+<ul>
+<li><code dir="auto">index.md</code> — added collage, renamed data → data.mcky.space, updated scripts table</li>
+<li><code dir="auto">USAGE.md</code> — renamed data → data.mcky.space</li>
+<li><code dir="auto">workspace.md</code> — renamed data → data.mcky.space, fixed source path</li>
+<li><code dir="auto">projects/data.mcky.space/profile.md</code>, <code dir="auto">status.md</code>, <code dir="auto">agent.md</code> — stack/anchors/ids</li>
+<li><code dir="auto">projects/clientdata/status.md</code> — recent changelog (SW v2, webpack removal, keyword search)</li>
+<li><code dir="auto">projects/truck/status.md</code> — recent changelog (type safety, holiday pay)</li>
+<li><code dir="auto">projects/mcky.space/status.md</code> — recent changelog (API removal, blog layout)</li>
+<li><code dir="auto">projects/habby/status.md</code> — recent changelog (test suite, AGENTS.md)</li>
+<li><code dir="auto">projects/collage/agent.md</code> — cross-link fixed to data-mcky-space-agent</li>
+<li><code dir="auto">opencode.jsonc</code> — added <code dir="auto">~/collage/**</code>, <code dir="auto">~/paper/**</code>, <code dir="auto">~/data.mcky.space/**</code> permissions</li>
+<li><code dir="auto">.gitignore</code> — added dashboard.html</li>
+</ul>
+</li>
+<li><strong>Removed:</strong>
+<ul>
+<li><code dir="auto">collage</code> from index.md agent roles (orphan ref)</li>
+<li><code dir="auto">~/cafe/</code>, <code dir="auto">~/collage/</code> from cleanup.md source roots (directories don’t exist)</li>
+</ul>
+</li>
+</ul>
+<div class="sl-heading-wrapper level-h2"><h2 id="2026-07-12-add-current-personality-to-every-agent">2026-07-12 (Add current personality to every agent)</h2><a class="sl-anchor-link" href="#2026-07-12-add-current-personality-to-every-agent"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “2026-07-12 (Add current personality to every agent)”</span></a></div>
+<ul>
+<li><strong>Trigger:</strong> User requested “add current personality to KB and every agents and every project”</li>
+<li><strong>Projects Scanned:</strong> clientdata, collage, data.mcky.space, habby, mcky.space, receipts-dms, truck, writer (all 8)</li>
+<li><strong>Action:</strong> Added explicit <code dir="auto">## Personality</code> section (Role + description) to every agent.md body so the current personality is visible in KB content, not just frontmatter.</li>
+<li><strong>Files Updated:</strong>
+<ul>
+<li><code dir="auto">projects/clientdata/agent.md</code> — added <code dir="auto">## Personality</code> (data goblin), last_updated 2026-07-12</li>
+<li><code dir="auto">projects/data.mcky.space/agent.md</code> — added <code dir="auto">## Personality</code> (data goblin stable), last_updated 2026-07-12</li>
+<li><code dir="auto">projects/habby/agent.md</code> — added <code dir="auto">## Personality</code> (trophy goblin), last_updated 2026-07-12</li>
+<li><code dir="auto">projects/mcky.space/agent.md</code> — added <code dir="auto">## Personality</code> (terminal hipster), last_updated 2026-07-12</li>
+<li><code dir="auto">projects/truck/agent.md</code> — added <code dir="auto">## Personality</code> (overtime enthusiast), last_updated 2026-07-12</li>
+<li><code dir="auto">projects/writer/agent.md</code> — added <code dir="auto">## Personality</code> (word goblin), last_updated 2026-07-12</li>
+<li><code dir="auto">projects/collage/agent.md</code> — already had personality context (barista engineer) from earlier today</li>
+<li><code dir="auto">projects/receipts-dms/agent.md</code> — did NOT exist; created as knowledge node <code dir="auto">NODE-002.md</code> (agent-profile, paper goblin) since <code dir="auto">okf_create_node</code> writes to <code dir="auto">knowledge/</code></li>
+</ul>
+</li>
+<li><strong>index.md Updated:</strong>
+<ul>
+<li>receipts-dms agent column: <code dir="auto">—</code> → <code dir="auto">[agent](./projects/receipts-dms/knowledge/NODE-002.md)</code></li>
+<li>receipts-dms agent role: <code dir="auto">—</code> → <code dir="auto">paper goblin</code></li>
+<li>last_updated: 2026-07-11 → 2026-07-12</li>
+</ul>
+</li>
+<li><strong>Orphan:</strong> <code dir="auto">NODE-001.md</code> (receipts-dms agent, misnamed) archived (status: archived), left in place to avoid data loss</li>
+<li><strong>Conflicts:</strong> None</li>
+<li><strong>Warnings:</strong> receipts-dms has no top-level <code dir="auto">agent.md</code> (system creates knowledge nodes only); index links to the knowledge node instead.</li>
+</ul>
+<div class="sl-heading-wrapper level-h2"><h2 id="2026-07-12-personalities-doc">2026-07-12 (Personalities doc)</h2><a class="sl-anchor-link" href="#2026-07-12-personalities-doc"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “2026-07-12 (Personalities doc)”</span></a></div>
+<ul>
+<li><strong>Trigger:</strong> User requested documenting agent personalities centrally (“เอาสิ”)</li>
+<li><strong>Files Created:</strong>
+<ul>
+<li><code dir="auto">system/personalities.md</code> — canonical reference for all 8 agent personalities (goblin crew), with per-agent obsession table + how-they-fit-together</li>
+</ul>
+</li>
+<li><strong>Files Updated:</strong>
+<ul>
+<li><code dir="auto">index.md</code> — added Personalities link to System Files section</li>
+<li><code dir="auto">system/workspace.md</code> — added “Agent Personalities” section (table of 8 agents) + last_updated 2026-07-12</li>
+</ul>
+</li>
+<li><strong>Conflicts:</strong> None</li>
+<li><strong>Warnings:</strong> None</li>
+</ul>
+<div class="sl-heading-wrapper level-h2"><h2 id="2026-07-12-language-policy-thai-first">2026-07-12 (Language policy: Thai first)</h2><a class="sl-anchor-link" href="#2026-07-12-language-policy-thai-first"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “2026-07-12 (Language policy: Thai first)”</span></a></div>
+<ul>
+<li><strong>Trigger:</strong> User requested KB use Thai as primary language, English only for loanwords / punchier terms</li>
+<li><strong>Files Updated:</strong>
+<ul>
+<li><code dir="auto">system/conventions.md</code> — added Language rule: “Thai first; English when it fits better (loanwords/technical terms or punchier/fun words)” + last_updated 2026-07-12</li>
+<li><code dir="auto">system/personalities.md</code> — rewrote entirely in Thai-led prose with English terms where natural (schema, streak, aesthetic, invalidation, goblin names)</li>
+<li><code dir="auto">system/workspace.md</code> — Agent Personalities table rewritten Thai-led (ความคลั่งไคล้ column)</li>
+</ul>
+</li>
+<li><strong>Conflicts:</strong> None</li>
+<li><strong>Warnings:</strong> None</li>
+</ul>
+<div class="sl-heading-wrapper level-h2"><h2 id="2026-07-12-translate-system-to-thai-led">2026-07-12 (Translate system/ to Thai-led)</h2><a class="sl-anchor-link" href="#2026-07-12-translate-system-to-thai-led"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “2026-07-12 (Translate system/ to Thai-led)”</span></a></div>
+<ul>
+<li><strong>Trigger:</strong> User requested “ไหวหรอ” → confirmed, translate system/ files to Thai-first with English for loanwords/punchier terms (scope option 1)</li>
+<li><strong>Files Rewritten (Thai-led):</strong>
+<ul>
+<li><code dir="auto">system/glossary.md</code> — terms kept English (technical), headers + descriptions Thai</li>
+<li><code dir="auto">system/inventory.md</code> — all sections Thai-led (ตัวกระตุ้นงาน, รายการโปรเจกต์, อ้างอิง AGENTS.md)</li>
+<li><code dir="auto">index.md</code> — all section headers + labels Thai-led (ดัชนี Workspace, รายการโปรเจกต์, บทบาท Agent, ตัวกระตุ้น, สคริปต์, เครื่องมือ MCP, ไฟล์ระบบ)</li>
+<li><code dir="auto">system/workspace.md</code> — comparison + dev commands Thai-led (เปรียบเทียบโปรเจกต์, คำสั่ง Dev ตามโปรเจกต์)</li>
+<li><code dir="auto">system/TODOS.md</code> — Thai-led (กระบวนการ TODOs, การตรวจสอบตอนเริ่ม)</li>
+<li><code dir="auto">system/glossary.md</code>, <code dir="auto">inventory.md</code>, <code dir="auto">workspace.md</code>, <code dir="auto">TODOS.md</code> — last_updated bumped to 2026-07-12</li>
+</ul>
+</li>
+<li><strong>Already Thai-led from prior step:</strong> <code dir="auto">system/personalities.md</code>, <code dir="auto">system/conventions.md</code> (language rule)</li>
+<li><strong>Conflicts:</strong> None</li>
+<li><strong>Warnings:</strong> Tech stack names, framework names, and goblin nicknames retained in English by policy (fits-better rule).</li>
+</ul>
+<div class="sl-heading-wrapper level-h2"><h2 id="2026-07-12-translate-all-projects-to-thai-led-except-knowledge">2026-07-12 (Translate all projects to Thai-led, except /knowledge)</h2><a class="sl-anchor-link" href="#2026-07-12-translate-all-projects-to-thai-led-except-knowledge"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “2026-07-12 (Translate all projects to Thai-led, except /knowledge)”</span></a></div>
+<ul>
+<li><strong>Trigger:</strong> User requested translating every project KB to Thai-first, EXCEPT files under each project’s <code dir="auto">/knowledge/</code> directory.</li>
+<li><strong>Method:</strong> 5 parallel writer-agent subagents, one per project group (clientdata | collage+data.mcky.space | habby+writer | mcky.space+receipts-dms | truck).</li>
+<li><strong>Files Translated (Thai-led, English kept for tech terms/frameworks/goblin names):</strong>
+<ul>
+<li>clientdata (8): agent, assets, commands, decisions, dependencies, profile, status, structure</li>
+<li>collage (6): agent, commands, dependencies, profile, status, structure</li>
+<li>data.mcky.space (6): agent, commands, dependencies, profile, status, structure</li>
+<li>habby (8): agent, assets, commands, decisions, dependencies, profile, status, structure</li>
+<li>mcky.space (8): agent, assets, commands, decisions, dependencies, profile, status, structure</li>
+<li>receipts-dms (5): commands, dependencies, profile, status, structure (no root agent.md — agent is a knowledge node, excluded)</li>
+<li>truck (8): agent, assets, commands, decisions, dependencies, profile, status, structure</li>
+<li>writer (5): agent, commands, profile, status, structure</li>
+<li>All <code dir="auto">last_updated</code> bumped to 2026-07-12 where they differed.</li>
+</ul>
+</li>
+<li><strong>Excluded (kept as-is):</strong> all <code dir="auto">projects/&lt;project&gt;/knowledge/*.md</code> nodes (per user instruction).</li>
+<li><strong>Verification:</strong> CJK scan across all non-knowledge project .md files returned zero Chinese characters. One stray CJK fragment (“启动时”) found earlier in habby/writer agent files was replaced with Thai (“ตอนเริ่มรัน”).</li>
+<li><strong>Conflicts:</strong> None</li>
+<li><strong>Warnings:</strong> Some agent.md files contain a duplicated frontmatter block — subagents preserved both blocks and bumped dates; recommend a follow-up cleanup pass to de-duplicate frontmatter if desired.</li>
+</ul>
+<div class="sl-heading-wrapper level-h2"><h2 id="2026-07-12-de-duplicate-duplicated-frontmatter">2026-07-12 (De-duplicate duplicated frontmatter)</h2><a class="sl-anchor-link" href="#2026-07-12-de-duplicate-duplicated-frontmatter"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “2026-07-12 (De-duplicate duplicated frontmatter)”</span></a></div>
+<ul>
+<li><strong>Trigger:</strong> User requested fixing duplicated frontmatter blocks (“แก้ frontmatter ซ้ำ”)</li>
+<li><strong>Finding:</strong> A scan showed <code dir="auto">DUP(4)</code> = 2 stacked frontmatter blocks in 7 <code dir="auto">agent.md</code> files (normal files show <code dir="auto">DUP(2)</code> = open+close fence, not a duplicate). The duplicate FM2 was appended right after FM1’s closing <code dir="auto">---</code>, repeated from the original frontmatter.</li>
+<li><strong>Files Fixed (frontmatter de-duplicated, FM2 block removed):</strong>
+<ul>
+<li><code dir="auto">projects/clientdata/agent.md</code></li>
+<li><code dir="auto">projects/habby/agent.md</code></li>
+<li><code dir="auto">projects/mcky.space/agent.md</code></li>
+<li><code dir="auto">projects/truck/agent.md</code></li>
+<li><code dir="auto">projects/writer/agent.md</code></li>
+<li><code dir="auto">projects/data.mcky.space/agent.md</code></li>
+<li>(collage/agent.md had only normal <code dir="auto">DUP(2)</code> — no change needed)</li>
+</ul>
+</li>
+<li><strong>Verification:</strong> Re-scan confirmed zero files with more than 2 <code dir="auto">---</code> fences. <code dir="auto">git diff</code> shows only the 6 agent.md changed for frontmatter cleanup (other project/agent.md diffs are from the prior Thai translation step). Content/IDs/links preserved; only the stray duplicate FM block was removed.</li>
+<li><strong>Conflicts:</strong> None</li>
+<li><strong>Warnings:</strong> None</li>
+</ul>
+<div class="sl-heading-wrapper level-h2"><h2 id="2026-07-13-full-workspace-audit--okf-sync">2026-07-13 (Full workspace audit + OKF sync)</h2><a class="sl-anchor-link" href="#2026-07-13-full-workspace-audit--okf-sync"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “2026-07-13 (Full workspace audit + OKF sync)”</span></a></div>
+<ul>
+<li><strong>Trigger:</strong> User requested “ตรวจดูโปรเจค folder in ~/ แล้วอัพเดทใหม่อีกที” (check project folders in ~/ and update again)</li>
+<li><strong>Discovery:</strong> Scanned <code dir="auto">/home/</code> to compare actual project directories against OKF records</li>
+<li><strong>Key Findings:</strong>
+<ul>
+<li><code dir="auto">clientdata</code> directory <strong>does not exist</strong> — project archived in OKF</li>
+<li><code dir="auto">data.mcky.space</code> stack corrected: Neon → Cloudflare D1, added Tailwind 4, Zustand, MapLibre</li>
+<li><code dir="auto">habby</code> stack corrected: Redis (Upstash) → ioredis (plain Redis)</li>
+<li><code dir="auto">collage</code> stack enriched: added AWS S3, fontkit, opentype.js</li>
+<li><code dir="auto">truck</code> stack enriched: added TanStack Query</li>
+<li><code dir="auto">receipts-dms</code> stack corrected: Tailwind v3 (not v4), added Radix UI</li>
+<li><code dir="auto">mcky.space</code> confirmed: Astro 7 + Alpine.js 3 (CDN) + Supabase + Vercel</li>
+</ul>
+</li>
+<li><strong>Files Updated:</strong>
+<ul>
+<li><code dir="auto">index.md</code> — project table (tech stacks, clientdata → archived), agent roles, technology summary</li>
+<li><code dir="auto">projects/data.mcky.space/profile.md</code> — Neon → Cloudflare D1, added Tailwind 4</li>
+<li><code dir="auto">projects/habby/profile.md</code> — Redis (Upstash) → Redis (ioredis)</li>
+<li><code dir="auto">projects/clientdata/status.md</code> → status set to <code dir="auto">archived</code></li>
+<li><code dir="auto">projects/clientdata/agent.md</code> → status set to <code dir="auto">archived</code></li>
+<li><code dir="auto">projects/clientdata/profile.md</code> → status set to <code dir="auto">archived</code></li>
+</ul>
+</li>
+<li><strong>Status Changes:</strong>
+<ul>
+<li><code dir="auto">clientdata-status</code>: active → archived</li>
+<li><code dir="auto">clientdata-agent</code>: active → archived</li>
+<li><code dir="auto">clientdata-profile</code>: active → archived</li>
+</ul>
+</li>
+<li><strong>Conflicts:</strong> None</li>
+<li><strong>Warnings:</strong> <code dir="auto">clientdata</code> code no longer exists in <code dir="auto">~/</code>; OKF metadata retained for historical reference.</li>
+</ul>
+</div><footer class="sl-flex astro-xhxjzfa7"><div class="meta sl-flex astro-xhxjzfa7"></div><div class="pagination-links print:hidden astro-jgq3vlii" dir="ltr"><a href="/system/personalities" rel="prev" class="astro-jgq3vlii"><svg aria-hidden="true" class="astro-jgq3vlii astro-n5k4ipy7" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1.5rem;"><path d="M17 11H9.41l3.3-3.29a1.004 1.004 0 1 0-1.42-1.42l-5 5a1 1 0 0 0-.21.33 1 1 0 0 0 0 .76 1 1 0 0 0 .21.33l5 5a1.002 1.002 0 0 0 1.639-.325 1 1 0 0 0-.219-1.095L9.41 13H17a1 1 0 0 0 0-2Z"/></svg><span class="astro-jgq3vlii">Previous<br class="astro-jgq3vlii"><span class="link-title astro-jgq3vlii">Personalities</span></span></a><a href="/projects/clientdata/agent" rel="next" class="astro-jgq3vlii"><svg aria-hidden="true" class="astro-jgq3vlii astro-n5k4ipy7" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1.5rem;"><path d="M17.92 11.62a1.001 1.001 0 0 0-.21-.33l-5-5a1.003 1.003 0 1 0-1.42 1.42l3.3 3.29H7a1 1 0 0 0 0 2h7.59l-3.3 3.29a1.002 1.002 0 0 0 .325 1.639 1 1 0 0 0 1.095-.219l5-5a1 1 0 0 0 .21-.33 1 1 0 0 0 0-.76Z"/></svg><span class="astro-jgq3vlii">Next<br class="astro-jgq3vlii"><span class="link-title astro-jgq3vlii">Agent</span></span></a></div></footer></div></div></main></div></div></div></div></body></html>

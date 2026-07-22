@@ -1,37 +1,17 @@
 ---
-title: สถานะโปรเจกต์ — mcky.space
+title: mcky-space-status (project-status)
 description: ''
 original_frontmatter:
   type: project-status
   id: mcky-space-status
   project: mcky.space
-  last_updated: 2026-07-13T00:00:00.000Z
+  last_updated: 2026-07-22T00:00:00.000Z
   status: active
-  freshness: 2026-07-13T00:00:00.000Z
-  verified: 2026-07-13T00:00:00.000Z
-  expires: null
-  superseded_by: null
-  anchors:
-    - /home/mcky.space/
   links:
-    - type: relates-to
-      target: mcky-space-agent
-    - type: relates-to
-      target: mcky-space-profile
+    profile: mcky-space-profile
+    agent: mcky-space-agent
 
 ---
-
-# สถานะโปรเจกต์ — mcky.space
-
-## สแต็ก
-
-- **Framework**: Astro 7 (SSR)
-- **UI**: Alpine.js via CDN, pure CSS neobrutalism
-- **Blog**: Markdown (`.md` files), compiled at build time via Astro
-- **Syntax Highlighting**: PrismJS
-- **Database**: Supabase (no auth, read-only queries?)
-- **Font**: JetBrains Mono (self-hosted WOFF2)
-- **Deploy**: Vercel
 
 ## เส้นทาง
 
@@ -40,11 +20,20 @@ original_frontmatter:
 | `/` | หน้าแรกสไตล์ terminal พร้อมส่วนบล็อก |
 | `/about` | หน้า About |
 | `/blog` | รายการบล็อก |
-| `/blog/[slug]` | โพสต์บล็อก |
+| `/blog/[slug]` | โพสต์บล็อก (รองรับ bilingual EN/TH) |
 | `/projects` | แกลลอรี่โปรเจกต์ |
 | `/404` | หน้า 404 |
 
 ## บันทึกการเปลี่ยนแปลง
+
+### 2026-07-17
+- **blog**: เขียนโพสต์ "Building Collage: A Small Adventure"
+- **bilingual blog**: รองรับ `.th.md` — จับคู่ภาษาไทยกับอังกฤษผ่าน slug เดียวกัน
+- **lang toggle**: ปุ่ม EN/TH ที่มุมล่างขวา ใช้ `data-lang` attribute + vanilla JS (ไม่พึ่ง Alpine store)
+- **lang toggle CSS**: ย้ายไป `globals.css` แก้ปัญหา Astro scoped CSS
+- **lang toggle visibility**: แสดงเฉพาะหน้า `/blog` และ `/blog/*`
+- **floating buttons**: ย้ายจาก bottom-right → top-right → กลับ bottom-right (หลัง user feedback)
+- **build script**: `build-blog-posts.mjs` รองรับ `.th.md` pairing, Post interface เพิ่ม `bodyTh` + `lang`
 
 ### 2026-07-13
 - **KB refresh**: แก้ไข frontmatter ซ้ำซ้อน, อัปเดต timestamps
@@ -74,3 +63,4 @@ original_frontmatter:
 - shimmer skeletons ด้วย CSS ล้วนสำหรับสถานะโหลด
 - JetBrains Mono ตลอดทั้งเว็บ
 - ARIA landmarks, safe-area-insets, `prefers-reduced-motion`
+- Bilingual toggle: `[data-lang="en"] .lang-th { display:none }` และกลับกัน

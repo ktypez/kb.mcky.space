@@ -1,7 +1,6 @@
 [
   {
     "label": "System",
-    "collapsed": false,
     "items": [
       {
         "label": "TODOS",
@@ -16,26 +15,18 @@
         "link": "/system/glossary"
       },
       {
-        "label": "Inventory",
-        "link": "/system/inventory"
-      },
-      {
         "label": "Personalities",
         "link": "/system/personalities"
       },
       {
         "label": "Sync Log",
         "link": "/system/sync-log"
-      },
-      {
-        "label": "Workspace",
-        "link": "/system/workspace"
       }
-    ]
+    ],
+    "collapsed": false
   },
   {
     "label": "Projects",
-    "collapsed": true,
     "items": [
       {
         "label": "clientdata",
@@ -45,32 +36,12 @@
             "link": "/projects/clientdata/agent"
           },
           {
-            "label": "Assets",
-            "link": "/projects/clientdata/assets"
-          },
-          {
-            "label": "Commands",
-            "link": "/projects/clientdata/commands"
-          },
-          {
-            "label": "Decisions",
-            "link": "/projects/clientdata/decisions"
-          },
-          {
-            "label": "Dependencies",
-            "link": "/projects/clientdata/dependencies"
-          },
-          {
             "label": "Profile",
             "link": "/projects/clientdata/profile"
           },
           {
             "label": "Status",
             "link": "/projects/clientdata/status"
-          },
-          {
-            "label": "Structure",
-            "link": "/projects/clientdata/structure"
           }
         ]
       },
@@ -82,24 +53,12 @@
             "link": "/projects/collage/agent"
           },
           {
-            "label": "Commands",
-            "link": "/projects/collage/commands"
-          },
-          {
-            "label": "Dependencies",
-            "link": "/projects/collage/dependencies"
-          },
-          {
             "label": "Profile",
             "link": "/projects/collage/profile"
           },
           {
             "label": "Status",
             "link": "/projects/collage/status"
-          },
-          {
-            "label": "Structure",
-            "link": "/projects/collage/structure"
           }
         ]
       },
@@ -111,24 +70,12 @@
             "link": "/projects/datamckyspace/agent"
           },
           {
-            "label": "Commands",
-            "link": "/projects/datamckyspace/commands"
-          },
-          {
-            "label": "Dependencies",
-            "link": "/projects/datamckyspace/dependencies"
-          },
-          {
             "label": "Profile",
             "link": "/projects/datamckyspace/profile"
           },
           {
             "label": "Status",
             "link": "/projects/datamckyspace/status"
-          },
-          {
-            "label": "Structure",
-            "link": "/projects/datamckyspace/structure"
           }
         ]
       },
@@ -140,32 +87,12 @@
             "link": "/projects/habby/agent"
           },
           {
-            "label": "Assets",
-            "link": "/projects/habby/assets"
-          },
-          {
-            "label": "Commands",
-            "link": "/projects/habby/commands"
-          },
-          {
-            "label": "Decisions",
-            "link": "/projects/habby/decisions"
-          },
-          {
-            "label": "Dependencies",
-            "link": "/projects/habby/dependencies"
-          },
-          {
             "label": "Profile",
             "link": "/projects/habby/profile"
           },
           {
             "label": "Status",
             "link": "/projects/habby/status"
-          },
-          {
-            "label": "Structure",
-            "link": "/projects/habby/structure"
           }
         ]
       },
@@ -177,32 +104,12 @@
             "link": "/projects/mckyspace/agent"
           },
           {
-            "label": "Assets",
-            "link": "/projects/mckyspace/assets"
-          },
-          {
-            "label": "Commands",
-            "link": "/projects/mckyspace/commands"
-          },
-          {
-            "label": "Decisions",
-            "link": "/projects/mckyspace/decisions"
-          },
-          {
-            "label": "Dependencies",
-            "link": "/projects/mckyspace/dependencies"
-          },
-          {
             "label": "Profile",
             "link": "/projects/mckyspace/profile"
           },
           {
             "label": "Status",
             "link": "/projects/mckyspace/status"
-          },
-          {
-            "label": "Structure",
-            "link": "/projects/mckyspace/structure"
           }
         ]
       },
@@ -210,12 +117,8 @@
         "label": "receipts-dms",
         "items": [
           {
-            "label": "Commands",
-            "link": "/projects/receipts-dms/commands"
-          },
-          {
-            "label": "Dependencies",
-            "link": "/projects/receipts-dms/dependencies"
+            "label": "Agent",
+            "link": "/projects/receipts-dms/agent"
           },
           {
             "label": "Profile",
@@ -224,10 +127,6 @@
           {
             "label": "Status",
             "link": "/projects/receipts-dms/status"
-          },
-          {
-            "label": "Structure",
-            "link": "/projects/receipts-dms/structure"
           }
         ]
       },
@@ -239,32 +138,12 @@
             "link": "/projects/truck/agent"
           },
           {
-            "label": "Assets",
-            "link": "/projects/truck/assets"
-          },
-          {
-            "label": "Commands",
-            "link": "/projects/truck/commands"
-          },
-          {
-            "label": "Decisions",
-            "link": "/projects/truck/decisions"
-          },
-          {
-            "label": "Dependencies",
-            "link": "/projects/truck/dependencies"
-          },
-          {
             "label": "Profile",
             "link": "/projects/truck/profile"
           },
           {
             "label": "Status",
             "link": "/projects/truck/status"
-          },
-          {
-            "label": "Structure",
-            "link": "/projects/truck/structure"
           }
         ]
       },
@@ -276,28 +155,16 @@
             "link": "/projects/writer/agent"
           },
           {
-            "label": "Commands",
-            "link": "/projects/writer/commands"
-          },
-          {
             "label": "Profile",
             "link": "/projects/writer/profile"
-          },
-          {
-            "label": "Status",
-            "link": "/projects/writer/status"
-          },
-          {
-            "label": "Structure",
-            "link": "/projects/writer/structure"
           }
         ]
       }
-    ]
+    ],
+    "collapsed": true
   },
   {
     "label": "Plans",
-    "collapsed": true,
     "items": [
       {
         "label": "Data To Cloudflare Pages",
@@ -307,6 +174,7 @@
         "label": "Rose Pine Theme Switch",
         "link": "/plans/rose-pine-theme-switch"
       }
-    ]
+    ],
+    "collapsed": true
   }
 ]

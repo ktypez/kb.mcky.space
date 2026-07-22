@@ -5,23 +5,13 @@ original_frontmatter:
   type: agent-profile
   id: data-mcky-space-agent
   project: data.mcky.space
-  last_updated: '2026-07-13'
+  last_updated: 2026-07-21T00:00:00.000Z
   status: active
-  freshness: '2026-07-13'
-  verified: '2026-07-13'
-  expires: null
-  superseded_by: null
-  personality: data goblin
-  status_ref: ./status.md
-  anchors:
-    - /home/data.mcky.space/
+  personality: data goblin (stable)
+  status_ref: data-mcky-space-status
   links:
-    - type: relates-to
-      target: data-mcky-space-profile
-    - type: relates-to
-      target: data-mcky-space-status
-    - type: relates-to
-      target: clientdata-agent
+    profile: data-mcky-space-profile
+    status: data-mcky-space-status
 
 ---
 
@@ -29,7 +19,7 @@ original_frontmatter:
 
 ## ภาพรวม (Overview)
 
-production deployment ของ clientdata — ย้ายจาก Next.js มา Vite 7 + Cloudflare Pages
+production deployment ของ clientdata — ย้ายจาก Next.js มา Vite 8 + Cloudflare Pages
 
 ## บุคลิกภาพ (Personality)
 
@@ -38,7 +28,8 @@ production deployment ของ clientdata — ย้ายจาก Next.js ม
 
 ## Stack
 
-- **Framework**: Vite 7 + React 19 + TypeScript
+- **Framework**: Vite 8 + React 19 + TypeScript
+- **Animation**: Motion (Framer Motion) v12 — AnimatePresence, spring transitions, stagger
 - **State**: Zustand
 - **Database**: **Cloudflare D1 (SQLite)** ผ่าน Drizzle ORM (migrated from Neon — ไม่ใช่ Neon แล้ว)
 - **Storage**: Cloudflare R2
@@ -47,7 +38,8 @@ production deployment ของ clientdata — ย้ายจาก Next.js ม
 
 ## ความต่างจาก clientdata (Key Differences from clientdata)
 
-- **Framework**: Vite 7 แทน Next.js 16 (App Router → react-router-dom)
+- **Framework**: Vite 8 แทน Next.js 16 (App Router → react-router-dom)
+- **Animation**: Motion (Framer Motion) — ไม่มีใน clientdata
 - **State**: Zustand แทน React useState (30+ hooks → centralized stores)
 - **Deploy**: Cloudflare Pages แทน Vercel
 - **PWA**: มี service worker (`v2` ปลอดภัย, network-first, ไม่ auto-reload)
@@ -57,16 +49,14 @@ production deployment ของ clientdata — ย้ายจาก Next.js ม
 
 | Command | What it does |
 |---------|-------------|
-| `npx vite` | Dev server |
-| `npm run build` | Production build |
-| `npx wrangler pages deploy ./dist --project-name=data-mcky-space` | Deploy (git auto-deploy ปิด) |
+| `pnpm dev` | Dev server |
+| `pnpm run build` | Production build |
+| `pnpm exec wrangler pages deploy ./dist --project-name=data-mcky-space` | Deploy (git auto-deploy ปิด) |
 | `node scripts/health-check.mjs` | ตรวจสภาพ production |
 
 ## งานค้าง (TODOs)
 
-Query KB on startup: `okf_query_nodes project:data.mcky.space type:document status:active` — any node with `- [ ]` checklist items is a pending TODO. Notify user, ask intent. See `system/TODOS.md`.
 
-Current: (ไม่มี — DOC-002, DOC-003 เสร็จแล้วและ archived)
 
 ## การทำงานกับ Git (Git Workflow)
 
@@ -74,7 +64,6 @@ Current: (ไม่มี — DOC-002, DOC-003 เสร็จแล้วแล
 - การเปลี่ยนแปลงทดลองผ่าน `clientdata` (master) → ทดสอบ → merge เข้า `main`
 - การย้าย framework ทำบน branch `main` โดยตรง
 
-## กับดักที่เคยพัง (Lessons) → ดู LSN-001
 
 - หน้าขาว = build พังจาก pnpm strict layout (bare specifier) + `'use client'` ใน Vite → แก้ด้วย resolve.alias
 - spam refresh = SW v1 triggerHeal loop → แก้ด้วย SW v2 ที่ไม่ auto-reload + main.tsx unregister เก่า
