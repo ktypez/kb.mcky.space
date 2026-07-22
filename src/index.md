@@ -5,9 +5,6 @@ hero:
   name: OKF
   text: Knowledge Base
   tagline: Open Knowledge Framework — structured context for every project
-  image:
-    src: /favicon.svg
-    alt: OKF
   actions:
     - theme: brand
       text: Browse Projects

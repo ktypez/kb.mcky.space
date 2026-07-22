@@ -1,4 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
-  <rect width="32" height="32" rx="6" fill="#000"/>
-  <text x="16" y="22" text-anchor="middle" font-family="system-ui" font-weight="700" font-size="18" fill="#fff">K</text>
+  <rect width="32" height="32" fill="#3b82f6"/>
+  <!-- Brutalist offset border (Slate Edge signature) -->
+  <rect x="2.5" y="2.5" width="27" height="27" fill="none" stroke="#1e293b" stroke-width="2"/>
+  <rect x="4" y="4" width="24" height="24" fill="none" stroke="#1e293b" stroke-width="0.5" opacity="0.3"/>
+  <text x="16" y="22.5" text-anchor="middle" font-family="system-ui,sans-serif" font-weight="800" font-size="17" fill="#fff">K</text>
 </svg>
