@@ -1,7 +1,7 @@
 ---
 type: instruction
 id: okf-setup
-last_updated: 2026-07-21
+last_updated: 2026-07-22
 ---
 
 # OKF Setup Guide
@@ -64,11 +64,12 @@ echo '{"jsonrpc":"2.0","id":1,"method":"initialize","params":{"protocolVersion":
 ├── mcp-server/                       ← Local MCP server
 │   ├── index.js
 │   ├── lib/
-│   │   ├── okf.js                    ← Core OKF functions
-│   │   ├── db.js                     ← SQLite connection
-│   │   ├── sync.js                   ← Markdown → SQLite sync
-│   │   └── tools.js                  ← MCP tools
-│   └── okf.db                        ← SQLite database
+│   │   ├── okf.js                    ← Core OKF functions (read, write, parse)
+│   │   ├── db.js                     ← SQLite connection (node:sqlite)
+│   │   ├── compiler.js               ← Markdown → SQLite compiler
+│   │   ├── tools.js                  ← MCP tools (×10)
+│   │   └── watcher.js                ← File change watcher (chokidar)
+│   └── okf.db                        ← Compiled SQLite database (.gitignore)
 └── skills/                           ← Specialized skills
 ```
 
@@ -81,7 +82,7 @@ Every `.md` file uses YAML frontmatter + Markdown body:
 type: project-profile
 id: truck-profile
 project: truck
-last_updated: 2026-07-21
+last_updated: 2026-07-22
 status: active
 ---
 ```
@@ -96,25 +97,26 @@ status: active
 
 ## Using MCP Tools
 
-The MCP server exposes 8 tools for reading and querying the KB.
+The MCP server exposes 10 tools for reading and querying the KB.
 
 ### Query
 
 ```
-okf_list_projects                    → see all projects
-okf_get_project truck                → read truck's profile + agent + status
-okf_search "Supabase"                → full-text search
-okf_query_projects framework=React   → query by technology
-okf_dashboard                        → summary of all projects
-okf_project_stats                    → statistics across projects
-okf_list_dir                         → browse structure
-okf_get_file projects/truck/profile.md → raw file content
+projects                                  → list all projects
+project truck                             → read truck's profile + agent + status
+search "Supabase"                         → full-text search
+filter framework=React                    → query by technology
+dashboard                                 → summary table of all projects
+stats                                     → cross-project statistics
+tree                                      → browse directory structure
+read projects/truck/profile.md            → raw file content
+graph                                     → Mermaid knowledge graph
+rebuild                                   → force recompile from .md files
 ```
 
 ## Rules
 
-- Use MCP tools to read/write KB — don't manually edit .md files
+- Use MCP tools to read/query KB — the compiler syncs .md → SQLite automatically
 - Dates are always YYYY-MM-DD
 - No Chinese characters — Thai or English only
-- Don't push KB changes without explicit instruction
-- Don't commit unless asked
+- `.md` files are the source of truth (edit them directly); `okf.db` is derived
