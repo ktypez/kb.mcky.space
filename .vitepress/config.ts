@@ -122,7 +122,11 @@ export default withPwa(defineConfig({
     image: { lazyLoading: true },
   },
   head: [
-    ['meta', { name: 'theme-color', content: '#000000' }],
+    ['meta', { name: 'theme-color', content: '#f8fafc' }],
+    ['meta', { name: 'theme-color', content: '#0f172a', media: '(prefers-color-scheme: dark)' }],
+    ['link', { rel: 'preconnect', href: 'https://fonts.googleapis.com' }],
+    ['link', { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: '' }],
+    ['link', { rel: 'preconnect', href: 'https://api.fontshare.com' }],
   ],
   themeConfig: {
     logo: { src: '/favicon.svg', width: 24, height: 24 },
@@ -143,8 +147,8 @@ export default withPwa(defineConfig({
       name: 'OKF Knowledge Base',
       short_name: 'OKF',
       description: 'Open Knowledge Framework — structured context for every project',
-      theme_color: '#000000',
-      background_color: '#ffffff',
+      theme_color: '#f8fafc',
+      background_color: '#f8fafc',
       display: 'standalone',
       icons: [
         { src: '/favicon.svg', sizes: 'any', type: 'image/svg+xml' },

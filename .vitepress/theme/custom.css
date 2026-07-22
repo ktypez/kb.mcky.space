@@ -1,0 +1,405 @@
+/* ============================================
+   Slate Edge — Neo-brutalist VitePress Theme
+   Tokens from needmcp design system
+   ============================================ */
+
+/* ── Fonts: Inter + Cabinet Grotesk ── */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+@import url('https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@1,2&display=swap');
+
+/* ── Light Mode ── */
+:root {
+  /* Brand */
+  --vp-c-brand-1: #3b82f6;
+  --vp-c-brand-2: #2563eb;
+  --vp-c-brand-3: #1d4ed8;
+  --vp-c-brand-soft: #dbeafe;
+
+  /* Backgrounds */
+  --vp-c-bg: #f8fafc;
+  --vp-c-bg-soft: #f1f5f9;
+  --vp-c-bg-mute: #e2e8f0;
+  --vp-c-bg-alt: #ffffff;
+  --vp-c-bg-elv: #ffffff;
+
+  /* Text */
+  --vp-c-text-1: #1e293b;
+  --vp-c-text-2: #64748b;
+  --vp-c-text-3: #94a3b8;
+
+  /* Borders */
+  --vp-c-border: #e2e8f0;
+  --vp-c-divider: #e2e8f0;
+  --vp-c-gutter: #e2e8f0;
+
+  /* Typography */
+  --vp-font-family-base: 'Inter', system-ui, sans-serif;
+  --vp-font-family-heading: 'Cabinet Grotesk', 'Inter', system-ui, sans-serif;
+
+  /* Shadows — brutalist hard offset (no blur!) */
+  --vp-shadow-1: 4px 4px 0px 0px #1e293b;
+  --vp-shadow-2: 8px 8px 0px 0px #1e293b;
+  --vp-shadow-3: 12px 12px 0px 0px #1e293b;
+
+  /* Misc */
+  --vp-c-mute: #f1f5f9;
+  --vp-code-color: #1e293b;
+  --vp-code-bg: #f1f5f9;
+
+  /* Slate Edge button radius = 0 (brutalist) */
+  --vp-button-brand-border: 2px solid #1e293b;
+  --vp-button-brand-bg: #3b82f6;
+  --vp-button-brand-hover-bg: #2563eb;
+}
+
+/* ── Dark Mode ── */
+html.dark {
+  --vp-c-brand-1: #60a5fa;
+  --vp-c-brand-2: #3b82f6;
+  --vp-c-brand-3: #2563eb;
+  --vp-c-brand-soft: #1e3a5f;
+
+  --vp-c-bg: #0f172a;
+  --vp-c-bg-soft: #1e293b;
+  --vp-c-bg-mute: #334155;
+  --vp-c-bg-alt: #1e293b;
+  --vp-c-bg-elv: #1e293b;
+
+  --vp-c-text-1: #f1f5f9;
+  --vp-c-text-2: #94a3b8;
+  --vp-c-text-3: #64748b;
+
+  --vp-c-border: #334155;
+  --vp-c-divider: #334155;
+  --vp-c-gutter: #334155;
+
+  --vp-shadow-1: 4px 4px 0px 0px #0f172a;
+  --vp-shadow-2: 8px 8px 0px 0px #0f172a;
+  --vp-shadow-3: 12px 12px 0px 0px #0f172a;
+
+  --vp-c-mute: #1e293b;
+  --vp-code-color: #f1f5f9;
+  --vp-code-bg: #1e293b;
+
+  --vp-button-brand-border: 2px solid #f1f5f9;
+  --vp-button-brand-bg: #3b82f6;
+  --vp-button-brand-hover-bg: #2563eb;
+}
+
+/* ============================================
+   Component Overrides
+   ============================================ */
+
+/* ── Navbar ── */
+.VPNavBar {
+  border-bottom: 2px solid var(--vp-c-border) !important;
+  background-color: var(--vp-c-bg-alt) !important;
+}
+.VPNavBar .container {
+  max-width: 1280px !important;
+}
+.VPNavBar .content {
+  background-color: var(--vp-c-bg-alt) !important;
+}
+.VPNavBar .VPNavBarSearch {
+  --vp-c-bg: var(--vp-c-bg-soft) !important;
+}
+.VPNavBar .VPNavBarSearch .search {
+  border: 2px solid var(--vp-c-border) !important;
+  border-radius: 0 !important;
+}
+.VPNavBar .VPNavBarSearch .search:hover {
+  border-color: var(--vp-c-brand-1) !important;
+}
+.VPNavBarTitle .title {
+  font-family: var(--vp-font-family-heading) !important;
+  font-weight: 800 !important;
+  font-size: 1.125rem !important;
+  color: var(--vp-c-text-1) !important;
+}
+
+/* ── Sidebar ── */
+.VPSidebar {
+  border-right: 2px solid var(--vp-c-border) !important;
+  background-color: var(--vp-c-bg) !important;
+  padding-top: 0 !important;
+}
+.VPSidebar .group + .group {
+  border-top: 1px solid var(--vp-c-divider) !important;
+  padding-top: 8px !important;
+  margin-top: 8px !important;
+}
+.VPSidebar .VPSidebarItem.level-0 .text {
+  font-family: var(--vp-font-family-heading) !important;
+  font-weight: 700 !important;
+  font-size: 0.875rem !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.05em !important;
+}
+.VPSidebar .VPSidebarItem .link {
+  border-radius: 0 !important;
+  font-family: var(--vp-font-family-base) !important;
+  transition: none !important;
+}
+.VPSidebar .VPSidebarItem .link.active {
+  background-color: var(--vp-c-brand-soft) !important;
+  border-left: 3px solid var(--vp-c-brand-1) !important;
+}
+.VPSidebar .VPSidebarItem .link:hover {
+  background-color: var(--vp-c-bg-soft) !important;
+}
+
+/* ── Home Hero ── */
+.VPHomeHero {
+  padding-top: 64px !important;
+  padding-bottom: 48px !important;
+}
+.VPHomeHero .name,
+.VPHomeHero .text {
+  font-family: var(--vp-font-family-heading) !important;
+  font-weight: 800 !important;
+  letter-spacing: -0.02em !important;
+}
+.VPHomeHero .tagline {
+  font-family: var(--vp-font-family-base) !important;
+  color: var(--vp-c-text-2) !important;
+  font-size: 1.125rem !important;
+}
+
+/* ── Home Feature Cards ── */
+.VPHomeFeatures .items {
+  display: grid !important;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)) !important;
+  gap: 16px !important;
+}
+.VPHomeFeatures .items .VPFeature {
+  border: 2px solid var(--vp-c-border) !important;
+  border-radius: 0 !important;
+  box-shadow: var(--vp-shadow-2) !important;
+  transition: box-shadow 0.2s ease, transform 0.2s ease !important;
+  background-color: var(--vp-c-bg-alt) !important;
+  padding: 24px !important;
+}
+.VPHomeFeatures .items .VPFeature:hover {
+  box-shadow: var(--vp-shadow-3) !important;
+  transform: translate(-2px, -2px) !important;
+  border-color: var(--vp-c-brand-1) !important;
+}
+.VPHomeFeatures .items .VPFeature .title {
+  font-family: var(--vp-font-family-heading) !important;
+  font-weight: 700 !important;
+}
+.VPHomeFeatures .items .VPFeature .details {
+  font-family: var(--vp-font-family-base) !important;
+  color: var(--vp-c-text-2) !important;
+}
+.VPHomeFeatures .items .VPFeature .icon {
+  display: none !important;
+}
+
+/* ── Buttons (brand + alt) ── */
+.vp-doc .VPButton.brand,
+.VPButton.brand {
+  background-color: var(--vp-c-brand-1) !important;
+  border: 2px solid #1e293b !important;
+  border-radius: 0 !important;
+  box-shadow: var(--vp-shadow-1) !important;
+  color: #ffffff !important;
+  font-family: var(--vp-font-family-base) !important;
+  font-weight: 600 !important;
+  transition: box-shadow 0.15s ease, transform 0.15s ease, background-color 0.15s ease !important;
+}
+.vp-doc .VPButton.brand:hover,
+.VPButton.brand:hover {
+  background-color: var(--vp-c-brand-2) !important;
+  box-shadow: var(--vp-shadow-2) !important;
+  transform: translate(-2px, -2px) !important;
+}
+.vp-doc .VPButton.alt,
+.VPButton.alt {
+  background-color: var(--vp-c-bg-alt) !important;
+  border: 2px solid #1e293b !important;
+  border-radius: 0 !important;
+  box-shadow: var(--vp-shadow-1) !important;
+  color: var(--vp-c-text-1) !important;
+  font-family: var(--vp-font-family-base) !important;
+  font-weight: 600 !important;
+  transition: box-shadow 0.15s ease, transform 0.15s ease !important;
+}
+.vp-doc .VPButton.alt:hover,
+.VPButton.alt:hover {
+  background-color: var(--vp-c-bg-soft) !important;
+  box-shadow: var(--vp-shadow-2) !important;
+  transform: translate(-2px, -2px) !important;
+}
+
+/* ── Doc Content ── */
+.VPDoc {
+  font-family: var(--vp-font-family-base) !important;
+}
+.VPDoc h1,
+.VPDoc h2,
+.VPDoc h3,
+.VPDoc h4,
+.VPDoc h5,
+.VPDoc h6 {
+  font-family: var(--vp-font-family-heading) !important;
+  font-weight: 700 !important;
+  letter-spacing: -0.01em !important;
+}
+.VPDoc h1 {
+  font-size: 2.5rem !important;
+}
+.VPDoc h2 {
+  font-size: 1.75rem !important;
+  border-bottom: 2px solid var(--vp-c-divider) !important;
+  padding-bottom: 8px !important;
+}
+.VPDoc h3 {
+  font-size: 1.375rem !important;
+}
+.VPDoc .content-container {
+  max-width: 1280px !important;
+}
+
+/* ── Tables ── */
+.vp-doc table {
+  border: 2px solid var(--vp-c-border) !important;
+  border-radius: 0 !important;
+  width: 100% !important;
+}
+.vp-doc th {
+  background-color: var(--vp-c-bg-soft) !important;
+  font-family: var(--vp-font-family-heading) !important;
+  font-weight: 600 !important;
+  border-bottom: 2px solid var(--vp-c-border) !important;
+}
+.vp-doc td {
+  border-bottom: 1px solid var(--vp-c-divider) !important;
+}
+.vp-doc tr:last-child td {
+  border-bottom: none !important;
+}
+
+/* ── Code Blocks ── */
+.vp-doc div[class*='language-'] {
+  border: 2px solid var(--vp-c-border) !important;
+  border-radius: 0 !important;
+  box-shadow: var(--vp-shadow-1) !important;
+}
+.vp-doc div[class*='language-'] .lang {
+  font-family: var(--vp-font-family-base) !important;
+  font-size: 0.75rem !important;
+}
+
+/* ── Inline Code ── */
+.vp-doc :not(pre) > code {
+  border-radius: 0 !important;
+  border: 1px solid var(--vp-c-border) !important;
+  background-color: var(--vp-c-bg-soft) !important;
+  color: var(--vp-code-color) !important;
+  padding: 0.125rem 0.375rem !important;
+}
+
+/* ── Blockquote ── */
+.vp-doc blockquote {
+  border-left: 4px solid var(--vp-c-brand-1) !important;
+  background-color: var(--vp-c-bg-soft) !important;
+  border-radius: 0 !important;
+  padding: 12px 20px !important;
+  margin: 16px 0 !important;
+}
+.vp-doc blockquote p {
+  font-style: italic !important;
+}
+
+/* ── Custom Blocks (tip, warning, danger, info) ── */
+.vp-doc .custom-block {
+  border-radius: 0 !important;
+  border: 2px solid var(--vp-c-border) !important;
+  box-shadow: var(--vp-shadow-1) !important;
+}
+.vp-doc .custom-block.tip {
+  border-color: var(--vp-c-brand-1) !important;
+}
+.vp-doc .custom-block.warning {
+  border-color: #eab308 !important;
+}
+.vp-doc .custom-block.danger {
+  border-color: #ef4444 !important;
+}
+.vp-doc .custom-block.info {
+  border-color: #06b6d4 !important;
+}
+
+/* ── Links ── */
+.vp-doc a {
+  color: var(--vp-c-brand-1) !important;
+  text-decoration: underline !important;
+  text-underline-offset: 2px !important;
+  text-decoration-thickness: 2px !important;
+  transition: color 0.15s ease !important;
+}
+.vp-doc a:hover {
+  color: var(--vp-c-brand-2) !important;
+}
+
+/* ── Horizontal Rule ── */
+.vp-doc hr {
+  border: none !important;
+  border-top: 2px solid var(--vp-c-divider) !important;
+  margin: 32px 0 !important;
+}
+
+/* ── Scrollbar (Slate Edge custom) ── */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--vp-c-bg);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--vp-c-border);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--vp-c-text-3);
+}
+
+/* ── Footer ── */
+.VPFooter {
+  border-top: 2px solid var(--vp-c-border) !important;
+  background-color: var(--vp-c-bg) !important;
+}
+.VPFooter .copyright {
+  font-family: var(--vp-font-family-base) !important;
+  color: var(--vp-c-text-2) !important;
+}
+.VPFooter .message {
+  font-family: var(--vp-font-family-base) !important;
+  color: var(--vp-c-text-3) !important;
+}
+
+/* ── Search Results ── */
+.DocSearch-Button {
+  border-radius: 0 !important;
+  border: 2px solid var(--vp-c-border) !important;
+}
+
+/* ── Outline / Aside ── */
+.VPDocAsideOutline .root .outline-item .outline-link {
+  border-radius: 0 !important;
+  font-family: var(--vp-font-family-base) !important;
+}
+.VPDocAsideOutline .root .outline-item .outline-link.active {
+  background-color: var(--vp-c-brand-soft) !important;
+  border-left: 3px solid var(--vp-c-brand-1) !important;
+}
+
+/* ── Badge ── */
+.vp-doc .badge {
+  border-radius: 0 !important;
+  font-family: var(--vp-font-family-base) !important;
+  font-weight: 600 !important;
+  padding: 2px 8px !important;
+}
