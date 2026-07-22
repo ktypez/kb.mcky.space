@@ -125,11 +125,14 @@ export default withPwa(defineConfig({
   head: [
     ['meta', { name: 'theme-color', content: '#f8fafc' }],
     ['meta', { name: 'theme-color', content: '#0f172a', media: '(prefers-color-scheme: dark)' }],
+    ['link', { rel: 'icon', href: '/favicon.svg', type: 'image/svg+xml' }],
+    ['link', { rel: 'apple-touch-icon', href: '/favicon.svg' }],
     ['link', { rel: 'preconnect', href: 'https://fonts.googleapis.com' }],
     ['link', { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: '' }],
     ['link', { rel: 'preconnect', href: 'https://api.fontshare.com' }],
   ],
   themeConfig: {
+    logo: { src: '/favicon.svg', width: 24, height: 24 },
     search: { provider: 'local' },
     sidebar: buildSidebar(),
     socialLinks: [
