@@ -175,6 +175,10 @@ html.dark {
 .VPHomeHero .actions .action {
   margin: 0 !important;
 }
+.VPHomeHero .actions .action:nth-child(1),
+.VPHomeHero .actions .action:nth-child(2) {
+  grid-column: 1 / -1 !important;
+}
 .VPHomeHero .actions .action .VPButton {
   width: 100% !important;
   text-align: center !important;
