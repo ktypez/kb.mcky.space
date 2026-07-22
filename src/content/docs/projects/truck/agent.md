@@ -1,17 +1,6 @@
 ---
 title: Agent ของ Truck
 description: ''
-original_frontmatter:
-  type: agent-profile
-  id: truck-agent
-  project: truck
-  last_updated: 2026-07-21T00:00:00.000Z
-  status: active
-  personality: overtime enthusiast
-  status_ref: truck-status
-  links:
-    profile: truck-profile
-    status: truck-status
 
 ---
 

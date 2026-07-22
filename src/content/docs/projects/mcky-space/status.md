@@ -1,15 +1,6 @@
 ---
 title: mcky-space-status (project-status)
 description: ''
-original_frontmatter:
-  type: project-status
-  id: mcky-space-status
-  project: mcky.space
-  last_updated: 2026-07-22T00:00:00.000Z
-  status: active
-  links:
-    profile: mcky-space-profile
-    agent: mcky-space-agent
 
 ---
 

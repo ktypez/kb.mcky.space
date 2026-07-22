@@ -1,27 +1,6 @@
 ---
 title: 'โปรไฟล์โปรเจกต์: Truck'
 description: ''
-original_frontmatter:
-  type: project-profile
-  id: truck-profile
-  project: truck
-  last_updated: 2026-07-21T00:00:00.000Z
-  status: active
-  stack:
-    language: TypeScript
-    framework: React 19 + Vite 8
-    ui: Tailwind CSS
-    database: Supabase (PostgreSQL)
-    storage: Supabase Storage
-    state: TanStack Query v5
-    auth: Supabase Auth
-    testing: Vitest
-    deployment: Vercel
-    ci: GitHub Actions
-  agent_personality: overtime enthusiast
-  links:
-    agent: truck-agent
-    status: truck-status
 
 ---
 

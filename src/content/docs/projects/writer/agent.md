@@ -1,15 +1,6 @@
 ---
 title: Writer Agent
 description: ''
-original_frontmatter:
-  type: agent-profile
-  id: writer-agent
-  project: writer
-  last_updated: 2026-07-21T00:00:00.000Z
-  status: active
-  personality: word goblin
-  links:
-    profile: writer-profile
 
 ---
 

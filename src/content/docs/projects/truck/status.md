@@ -1,15 +1,6 @@
 ---
 title: สถานะโปรเจกต์ — Truck
 description: ''
-original_frontmatter:
-  type: project-status
-  id: truck-status
-  project: truck
-  last_updated: 2026-07-21T00:00:00.000Z
-  status: active
-  links:
-    profile: truck-profile
-    agent: truck-agent
 
 ---
 

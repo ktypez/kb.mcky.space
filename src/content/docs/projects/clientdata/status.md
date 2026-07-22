@@ -1,16 +1,6 @@
 ---
 title: สถานะโปรเจกต์ — clientdata
 description: ''
-original_frontmatter:
-  type: project-status
-  id: clientdata-status
-  project: clientdata
-  last_updated: 2026-07-21T00:00:00.000Z
-  status: archived
-  superseded_by: data-mcky-space-status
-  links:
-    profile: clientdata-profile
-    agent: clientdata-agent
 
 ---
 

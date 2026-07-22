@@ -1,27 +1,6 @@
 ---
 title: 'โปรไฟล์โปรเจกต์: habby'
 description: ''
-original_frontmatter:
-  type: project-profile
-  id: habby-profile
-  project: habby
-  last_updated: 2026-07-21T00:00:00.000Z
-  status: active
-  stack:
-    language: JavaScript
-    framework: Vite 8 + Express 5
-    ui: vanilla CSS (neobrutalist)
-    database: Redis (owner mode)
-    storage: localStorage (guest mode)
-    state: none
-    auth: SHA-256
-    testing: Vitest (18 tests)
-    deployment: Vercel (static + serverless)
-    ci: none
-  agent_personality: trophy goblin
-  links:
-    agent: habby-agent
-    status: habby-status
 
 ---
 

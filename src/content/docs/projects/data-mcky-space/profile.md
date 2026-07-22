@@ -1,27 +1,6 @@
 ---
 title: 'ข้อมูลโปรเจกต์: data.mcky.space'
 description: ''
-original_frontmatter:
-  type: project-profile
-  id: data-mcky-space-profile
-  project: data.mcky.space
-  last_updated: 2026-07-21T00:00:00.000Z
-  status: active
-  stack:
-    language: TypeScript
-    framework: Vite 8 + React 19
-    ui: Tailwind CSS 4
-    database: Cloudflare D1 (SQLite)
-    storage: Cloudflare R2
-    state: Zustand
-    auth: password (admin/viewer)
-    testing: health-check script
-    deployment: Cloudflare Pages
-    ci: none
-  agent_personality: data goblin (stable)
-  links:
-    agent: data-mcky-space-agent
-    status: data-mcky-space-status
 
 ---
 

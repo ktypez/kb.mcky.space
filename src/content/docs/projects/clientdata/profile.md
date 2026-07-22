@@ -1,27 +1,6 @@
 ---
 title: 'Profile ของโปรเจกต์: clientdata'
 description: ''
-original_frontmatter:
-  type: project-profile
-  id: clientdata-profile
-  project: clientdata
-  last_updated: 2026-07-21T00:00:00.000Z
-  status: archived
-  stack:
-    language: TypeScript
-    framework: Next.js 16 + React 19
-    ui: Tailwind CSS
-    database: Neon (PostgreSQL)
-    storage: Supabase Storage
-    state: React hooks
-    auth: Supabase Auth
-    testing: none
-    deployment: Vercel
-    ci: none
-  agent_personality: data goblin (archived)
-  links:
-    agent: clientdata-agent
-    status: clientdata-status
 
 ---
 

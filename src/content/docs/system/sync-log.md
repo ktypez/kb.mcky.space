@@ -1,10 +1,6 @@
 ---
 title: Sync Log
 description: ''
-original_frontmatter:
-  type: system-doc
-  id: sync-log
-  last_updated: 2026-07-21T00:00:00.000Z
 
 ---
 

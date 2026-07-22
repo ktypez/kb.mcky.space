@@ -1,17 +1,6 @@
 ---
 title: mcky-space-agent (agent-profile)
 description: ''
-original_frontmatter:
-  type: agent-profile
-  id: mcky-space-agent
-  project: mcky.space
-  last_updated: 2026-07-21T00:00:00.000Z
-  status: active
-  personality: terminal hipster
-  status_ref: mcky-space-status
-  links:
-    profile: mcky-space-profile
-    status: mcky-space-status
 
 ---
 

@@ -1,27 +1,6 @@
 ---
 title: 'ข้อมูลโปรเจกต์: collage'
 description: ''
-original_frontmatter:
-  type: project-profile
-  id: collage-profile
-  project: collage
-  last_updated: 2026-07-22T00:00:00.000Z
-  status: active
-  stack:
-    language: JavaScript
-    framework: Express 4 (backend) + vanilla HTML/CSS/JS (frontend)
-    ui: vanilla CSS
-    database: none
-    storage: Cloudflare R2
-    state: none
-    auth: LINE Messaging API
-    testing: none
-    deployment: Render.com (backend) + Vercel (frontend)
-    ci: none
-  agent_personality: barista engineer
-  links:
-    agent: collage-agent
-    status: collage-status
 
 ---
 

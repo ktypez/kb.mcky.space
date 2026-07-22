@@ -1,10 +1,6 @@
 ---
 title: ศัพท์เทคนิค (Glossary)
 description: ''
-original_frontmatter:
-  type: system-doc
-  id: glossary
-  last_updated: 2026-07-21T00:00:00.000Z
 
 ---
 

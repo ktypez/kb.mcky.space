@@ -1,15 +1,6 @@
 ---
 title: สถานะโปรเจกต์ — data.mcky.space
 description: ''
-original_frontmatter:
-  type: project-status
-  id: data-mcky-space-status
-  project: data.mcky.space
-  last_updated: 2026-07-21T00:00:00.000Z
-  status: active
-  links:
-    profile: data-mcky-space-profile
-    agent: data-mcky-space-agent
 
 ---
 

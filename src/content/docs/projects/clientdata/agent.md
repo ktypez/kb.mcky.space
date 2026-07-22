@@ -1,17 +1,6 @@
 ---
 title: clientdata Agent
 description: ''
-original_frontmatter:
-  type: agent-profile
-  id: clientdata-agent
-  project: clientdata
-  last_updated: 2026-07-21T00:00:00.000Z
-  status: archived
-  personality: data goblin
-  status_ref: clientdata-status
-  links:
-    profile: clientdata-profile
-    status: clientdata-status
 
 ---
 

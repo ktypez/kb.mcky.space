@@ -1,15 +1,6 @@
 ---
 title: สถานะโปรเจกต์ — collage
 description: ''
-original_frontmatter:
-  type: project-status
-  id: collage-status
-  project: collage
-  last_updated: 2026-07-22T00:00:00.000Z
-  status: active
-  links:
-    profile: collage-profile
-    agent: collage-agent
 
 ---
 

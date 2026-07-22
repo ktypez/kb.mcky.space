@@ -1,10 +1,6 @@
 ---
 title: Conventions
 description: ''
-original_frontmatter:
-  type: system-doc
-  id: conventions
-  last_updated: 2026-07-21T00:00:00.000Z
 
 ---
 
@@ -205,19 +201,13 @@ External directories allowed:
 
 ## Build Site
 
-Build and deploy the OKF knowledge base site to [kb.mcky.space](https://kb.mcky.space):
-
-```
-cd ~/kb.mcky.space
-npm run generate   # pull latest content from ~/OKF
-npm run build      # astro build
-vercel build --prod
-vercel deploy --prebuilt --prod --yes
-```
+1. `cd ~/kb.mcky.space && npm run generate` — pull latest content from `~/OKF/`
+2. `git add -A && git commit -m "docs: update KB" && git push`
+3. Vercel auto-deploys from GitHub (`ktypez/kb.mcky.space`)
 
 Or just say **"build site"** to trigger this workflow.
 
-**Note:** Vercel auto-deploys on git push to `main` on `ktypez/kb.mcky.space`, but `generate` must be run first since content lives in `~/OKF` (not in git).
+**Note:** `generate` must be run locally before push since content lives in `~/OKF/` (not in git).
 
 ## KB Sync
 
@@ -229,6 +219,6 @@ Or just say **"build site"** to trigger this workflow.
 3. อัปเดต `profile.md`, `status.md`, `agent.md` ตามสภาพจริง
 4. ตรวจสอบสถานะโปรเจกต์ (active/archived)
 5. commit + push การเปลี่ยนแปลง
-6. สร้าง site: `cd ~/kb.mcky.space && npm run generate && npm run build && vercel build --prod && vercel deploy --prebuilt --prod --yes`
+6. commit + push การเปลี่ยนแปลง — Vercel auto-deploys
 
 **คำที่ใช้ได้:** "sync kb", "refresh kb", "update kb", "อัปเดต kb", "ทำให้ kb ทันสมัย"

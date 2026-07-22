@@ -1,12 +1,6 @@
 ---
 title: 'Plan: Migrate Data Project to Cloudflare Pages'
 description: ''
-original_frontmatter:
-  id: plan-data-to-cloudflare-pages
-  version: 2
-  status: completed
-  created: 2026-07-10T00:00:00.000Z
-  updated: 2026-07-10T00:00:00.000Z
 
 ---
 

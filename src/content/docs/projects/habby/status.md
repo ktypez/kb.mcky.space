@@ -1,15 +1,6 @@
 ---
 title: สถานะโปรเจกต์ — habby
 description: ''
-original_frontmatter:
-  type: project-status
-  id: habby-status
-  project: habby
-  last_updated: 2026-07-21T00:00:00.000Z
-  status: active
-  links:
-    profile: habby-profile
-    agent: habby-agent
 
 ---
 

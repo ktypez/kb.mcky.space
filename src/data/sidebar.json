@@ -63,19 +63,19 @@
         ]
       },
       {
-        "label": "data.mcky.space",
+        "label": "data-mcky-space",
         "items": [
           {
             "label": "Agent",
-            "link": "/projects/datamckyspace/agent"
+            "link": "/projects/data-mcky-space/agent"
           },
           {
             "label": "Profile",
-            "link": "/projects/datamckyspace/profile"
+            "link": "/projects/data-mcky-space/profile"
           },
           {
             "label": "Status",
-            "link": "/projects/datamckyspace/status"
+            "link": "/projects/data-mcky-space/status"
           }
         ]
       },
@@ -97,19 +97,19 @@
         ]
       },
       {
-        "label": "mcky.space",
+        "label": "mcky-space",
         "items": [
           {
             "label": "Agent",
-            "link": "/projects/mckyspace/agent"
+            "link": "/projects/mcky-space/agent"
           },
           {
             "label": "Profile",
-            "link": "/projects/mckyspace/profile"
+            "link": "/projects/mcky-space/profile"
           },
           {
             "label": "Status",
-            "link": "/projects/mckyspace/status"
+            "link": "/projects/mcky-space/status"
           }
         ]
       },

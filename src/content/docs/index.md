@@ -1,10 +1,6 @@
 ---
 title: ดัชนี Workspace (Workspace Index)
 description: ''
-original_frontmatter:
-  type: workspace-index
-  id: okf-index
-  last_updated: 2026-07-21T00:00:00.000Z
 
 ---
 

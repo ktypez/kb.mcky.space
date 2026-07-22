@@ -1,27 +1,6 @@
 ---
 title: mcky-space-profile (project-profile)
 description: ''
-original_frontmatter:
-  type: project-profile
-  id: mcky-space-profile
-  project: mcky.space
-  last_updated: 2026-07-22T00:00:00.000Z
-  status: active
-  stack:
-    language: JavaScript
-    framework: Astro 7
-    ui: Vanilla CSS
-    database: Supabase (PostgreSQL, not actively used)
-    storage: Supabase Storage
-    state: none
-    auth: SHA-256 header-based
-    testing: none
-    deployment: Vercel
-    ci: none
-  agent_personality: terminal hipster
-  links:
-    agent: mcky-space-agent
-    status: mcky-space-status
 
 ---
 

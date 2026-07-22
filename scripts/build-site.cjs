@@ -69,11 +69,6 @@ function serializeStarlightFm(title, fm, body) {
     description: fm?.description || '',
   };
 
-  // Preserve original frontmatter as raw JSON for reference
-  if (fm && Object.keys(fm).length > 0) {
-    starlightFm.original_frontmatter = fm;
-  }
-
   return `---\n${yaml.dump(starlightFm, { lineWidth: 120, noCompatMode: true, quotingType: "'" })}\n---\n\n${body}`;
 }
 
@@ -111,7 +106,7 @@ function copyFiles(srcDir, destSubdir, options = {}) {
 // Astro/Starlight slugifies URLs: lowercase + strip dots (dashes kept).
 // Sidebar links must match the generated slugs or they 404.
 function slugify(s) {
-  return s.toLowerCase().replace(/\./g, '');
+  return s.toLowerCase().replace(/\./g, '-');
 }
 
 function generateSidebar() {
@@ -187,11 +182,17 @@ console.log('  OKF Site Builder');
 console.log('  ' + '-'.repeat(40));
 console.log('');
 
-// 0. Clean docs directory first
+// 0. Check if OKF source exists (graceful skip for CI/other environments)
+if (!fs.existsSync(OKF_ROOT)) {
+  console.log('  OKF source not found at ' + OKF_ROOT + ' — skipping generation');
+  process.exit(0);
+}
+
+// 2. Clean docs directory first
 console.log('  Cleaning docs directory...');
 ensureCleanDir(DOCS_DIR);
 
-// 1. Root index doc
+// 3. Root index doc
 const indexMd = path.join(OKF_ROOT, 'index.md');
 if (fs.existsSync(indexMd)) {
   console.log('  Copied index.md');
@@ -202,12 +203,12 @@ if (fs.existsSync(indexMd)) {
   fs.writeFileSync(out, serializeStarlightFm(title, fm, body), 'utf-8');
 }
 
-// 2. System docs
+// 4. System docs
 const systemSrc = path.join(OKF_ROOT, 'system');
 console.log('  Copying system docs...');
 copyFiles(systemSrc, 'system');
 
-// 2. Project docs
+// 5. Project docs
 const projectsSrc = path.join(OKF_ROOT, 'projects');
 console.log('');
 console.log('  Copying project docs...');
@@ -218,11 +219,11 @@ if (fs.existsSync(projectsSrc)) {
 
   for (const proj of projectDirs) {
     const projSrc = path.join(projectsSrc, proj);
-    copyFiles(projSrc, `projects/${proj}`);
+    copyFiles(projSrc, `projects/${slugify(proj)}`);
   }
 }
 
-// 3. Root setup doc
+// 6. Root setup doc
 const setupMd = path.join(OKF_ROOT, 'SETUP.md');
 if (fs.existsSync(setupMd)) {
   console.log('');
@@ -234,7 +235,7 @@ if (fs.existsSync(setupMd)) {
   fs.writeFileSync(out, serializeStarlightFm(title, fm, body), 'utf-8');
 }
 
-// 4. Plan docs
+// 7. Plan docs
 const plansSrc = path.join(OKF_ROOT, 'plan');
 console.log('');
 console.log('  Copying plan docs...');
@@ -242,7 +243,7 @@ if (fs.existsSync(plansSrc)) {
   copyFiles(plansSrc, 'plans');
 }
 
-// 5. Generate sidebar
+// 8. Generate sidebar
 console.log('');
 generateSidebar();
 

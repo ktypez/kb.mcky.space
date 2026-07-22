@@ -1,17 +1,6 @@
 ---
 title: collage Agent
 description: ''
-original_frontmatter:
-  type: agent-profile
-  id: collage-agent
-  project: collage
-  last_updated: 2026-07-21T00:00:00.000Z
-  status: active
-  personality: barista engineer
-  status_ref: collage-status
-  links:
-    profile: collage-profile
-    status: collage-status
 
 ---
 

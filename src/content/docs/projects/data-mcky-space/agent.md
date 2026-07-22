@@ -1,17 +1,6 @@
 ---
 title: data.mcky.space Agent
 description: ''
-original_frontmatter:
-  type: agent-profile
-  id: data-mcky-space-agent
-  project: data.mcky.space
-  last_updated: 2026-07-21T00:00:00.000Z
-  status: active
-  personality: data goblin (stable)
-  status_ref: data-mcky-space-status
-  links:
-    profile: data-mcky-space-profile
-    status: data-mcky-space-status
 
 ---
 

@@ -1,26 +1,6 @@
 ---
 title: 'โปรไฟล์โปรเจกต์: writer'
 description: ''
-original_frontmatter:
-  type: project-profile
-  id: writer-profile
-  project: writer
-  last_updated: 2026-07-21T00:00:00.000Z
-  status: active
-  stack:
-    language: Markdown
-    framework: AI agent system
-    ui: none
-    database: none
-    storage: file-based
-    state: none
-    auth: none
-    testing: none
-    deployment: none
-    ci: none
-  agent_personality: word goblin
-  links:
-    agent: writer-agent
 
 ---
 

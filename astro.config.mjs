@@ -3,6 +3,7 @@ import starlight from '@astrojs/starlight';
 import sidebar from './src/data/sidebar.json';
 
 export default defineConfig({
+  site: 'https://kb.mcky.space',
   output: 'static',
   integrations: [
     starlight({

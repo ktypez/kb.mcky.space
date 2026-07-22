@@ -10,7 +10,7 @@
     "build": "astro build",
     "preview": "astro preview",
     "generate": "node scripts/build-site.cjs",
-    "prebuild": "echo prebuild skipped - run generate locally first",
+    "prebuild": "node scripts/build-site.cjs",
     "postinstall": "patch-package"
   },
   "dependencies": {

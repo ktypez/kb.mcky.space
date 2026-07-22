@@ -1,27 +1,6 @@
 ---
 title: receipts-dms
 description: ''
-original_frontmatter:
-  type: project-profile
-  id: receipts-dms-profile
-  project: receipts-dms
-  last_updated: 2026-07-21T00:00:00.000Z
-  status: active
-  stack:
-    language: TypeScript
-    framework: Vite 8 + React 19
-    ui: Radix UI + Tailwind CSS 4
-    database: Cloudflare D1 (SQLite)
-    storage: Cloudflare R2
-    state: React hooks
-    auth: password + HMAC-SHA256
-    testing: none
-    deployment: Cloudflare Pages
-    ci: none
-  agent_personality: paper goblin
-  links:
-    agent: receipts-dms-agent
-    status: receipts-dms-status
 
 ---
 

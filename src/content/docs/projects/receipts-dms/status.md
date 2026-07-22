@@ -1,15 +1,6 @@
 ---
 title: สถานะ
 description: ''
-original_frontmatter:
-  type: project-status
-  id: receipts-dms-status
-  project: receipts-dms
-  last_updated: 2026-07-21T00:00:00.000Z
-  status: active
-  links:
-    profile: receipts-dms-profile
-    agent: receipts-dms-agent
 
 ---
 

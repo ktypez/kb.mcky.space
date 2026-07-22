@@ -1,17 +1,6 @@
 ---
 title: Habby Agent
 description: ''
-original_frontmatter:
-  type: agent-profile
-  id: habby-agent
-  project: habby
-  last_updated: 2026-07-21T00:00:00.000Z
-  status: active
-  personality: trophy goblin
-  status_ref: habby-status
-  links:
-    profile: habby-profile
-    status: habby-status
 
 ---
 

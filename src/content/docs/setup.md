@@ -1,10 +1,6 @@
 ---
 title: OKF Setup Guide
 description: ''
-original_frontmatter:
-  type: instruction
-  id: okf-setup
-  last_updated: 2026-07-21T00:00:00.000Z
 
 ---
 

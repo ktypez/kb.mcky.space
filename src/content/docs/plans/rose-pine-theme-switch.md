@@ -1,13 +1,6 @@
 ---
 title: 'Plan: Rose Pine Theme Switch'
 description: ''
-original_frontmatter:
-  id: plan-rose-pine-theme-switch
-  version: 4
-  status: superseded
-  created: 2026-07-09T00:00:00.000Z
-  updated: 2026-07-13T00:00:00.000Z
-  superseded-by: expo-theme
 
 ---
 
