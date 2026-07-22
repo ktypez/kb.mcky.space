@@ -4,5 +4,8 @@
   "installCommand": "npm install",
   "outputDirectory": ".vitepress/dist",
   "framework": "vitepress",
-  "cleanUrls": true
+  "cleanUrls": true,
+  "github": {
+    "silent": true
+  }
 }
