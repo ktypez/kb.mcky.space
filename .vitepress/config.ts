@@ -157,6 +157,19 @@ export default withPwa(defineConfig({
     },
     workbox: {
       globPatterns: ['**/*.{js,css,html,svg,png,ico,woff2}'],
+      cleanupOutdatedCaches: true,
+      skipWaiting: true,
+      clientsClaim: true,
+      runtimeCaching: [
+        {
+          urlPattern: /\.(html|md)$/,
+          handler: 'NetworkFirst',
+          options: {
+            cacheName: 'okf-pages',
+            expiration: { maxEntries: 100, maxAgeSeconds: 86400 },
+          },
+        },
+      ],
     },
   },
 }))
