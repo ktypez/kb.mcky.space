@@ -2,7 +2,7 @@
 type: project-status
 id: data-mcky-space-status
 project: data.mcky.space
-last_updated: 2026-07-21
+last_updated: 2026-07-22
 status: active
 links:
   profile: data-mcky-space-profile
@@ -11,8 +11,6 @@ links:
 
 
 # สถานะโปรเจกต์ — data.mcky.space
-
-
 
 ## Routes
 
@@ -26,7 +24,7 @@ links:
 | Domain | `data.mcky.space` |
 | Platform | Cloudflare Pages (project: `data-mcky-space`) |
 | Source repo | `ktypez/data.mcky.space` |
-| Auto-deploy (git) | **ปิด** (production_deployments_enabled:false) — deploy ด้วย `npx wrangler pages deploy ./dist --project-name=data-mcky-space` |
+| Auto-deploy (git) | **ปิด** (production_deployments_enabled:false) — deploy ด้วย `pnpm exec wrangler pages deploy ./dist --project-name=data-mcky-space` |
 
 ## การตรวจสภาพ (Health Check)
 
@@ -40,16 +38,28 @@ links:
 
 ## บันทึกการเปลี่ยนแปลง (Changelog)
 
+### 2026-07-22
+- ✅ **Motion: แก้ route exit animation + wire useReducedMotion()**
+  - `PageTransition` ใน `App.tsx` — เพิ่ม `exit="hidden"` ที่หายไป ทำให้ route exit animation ทำงาน (ก่อนหน้าหมดวูบ)
+  - เพิ่ม `useMotion()` hook ใน `motion.ts` — ส่ง variants + transitions กลับมาโดยนับ reduced motion อัตโนมัติ
+  - ถ้า user เปิด reduced motion: transitions กลายเป็น `instant` (duration 0), variants เป็น `{hidden: {}, visible: {}}` (ไม่ขยับ)
+  - อัปเดต `App.tsx`, `Dialog`, `Sheet` ให้ใช้ `useMotion()` แทน constant imports
+  - 4 ไฟล์ modified
+- ✅ **Location search: รองรับหลายรูปแบบ + feedback ชัดเจน**
+  - แยก `parseCoords()` helper — รองรับ DMS (`13°45'23"N 100°29'31"E`), hemisphere suffix (`13.7563 N, 100.5018 E`), และ decimal degrees
+  - เพิ่ม `locFeedback` state — success message 🟢 (clear input + `📍 lat, lng`) หรือ error 🔴 เมื่อไม่รู้จักพิกัด
+  - อัปเดต placeholder เป็น "ละติจูด, ลองจิจูด หรือ Plus Code"
+  - feedback หายอัตโนมัติเมื่อ user พิมพ์ใหม่
+  - 1 ไฟล์ modified
+
+### 2026-07-19
+- ❌ **ลบ Void theme ออกทั้งหมด** — หลังจากสร้างและปรับแต่ง frosted glass + atmosphere layers (orbs, grid, noise texture)
+  - ลบ liquid-glass dependency, CSS atmosphere layers, theme definition, theme-provider references
+  - กลับไป 11 themes (obsidian, ivory, meridian, synthwave, frost, ember, moss, neo-brutalism, slate, coral, bubblegum)
+
 ### 2026-07-18
-- ✅ **Void theme: frosted glass + atmosphere layers**
-  - card/popover/sidebar → alpha transparency (`/ 0.55–0.65`) + `backdrop-filter: blur(16px)` frosted glass
-  - body::before → 4 ambient glow orbs (cyan, magenta, violet, amber) + 40px technical grid overlay
-  - body::after → SVG feTurbulence noise texture (`opacity: 0.025`, `mix-blend-mode: overlay`)
-  - borders → faint cyan glow (`oklch / 0.1–0.15`)
-  - 2 files modified: `src/lib/design/themes.ts`, `src/index.css`
-- ✅ **เพิ่ม Void theme preset** — dark theme สไตล์ deep space ด้วย cyan/magenta/lime palette
-  - hex → Oklch conversion: พื้นหลัง `#0a0a0f`, primary `#00d4ff` cyan, secondary `#ff6b9d` magenta
-  - รองรับทั้ง light/dark mode
+- ✅ **Void theme: frosted glass + atmosphere layers** (ถูกลบ 2026-07-19)
+- ✅ **เพิ่ม Void theme preset** (ถูกลบ 2026-07-19)
 
 ### 2026-07-17
 - ✅ **เพิ่ม Motion animations** — dialog/sheet exit, dropdowns, card stagger, route transitions, view transitions, micro-interactions

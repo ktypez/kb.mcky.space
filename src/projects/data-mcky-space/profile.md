@@ -2,7 +2,7 @@
 type: project-profile
 id: data-mcky-space-profile
 project: data.mcky.space
-last_updated: 2026-07-21
+last_updated: 2026-07-22
 status: active
 stack:
   language: TypeScript

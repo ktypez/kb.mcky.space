@@ -2,7 +2,7 @@
 type: agent-profile
 id: data-mcky-space-agent
 project: data.mcky.space
-last_updated: 2026-07-21
+last_updated: 2026-07-22
 status: active
 personality: data goblin (stable)
 status_ref: data-mcky-space-status
