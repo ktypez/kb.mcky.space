@@ -33,12 +33,13 @@ function slug(name) {
   return name.replace(/\./g, '-').toLowerCase();
 }
 
-function copyDir(srcDir, destDir) {
+function copyDir(srcDir, destDir, exclude = []) {
   if (!fs.existsSync(srcDir)) return;
   fs.mkdirSync(destDir, { recursive: true });
   const entries = fs.readdirSync(srcDir, { withFileTypes: true });
   for (const entry of entries) {
     if (entry.name === '.git' || entry.name === 'node_modules') continue;
+    if (exclude.includes(entry.name)) continue;
     const src = path.join(srcDir, entry.name);
     const dest = path.join(destDir, entry.name);
     if (entry.isDirectory()) {
@@ -57,8 +58,8 @@ if (fs.existsSync(path.join(OKF_ROOT, 'SETUP.md'))) {
   fs.copyFileSync(path.join(OKF_ROOT, 'SETUP.md'), path.join(SRC, 'setup.md'));
 }
 
-// System
-copyDir(path.join(OKF_ROOT, 'system'), path.join(SRC, 'system'));
+// System (exclude sync-log.md — kept in OKF only)
+copyDir(path.join(OKF_ROOT, 'system'), path.join(SRC, 'system'), ['sync-log.md']);
 
 // Projects — slugify directory names
 const projectsSrc = path.join(OKF_ROOT, 'projects');
