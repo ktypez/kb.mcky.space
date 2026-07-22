@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" fill="none">
+  <!-- Shadow of main block — brutalist offset -->
+  <rect x="56" y="56" width="290" height="290" fill="#1e293b" />
+
+  <!-- Main block — Slate Blue primary -->
+  <rect x="48" y="48" width="290" height="290" fill="#3b82f6" />
+
+  <!-- Shadow of accent block -->
+  <rect x="196" y="116" width="180" height="180" fill="#1e293b" opacity="0.35" />
+
+  <!-- Accent block — Purple secondary, overlapping -->
+  <rect x="190" y="110" width="180" height="180" fill="#a855f7" />
+
+  <!-- White accent square — focal point at intersection -->
+  <rect x="280" y="200" width="24" height="24" fill="#f8fafc" />
+</svg>

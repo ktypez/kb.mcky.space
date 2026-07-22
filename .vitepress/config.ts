@@ -116,6 +116,7 @@ export default withPwa(defineConfig({
   lastUpdated: true,
   ignoreDeadLinks: true,
   vite: {
+    publicDir: resolve(ROOT, 'public'),
     plugins: [escapeMdPlugin()],
   },
   markdown: {
@@ -129,7 +130,6 @@ export default withPwa(defineConfig({
     ['link', { rel: 'preconnect', href: 'https://api.fontshare.com' }],
   ],
   themeConfig: {
-    logo: { src: '/favicon.svg', width: 24, height: 24 },
     search: { provider: 'local' },
     sidebar: buildSidebar(),
     socialLinks: [
