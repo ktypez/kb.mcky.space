@@ -123,14 +123,11 @@ fieldset,legend{min-width:0}
 .grid-5{display:grid;align-items:center;grid-template-rows:30px;justify-items:center;grid-template-columns:minmax(0,1fr)}
 .text-8{height:16px;position:absolute;top:-6px;right:-6px;min-width:16px;padding:0 var(--space-003);border-radius:var(--radius-001);background-color:var(--accent)}
 .flow-15{display:none;align-items:center;justify-items:center}
-.box-6{position:relative;min-height:0;background-color:var(--background)}
-.flow-16{display:block;flex-grow:1;flex-basis:0%;overflow-x:hidden;overflow-y:hidden}
-.section{height:100%;position:absolute;top:0;right:0;left:0}
-.box-7{height:100%}
-.grid-6{display:grid;grid-template-rows:1fr;grid-template-columns:1fr auto}
-.box-8{height:100%;position:relative;min-width:0;background-color:rgb(15,17,21)}
-#cy{height:100%;min-height:0}
-.box-9{height:100%;position:relative;z-index:0}
+#views{flex:1;min-height:0;display:flex;flex-direction:column;background-color:var(--background)}
+#view-graph{flex:1;min-height:0;display:flex;min-width:0}
+#stage{flex:1;min-width:0;background-color:rgb(15,17,21);display:flex;position:relative}
+#cy{flex:1;min-height:0}
+#status-bar{position:absolute;bottom:10px;left:50%;transform:translateX(-50%);font-size:10px;color:rgb(146,152,164);z-index:10;pointer-events:none;background:rgba(15,17,21,.7);padding:3px 10px;border-radius:8px;white-space:nowrap}
 .box-13{position:absolute;bottom:10px;left:50%;transform:translateX(-50%);z-index:10;pointer-events:none;white-space:nowrap}
 .type-16{color:rgb(146,152,164);font-size:11px;line-height:17.05px}
 .box-14{max-width:440px;border:1px solid var(--border);position:fixed;bottom:20px;left:50%;transform:translateX(-50%);z-index:72;padding:var(--space-011);border-radius:16px;background-color:var(--background);box-shadow:rgba(20,24,33,.05) 0 1px 2px 0,rgba(20,24,33,.07) 0 8px 24px 0;animation:hello-in-c .22s ease-out both}
@@ -175,8 +172,6 @@ fieldset,legend{min-width:0}
 .edge-list{font-size:12px}
 .edge-list li{padding:3px 0;border-bottom:1px solid var(--border);list-style:none}
 .edge-list li:last-child{border-bottom:none}
-#status-bar{position:absolute;bottom:10px;left:50%;transform:translateX(-50%);font-size:10px;color:rgb(146,152,164);z-index:5;pointer-events:none;background:rgba(15,17,21,.7);padding:3px 10px;border-radius:8px;white-space:nowrap}
-
 @media(max-width:571px){
 .grid{grid-template-columns:repeat(1,minmax(0,1fr))}
 .box-3{height:128px}
@@ -427,23 +422,18 @@ fieldset,legend{min-width:0}
     </header>
 
     <!-- Views -->
-    <div class="box-6 flow-16" data-cid="n77" id="views">
-      <section class="section stack-4" data-cid="n78" id="view-graph">
-        <div class="box-7 grid-6" data-cid="n79">
-          <div class="box-8 flow-3" data-cid="n80" id="stage">
-            <div class="section flow" data-cid="n81" id="cy-container">
-              <div class="box-9 flow-3" data-cid="n82" id="cy"></div>
-            </div>
-            <div class="box-13 flow type-16" data-cid="n86">click a concept · scroll to zoom · drag to pan</div>
-            <div id="status-bar"></div>
-          </div>
-          <!-- Inspector panel -->
-          <div id="inspector">
-            <div id="inspector-head"><h2 id="inspector-title"></h2><button id="inspector-close">&times;</button></div>
-            <div id="inspector-body"></div>
-          </div>
+    <div id="views">
+      <div id="view-graph">
+        <div id="stage">
+          <div id="cy"></div>
+          <div id="status-bar">loading…</div>
         </div>
-      </section>
+        <!-- Inspector panel -->
+        <div id="inspector">
+          <div id="inspector-head"><h2 id="inspector-title"></h2><button id="inspector-close">&times;</button></div>
+          <div id="inspector-body"></div>
+        </div>
+      </div>
     </div>
   </div>
 </div>
