@@ -16,7 +16,7 @@ okf_version: 0.1
 | data.mcky.space | [profile](./projects/data.mcky.space/profile.md) | [agent](./projects/data.mcky.space/agent.md) | [status](./projects/data.mcky.space/status.md) | active | Vite 8, React 19, Tailwind 4, Cloudflare D1/R2, Zustand |
 | habby | [profile](./projects/habby/profile.md) | [agent](./projects/habby/agent.md) | [status](./projects/habby/status.md) | active | Vite 8, Express 5, Redis, Vitest |
 | mcky.space | [profile](./projects/mcky.space/profile.md) | [agent](./projects/mcky.space/agent.md) | [status](./projects/mcky.space/status.md) | active | Astro 7, Vanilla JS, Supabase, Vercel |
-| receipts-dms | [profile](./projects/receipts-dms/profile.md) | [agent](./projects/receipts-dms/agent.md) | [status](./projects/receipts-dms/status.md) | active | Vite 8, React 19, Radix UI, Tailwind 4, Cloudflare D1/R2 |
+| paper | [profile](./projects/paper/profile.md) | [agent](./projects/paper/agent.md) | [status](./projects/paper/status.md) | active | Vite 8, React 19, Radix UI, Tailwind 4, Cloudflare D1/R2 |
 | collage | [profile](./projects/collage/profile.md) | [agent](./projects/collage/agent.md) | [status](./projects/collage/status.md) | active | Express 4, sharp, Cloudflare R2, LINE Bot SDK |
 | truck | [profile](./projects/truck/profile.md) | [agent](./projects/truck/agent.md) | [status](./projects/truck/status.md) | active | React 19, Vite 8, Supabase, TanStack Query |
 | writer | [profile](./projects/writer/profile.md) | [agent](./projects/writer/agent.md) | — | active | Markdown, AI agent system |
@@ -36,7 +36,7 @@ okf_version: 0.1
 | mcky.space | terminal hipster | — |
 | truck | overtime enthusiast | — |
 | collage | barista engineer | — |
-| receipts-dms | paper goblin | — |
+| paper | paper goblin | — |
 | writer | word goblin | — |
 
 ## สรุปเทคโนโลยี (Technology Summary)
@@ -64,24 +64,9 @@ okf_version: 0.1
 | `check todos` | อ่าน ./TODOS.md ที่รากโปรเจกต์, แจ้งผู้ใช้เรื่องที่ค้าง | ทั้งหมด |
 | `check scope` | ตรวจสอบไฟล์ OKF ทั้งหมดว่าเกิน scope budget หรือไม่, แจ้งเตือนถ้าเกิน | ทั้งหมด |
 
-## เครื่องมือ CLI (CLI Tools)
+## การเข้าถึง KB
 
-เครื่องมือเหล่านี้ใช้ผ่าน `~/KB/bin/okf-wrap` เพื่อ query และจัดการ KB
-- **Native (Node.js):** project, read, filter, tree, dashboard, search, stats, rebuild
-- **Proxy → okf-gem (Ruby):** graph, validate, lint, render, server
-
-| เครื่องมือ | คำอธิบาย |
-|------|-------------|
-| `catalog` | แสดงโปรเจกต์ทั้งหมดพร้อม metadata |
-| `project` | ดึง profile + agent + status raw markdown ของโปรเจกต์ |
-| `search` | ค้นหน้าข้าม project (title, description, body) |
-| `read` | อ่านเนื้อหาดิบของไฟล์ OKF ใดก็ได้ |
-| `tree` | แสดงโครงสร้างไดเรกทอรี OKF |
-| `filter` | Query projects by technology, status, deployment, language |
-| `dashboard` | Summary table ของทุกโปรเจกต์ |
-| `stats` | Statistics ข้ามโปรเจกต์ (framework, DB, deploy) |
-| `graph` | Mermaid knowledge graph — project → technology relationships |
-| `rebuild` | บังคับ recompile KB จาก .md ไฟล์ |
+KB ถูก maintain โดยการอ่านและเขียนไฟล์ `.md` โดยตรง — source of truth คือไฟล์ markdown ไม่มี tooling layer คั่นกลาง
 
 ## ไฟล์ระบบ (System Files)
 - [Setup](./SETUP.md) — เริ่มต้นไวสำหรับสภาพแวดล้อมใหม่
@@ -97,7 +82,7 @@ okf_version: 0.1
 - [data.mcky.space](projects/data.mcky.space/profile.md)
 - [Habby](projects/habby/profile.md)
 - [mcky.space](projects/mcky.space/profile.md)
-- [Receipts DMS](projects/receipts-dms/profile.md)
+- [Paper](projects/paper/profile.md)
 - [Truck](projects/truck/profile.md)
 - [Writer](projects/writer/profile.md)
 - [Workspace Conventions](system/conventions.md)

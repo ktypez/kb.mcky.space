@@ -7,11 +7,9 @@
     "node": "22.x || 24.x"
   },
   "scripts": {
-    "sync": "node scripts/sync.mjs",
     "dev": "vitepress dev",
     "build": "vitepress build",
-    "preview": "vitepress preview",
-    "prebuild": "node scripts/sync.mjs"
+    "preview": "vitepress preview"
   },
   "dependencies": {
     "@vite-pwa/vitepress": "^1.1.0",
