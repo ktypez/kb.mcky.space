@@ -7,120 +7,482 @@
 <script src="https://unpkg.com/cytoscape@3.30.4/dist/cytoscape.min.js"></script>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
-:root {
-  --bg: #15171c; --bg2: #1c1f26; --bg3: #262a33; --text: #e6edf3;
-  --dim: #9298a4; --border: #30363d; --accent: #58a6ff;
-  --green: #22c55e; --yellow: #d29922; --red: #e22626; --purple: #bc8cff;
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;border:0 solid currentColor}
+html{-webkit-text-size-adjust:100%;line-height:normal}
+body{margin:0;font-family:Poppins,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;overflow-x:clip}
+ul,ol,menu{list-style:none}
+a{color:inherit;text-decoration:none}
+button,input,select,textarea,optgroup{font:inherit;color:inherit;background:transparent;border:0;padding:0;margin:0;text-align:inherit;letter-spacing:inherit}
+button{cursor:pointer}
+table{border-collapse:separate;border-spacing:0}
+img,picture,video,canvas,svg{display:inline-block}
+[data-ditto-lottie]>div>svg,[data-ditto-lottie]>div>canvas{width:100%;height:100%;display:block}
+h1,h2,h3,h4,h5,h6,p,figure,blockquote,dl,dd{margin:0}
+h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit}
+b,strong,th{font-weight:inherit}
+em,i,cite,var,dfn,address,q{font-style:inherit}
+small,big,sub,sup{font-size:inherit}
+sub,sup{vertical-align:inherit}
+code,kbd,samp,pre,tt,var{font-family:inherit;font-size:inherit}
+mark{background-color:transparent;color:inherit}
+abbr[title]{text-decoration:none}
+fieldset,legend{min-width:0}
+
+/* tokens */
+:root{--background:rgb(255,255,255);--foreground:rgb(31,35,40);--primary:rgb(0,0,238);--accent:rgb(226,30,30);--border:rgb(230,232,235);--muted-foreground:rgb(139,145,156);--muted:rgb(99,105,122);--surface:rgba(255,255,255,0.05);--font-body:Poppins,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;--font-size-001:10.5px;--font-size-002:13px;--font-size-003:13.3333px;--font-size-004:13.5px;--font-size-005:14px;--font-weight-001:400;--font-weight-002:500;--font-weight-003:600;--line-height-001:20px;--line-height-002:21.7px;--line-height-003:16px;--space-001:1px;--space-002:2px;--space-003:4px;--space-004:5px;--space-005:6px;--space-006:8px;--space-007:9px;--space-008:10px;--space-009:12px;--space-010:16px;--space-011:18px;--radius-001:9px;--radius-002:12px;--radius-003:50%}
+
+/* ditto.css — visual clone of okf-gem */
+@keyframes hello-in{0%{opacity:0;transform:translateY(10px)}100%{opacity:1;transform:translateY(0)}}
+@keyframes hello-in-c{0%{opacity:0;transform:translate(-50%,10px)}100%{opacity:1;transform:translate(-50%,0)}}
+@keyframes swping{0%{box-shadow:rgba(226,30,30,.5) 0 0 0 0}100%{box-shadow:rgba(226,30,30,0) 0 0 0 9px}}
+
+.box{background-color:var(--background)}
+.flow{display:block}
+.type{color:var(--foreground);font-family:var(--font-body);font-size:var(--font-size-005);font-weight:var(--font-weight-001);font-style:normal;line-height:var(--line-height-002);letter-spacing:normal;word-spacing:0;text-align:start;text-transform:none;white-space:normal;word-break:normal;overflow-wrap:normal;text-indent:0;text-shadow:none;font-variant-caps:normal;font-feature-settings:normal;list-style-position:outside;writing-mode:horizontal-tb;direction:ltr}
+.box-2{height:clamp(800px,100vh,1080px)}
+.grid{display:grid;grid-template-columns:auto 1fr;grid-template-rows:repeat(1,minmax(0,1fr))}
+.nav{padding-top:var(--space-009);padding-right:var(--space-006);padding-bottom:var(--space-009);padding-left:var(--space-006);grid-column-start:1;background-color:rgb(21,23,28);transform:none}
+.stack{display:flex;flex-direction:column;align-items:center;row-gap:3px;column-gap:3px;overflow-x:hidden;overflow-y:hidden}
+.link{width:34px;height:34px;margin-top:var(--space-002);margin-bottom:var(--space-008);border-radius:var(--radius-001);cursor:pointer}
+.flow-2{display:block;flex-shrink:0}
+.type-2{color:var(--primary);text-decoration-line:underline}
+.icon{width:auto;height:34px}
+.flow-3{display:block;overflow-x:hidden;overflow-y:hidden}
+.btn{width:60px;height:66px;position:relative;padding:var(--space-007) var(--space-002);border-radius:var(--radius-002);cursor:pointer}
+.btn::before{content:"";display:block;position:absolute;top:33px;right:65px;bottom:9px;left:-8px;width:3px;height:24px;background-color:rgb(226,30,30);transform:matrix(1,0,0,1,0,-12);transform-origin:1.5px 12px}
+.stack-2{display:flex;flex-direction:column;align-items:center;row-gap:var(--space-004);column-gap:var(--space-004)}
+.type-3{color:var(--background);font-size:var(--font-size-003);line-height:var(--line-height-001);text-align:center}
+.type-4{color:var(--accent)}
+.icon-2{width:auto;height:21px}
+.flow-4{display:inline;overflow-x:hidden;overflow-y:hidden}
+.type-5{font-size:var(--font-size-001);font-weight:var(--font-weight-002);line-height:var(--line-height-003);letter-spacing:.0525px}
+.btn-2{width:60px;height:66px;position:relative;padding:var(--space-007) var(--space-002);border-radius:var(--radius-002);cursor:pointer}
+.type-6{color:var(--muted-foreground);font-size:var(--font-size-003);line-height:var(--line-height-001);text-align:center}
+.box-3{width:0;height:116px}
+.flow-5{display:block;flex-grow:1;flex-basis:0%}
+.stack-3{display:flex;flex-direction:column;align-items:center;row-gap:var(--space-005);column-gap:var(--space-005)}
+.btn-3{width:34px;height:34px;border:1px solid transparent;position:relative;padding:var(--space-001) var(--space-005);border-radius:var(--radius-001);background-color:var(--surface);cursor:pointer;transition:color .15s,border-color .15s,background .15s}
+.btn-3:hover{background-color:rgba(255,255,255,.1);color:rgb(223,226,231)}
+.grid-2{display:grid;align-items:center;grid-template-rows:30px;justify-items:center;grid-template-columns:minmax(0,1fr)}
+.icon-3{width:auto;height:16px}
+.text{width:16px;height:16px;position:absolute;top:-6px;left:22px;min-width:16px;padding:0 var(--space-003);border-radius:var(--radius-001);background-color:var(--accent);animation:swping 1.6s ease-out .6s 4}
+.grid-3{display:grid;align-items:center;grid-template-rows:16px;justify-items:center;grid-template-columns:minmax(0,1fr)}
+.type-7{color:var(--background);font-size:var(--font-size-001);font-weight:700;line-height:10.5px}
+.icon-4{width:16px;height:16px;min-width:0}
+.flow-6{display:none}
+.box-4{height:800px;min-width:0;grid-column-start:2}
+.stack-4{display:flex;flex-direction:column}
+.header{height:55px;border-bottom:1px solid var(--border);padding:var(--space-008) var(--space-010);background-color:var(--background)}
+.row{display:flex;align-items:center;flex-shrink:0;gap:var(--space-009)}
+.btn-4{width:34px;height:34px;border:1px solid var(--border);position:relative;min-width:0;padding:var(--space-001) var(--space-005);border-radius:var(--radius-001);background-color:var(--background);cursor:pointer;transition:color .15s,border-color .15s,background .15s}
+.btn-4:hover{border-color:rgb(226,30,30)}
+.flow-7{display:none;align-items:center;flex-shrink:0;justify-items:center}
+.type-8{color:var(--muted);font-size:var(--font-size-003);line-height:var(--line-height-001);text-align:center}
+.flow-8{display:inline}
+.text-2{width:9px;height:9px;position:absolute;top:-3px;right:-3px;border-radius:var(--radius-003);background-color:var(--accent)}
+.text-3{height:20.9219px;min-width:0;text-wrap:nowrap}
+.flow-9{display:block}
+.type-9{font-size:var(--font-size-004);font-weight:var(--font-weight-003);line-height:20.925px;letter-spacing:-.135px;white-space:nowrap}
+.text-4{margin-left:var(--space-007)}
+.flow-10{display:inline}
+.type-10{color:var(--muted);font-size:12.5px;font-weight:var(--font-weight-001);line-height:19.375px}
+.box-5{min-width:0}
+.flow-11{display:contents}
+.row-2{display:flex;flex-grow:1;flex-basis:0%}
+.label{width:100%;position:relative;min-width:130px;max-width:520px;cursor:default}
+.row-3{display:flex;align-items:center;flex-grow:1;flex-basis:320px}
+.icon-5{width:auto;height:15px;position:absolute;left:11px;min-width:0;pointer-events:none}
+.input{width:auto;height:34px;border:1px solid var(--border);padding-right:52px;padding-left:33px;border-radius:var(--radius-001);background-color:var(--background);cursor:text;transition:border-color .15s,box-shadow .15s}
+.input:focus{border-color:var(--accent);box-shadow:rgb(253,236,236) 0 0 0 3px;outline:none}
+.input::placeholder{color:rgb(99,105,122)}
+.flow-12{display:block;overflow-x:clip;overflow-y:clip}
+.type-11{font-size:var(--font-size-002);line-height:20.15px}
+.text-5{width:46.7656px;height:20.5px;position:absolute;top:17px;right:7px;transform:translateY(-10.25px)}
+.row-4{display:flex;align-items:center;gap:var(--space-006)}
+.btn-5{border:1px solid var(--border);padding:var(--space-003) var(--space-005);border-radius:6px;background-color:rgb(246,247,248);cursor:pointer;transition:color .15s,border-color .15s}
+.btn-5:hover{border-color:var(--accent);color:rgb(31,35,40)}
+.type-12{color:var(--muted);font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:var(--font-size-001);font-weight:var(--font-weight-003);line-height:10.5px;letter-spacing:.21px;text-align:center;white-space:nowrap}
+.row-5{display:flex;align-items:center;gap:var(--space-007)}
+.btn-6{width:89px;height:34px;border:1px solid var(--border);position:relative;padding:0 var(--space-009);border-radius:var(--radius-001);background-color:var(--background);cursor:pointer;transition:color .15s,border-color .15s,background .15s}
+.btn-6:hover{border-color:var(--accent)}
+.row-6{display:flex;align-items:center;gap:7px;justify-items:center}
+.type-13{font-size:var(--font-size-002);font-weight:var(--font-weight-002);line-height:var(--line-height-001);text-align:center}
+.text-6{height:16px;position:absolute;top:-6px;right:-6px;min-width:16px;padding:0 var(--space-003);border-radius:var(--radius-001);background-color:var(--accent)}
+.flow-13{display:none;align-items:center;justify-items:center}
+.type-14{color:var(--background);font-size:10px;font-weight:var(--font-weight-003);line-height:10px}
+.text-7{position:relative}
+.text-7::after{content:"";display:block;position:absolute;top:17px;right:12px;bottom:9px;left:117px;width:7px;height:7px;transform:matrix(.707107,.707107,-.707107,.707107,0,-5.6);transform-origin:4px 4px}
+.row-7{display:flex;flex-shrink:0}
+.select{width:100%;height:34px;border:1px solid var(--border);padding-right:30px;padding-left:var(--space-008);border-radius:var(--radius-001);text-wrap:nowrap;background-color:var(--background);cursor:pointer;transition:border-color .15s,box-shadow .15s}
+.select:focus{border-color:var(--accent);box-shadow:rgb(253,236,236) 0 0 0 3px;outline:none}
+.flow-14{display:block;align-items:center}
+.type-15{font-size:var(--font-size-002);line-height:20.15px;white-space:pre}
+.btn-7{width:34px;height:34px;border:1px solid var(--border);position:relative;padding:var(--space-001) var(--space-005);border-radius:var(--radius-001);background-color:var(--background);cursor:pointer;transition:color .15s,border-color .15s,background .15s}
+.btn-7:hover{border-color:var(--accent);color:rgb(31,35,40)}
+.grid-4{display:grid;align-items:center;grid-template-rows:30px;justify-items:center;grid-template-columns:repeat(1,minmax(0,1fr))}
+.grid-5{display:grid;align-items:center;grid-template-rows:30px;justify-items:center;grid-template-columns:minmax(0,1fr)}
+.text-8{height:16px;position:absolute;top:-6px;right:-6px;min-width:16px;padding:0 var(--space-003);border-radius:var(--radius-001);background-color:var(--accent)}
+.flow-15{display:none;align-items:center;justify-items:center}
+.box-6{height:calc(100vh - 55px);position:relative;background-color:var(--background)}
+.flow-16{display:block;flex-grow:1;flex-basis:0%;overflow-x:hidden;overflow-y:hidden}
+.section{height:100%;position:absolute;top:0;right:0;left:0}
+.box-7{height:100%}
+.grid-6{display:grid;grid-template-rows:1fr;grid-template-columns:1fr auto}
+.box-8{height:100%;position:relative;min-width:0;background-color:rgb(15,17,21)}
+#cy{height:100%;position:absolute;top:0;right:0;left:0}
+.box-9{height:100%;position:relative;z-index:0}
+.box-13{position:absolute;bottom:10px;left:50%;transform:translateX(-50%);z-index:10;pointer-events:none;white-space:nowrap}
+.type-16{color:rgb(146,152,164);font-size:11px;line-height:17.05px}
+.box-14{max-width:440px;border:1px solid var(--border);position:fixed;bottom:20px;left:50%;transform:translateX(-50%);z-index:72;padding:var(--space-011);border-radius:16px;background-color:var(--background);box-shadow:rgba(20,24,33,.05) 0 1px 2px 0,rgba(20,24,33,.07) 0 8px 24px 0;animation:hello-in-c .22s ease-out both}
+.btn-8{width:34px;height:34px;border:1px solid var(--border);position:absolute;top:11px;right:11px;padding:var(--space-001) var(--space-005);border-radius:var(--radius-001);background-color:var(--background);cursor:pointer;transition:color .15s,border-color .15s,background .15s}
+.btn-8:hover{border-color:var(--accent)}
+.type-17{color:var(--muted);font-size:var(--font-size-002);line-height:var(--line-height-001);text-align:center}
+.text-9{margin-bottom:11px}
+.row-8{display:flex;gap:var(--space-004)}
+.box-15,.box-16,.box-17{width:9px;height:9px;border-radius:var(--radius-003);display:inline-block}
+.box-15{background-color:rgb(110,86,207)}
+.box-16{background-color:rgb(217,119,87)}
+.box-17{background-color:rgb(34,197,94)}
+.type-18{font-style:italic}
+.text-10{margin-bottom:13px}
+.type-19{font-size:17px;font-weight:650;line-height:21.25px;letter-spacing:-.17px}
+.btn-9{width:100%;min-height:46px;padding:var(--space-001) var(--space-005);border-radius:11px;background-color:var(--foreground);cursor:pointer;transition:opacity .15s}
+.btn-9:hover{opacity:.88}
+.type-20{color:var(--background);font-size:15px;font-weight:var(--font-weight-003);line-height:23px;text-align:center}
+.text-11{margin-top:13px}
+.type-21{color:var(--muted);font-size:var(--font-size-004);line-height:20.25px}
+.flow-17,.flow-19{display:inline}
+.flow-18{display:none}
+
+/* inspector panel */
+#inspector{width:380px;max-width:90vw;background:var(--background);border-left:1px solid var(--border);overflow-y:auto;display:none;flex-direction:column;grid-column-start:2}
+#inspector.open{display:flex}
+#inspector-head{padding:var(--space-009) var(--space-010);border-bottom:1px solid var(--border);display:flex;align-items:center;gap:var(--space-006)}
+#inspector-head h2{font-size:14px;font-weight:600;flex:1}
+#inspector-close{background:none;border:none;color:var(--muted);font-size:18px;cursor:pointer;padding:2px 6px;border-radius:4px}
+#inspector-close:hover{background:var(--surface);color:var(--foreground)}
+#inspector-body{padding:var(--space-009) var(--space-010);flex:1}
+.inspector-section{margin-bottom:12px}
+.inspector-section h3{font-size:10px;text-transform:uppercase;letter-spacing:.5px;color:var(--muted);margin-bottom:4px}
+.inspector-section p{font-size:13px;line-height:1.5}
+.inspector-section pre{font-size:11px;line-height:1.5;color:var(--muted-foreground);white-space:pre-wrap;max-height:160px;overflow-y:auto;font-family:ui-monospace,SFMono-Regular,monospace;margin-top:4px}
+.tag{display:inline-block;font-size:10px;padding:1px 6px;border-radius:8px;background:var(--surface);color:var(--accent);border:1px solid var(--border);margin:1px}
+.tag-green{color:#fff;background:var(--accent);border-color:var(--accent)}
+.tag-red{color:#fff;background:var(--muted-foreground);border-color:var(--muted-foreground)}
+.tech-grid{display:grid;grid-template-columns:auto 1fr;gap:2px 12px;font-size:12px}
+.tech-grid dt{color:var(--muted)}
+.tech-grid dd{color:var(--foreground)}
+.edge-list{font-size:12px}
+.edge-list li{padding:3px 0;border-bottom:1px solid var(--border);list-style:none}
+.edge-list li:last-child{border-bottom:none}
+#status-bar{position:absolute;bottom:10px;left:50%;transform:translateX(-50%);font-size:10px;color:rgb(146,152,164);z-index:5;pointer-events:none;background:rgba(15,17,21,.7);padding:3px 10px;border-radius:8px;white-space:nowrap}
+
+@media(max-width:571px){
+.grid{grid-template-columns:repeat(1,minmax(0,1fr))}
+.box-3{height:128px}
+.box-4{grid-column-start:1}
+.header{padding-right:var(--space-008);padding-left:var(--space-008)}
+.row{gap:var(--space-006)}
+.flow-7{display:grid;grid-template-rows:30px;grid-template-columns:minmax(0,1fr)}
+.flow-8{display:block}
+.flow-9{flex-grow:1}
+.flow-10{display:none}
+.flow-11{display:none}
+.grid-5{display:none}
+.box-14{left:12px;right:12px;transform:none;animation-name:hello-in}
+.flow-19{display:inline}
+#inspector{width:100vw;max-width:100vw}
 }
-[data-theme="light"] {
-  --bg: #fff; --bg2: #f4f5f7; --bg3: #eaeef2; --text: #1f2328;
-  --dim: #63697a; --border: #e6e8eb; --accent: #0969da;
-  --green: #1a7f37; --yellow: #9a6700; --red: #cf222e; --purple: #8250df;
+@media(min-width:572px)and (max-width:1024px){
+.grid{grid-template-columns:repeat(1,minmax(0,1fr))}
+.box-3{height:340px}
+.box-4{grid-column-start:1}
+.header{padding-right:var(--space-008);padding-left:var(--space-008)}
+.row{gap:var(--space-006)}
+.flow-7{display:grid;grid-template-rows:30px;grid-template-columns:minmax(0,1fr)}
+.flow-8{display:block}
+.flow-9{flex-grow:1}
+.flow-10{display:none}
+.flow-11{display:none}
+.grid-5{display:none}
+.box-14{left:12px;right:12px;transform:none;animation-name:hello-in}
+.flow-19{display:inline}
 }
-* { margin: 0; padding: 0; box-sizing: border-box; }
-body { font-family: Poppins, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background: var(--bg); color: var(--text); height: 100vh; overflow: hidden; }
-#app { display: flex; height: 100vh; }
-#main { flex: 1; position: relative; }
-#cy { width: 100%; height: 100%; }
-#toolbar { position: absolute; top: 10px; left: 10px; display: flex; gap: 6px; align-items: center; z-index: 10; flex-wrap: wrap; }
-#search { background: var(--bg2); border: 1px solid var(--border); color: var(--text); padding: 7px 10px; border-radius: 6px; font-size: 12px; width: 180px; outline: none; }
-#search:focus { border-color: var(--accent); }
-.btn { background: var(--bg2); border: 1px solid var(--border); color: var(--text); padding: 5px 10px; border-radius: 5px; font-size: 11px; cursor: pointer; }
-.btn:hover { background: var(--bg3); }
-.btn-s { font-size: 10px; padding: 3px 8px; border-radius: 8px; }
-.filter-bar { display: flex; gap: 3px; flex-wrap: wrap; }
-.filter-btn { font-size: 9px; padding: 2px 7px; border-radius: 8px; border: 1px solid var(--border); background: var(--bg2); color: var(--dim); cursor: pointer; }
-.filter-btn.on { background: var(--accent); color: #fff; border-color: var(--accent); }
-#panel { width: 380px; max-width: 90vw; background: var(--bg2); border-left: 1px solid var(--border); overflow-y: auto; display: none; flex-direction: column; }
-#panel.open { display: flex; }
-#panel-head { padding: 12px 16px; border-bottom: 1px solid var(--border); display: flex; align-items: center; gap: 8px; }
-#panel-head h2 { font-size: 14px; font-weight: 600; flex: 1; }
-#panel-close { background: none; border: none; color: var(--dim); font-size: 18px; cursor: pointer; padding: 2px 6px; border-radius: 4px; }
-#panel-close:hover { background: var(--bg3); color: var(--text); }
-#panel-body { padding: 12px 16px; flex: 1; }
-.section { margin-bottom: 12px; }
-.section h3 { font-size: 10px; text-transform: uppercase; letter-spacing: .5px; color: var(--dim); margin-bottom: 4px; }
-.section p { font-size: 13px; line-height: 1.5; }
-.section pre { font-size: 11px; line-height: 1.5; color: var(--dim); white-space: pre-wrap; max-height: 160px; overflow-y: auto; font-family: ui-monospace,SFMono-Regular,monospace; margin-top: 4px; }
-.tag { display: inline-block; font-size: 10px; padding: 1px 6px; border-radius: 8px; background: var(--bg3); color: var(--accent); border: 1px solid var(--border); margin: 1px; }
-.tag-green { color: #fff; background: var(--green); border-color: var(--green); }
-.tag-red { color: #fff; background: var(--red); border-color: var(--red); }
-.tech-grid { display: grid; grid-template-columns: auto 1fr; gap: 2px 12px; font-size: 12px; }
-.tech-grid dt { color: var(--dim); }
-.tech-grid dd { color: var(--text); }
-.edge-list { font-size: 12px; }
-.edge-list li { padding: 3px 0; border-bottom: 1px solid var(--border); list-style: none; }
-.edge-list li:last-child { border-bottom: none; }
-#stats { position: absolute; bottom: 10px; left: 10px; font-size: 10px; color: var(--dim); background: var(--bg2); border: 1px solid var(--border); border-radius: 5px; padding: 5px 8px; z-index: 10; }
-#legend { position: absolute; bottom: 10px; right: 10px; font-size: 10px; background: var(--bg2); border: 1px solid var(--border); border-radius: 5px; padding: 6px 10px; z-index: 10; }
-#legend div { display: flex; align-items: center; gap: 5px; padding: 1px 0; }
-.legend-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
-.legend-rect { width: 12px; height: 8px; border-radius: 1px; flex-shrink: 0; border: 1.5px solid var(--accent); }
-#status { position: absolute; top: 10px; right: 10px; font-size: 10px; color: var(--dim); z-index: 10; }
-@media(max-width:768px){ #panel { width: 100vw; max-width:100vw; } #search { width:120px; } }
+@media(min-width:1601px){
+.box-3{height:396px}
+.box-6{height:calc(100vh - 55px)}
+.label{width:46%}
+.text-6{width:16px}
+.flow-13{display:grid;grid-template-columns:8px;grid-template-rows:16px}
+}
 </style>
 </head>
-<body>
-<div id="app">
-<div id="main">
-  <div id="toolbar">
-    <input id="search" placeholder="Search…">
-    <button class="btn" id="btn-reset">Reset</button>
-    <button class="btn" id="btn-theme">☀</button>
-    <div class="filter-bar" id="filters"></div>
+<body class="box flow type" data-cid="n0">
+
+<div class="box-2 grid" data-cid="n1" id="app">
+
+  <!-- Sidebar nav -->
+  <nav class="nav stack" data-cid="n2" id="rail">
+    <a class="link flow-2 type-2" data-cid="n3" href="/" title="OKF — 8 projects · 35 entities · 78 links">
+      <svg class="icon flow-3" viewBox="0 0 100 100" fill="currentColor">
+        <rect width="100" height="100" rx="24" fill="#1a1a1a"/>
+        <polygon points="38,44 62,44 50,82" fill="#7a0a1e"/>
+        <polygon points="18,44 38,44 50,82" fill="#a8112c"/>
+        <polygon points="62,44 82,44 50,82" fill="#a8112c"/>
+        <polygon points="35,28 18,44 38,44" fill="#dc1e3c"/>
+        <polygon points="65,28 82,44 62,44" fill="#dc1e3c"/>
+        <polygon points="35,28 65,28 62,44 38,44" fill="#f43f5e"/>
+        <polygon points="36,29 49,29 42,42" fill="#fff" opacity=".38"/>
+        <polygon points="35,28 65,28 82,44 50,82 18,44" fill="none" stroke="#ff6b7f" stroke-width="2" stroke-linejoin="round"/>
+      </svg>
+    </a>
+
+    <!-- Nav: Graph (active) -->
+    <button class="stack-2 btn type-3" data-cid="n5" data-component="button">
+      <span class="flow type-4" data-cid="n6">
+        <svg class="icon-2 flow-4" viewBox="0 0 24 24" fill="currentColor">
+          <circle cx="6" cy="6" r="2.4"/><circle cx="18" cy="9" r="2.4"/><circle cx="9" cy="18" r="2.4"/>
+          <path d="M7.7 7.3 15.9 8.6M7.5 16 8.2 8.3M10.9 16.4 16.3 10.5"/>
+        </svg>
+      </span>
+      <span class="flow type-5">Graph</span>
+    </button>
+
+    <!-- Nav: Index -->
+    <button class="stack-2 btn-2 type-6" data-cid="n9" data-component="button">
+      <span class="flow" data-cid="n10">
+        <svg class="icon-2 flow-4" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M4 5h16M4 9.6h10.5M4 14.2h16M4 18.8h7.5"/>
+        </svg>
+      </span>
+      <span class="flow type-5">Index</span>
+    </button>
+
+    <!-- Nav: Files -->
+    <button class="stack-2 btn-2 type-6" data-cid="n13" data-component="button">
+      <span class="flow" data-cid="n14">
+        <svg class="icon-2 flow-4" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M3 7a2 2 0 0 1 2-2h3.5l2 2H19a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2Z"/>
+        </svg>
+      </span>
+      <span class="flow type-5">Files</span>
+    </button>
+
+    <!-- Nav: Catalog -->
+    <button class="stack-2 btn-2 type-6" data-cid="n17" data-component="button">
+      <span class="flow" data-cid="n18">
+        <svg class="icon-2 flow-4" viewBox="0 0 24 24" fill="currentColor">
+          <rect x="3" y="4" width="7.5" height="7.5" rx="1.6"/><rect x="13.5" y="4" width="7.5" height="7.5" rx="1.6"/>
+          <rect x="3" y="14.5" width="7.5" height="5.5" rx="1.6"/><rect x="13.5" y="14.5" width="7.5" height="5.5" rx="1.6"/>
+        </svg>
+      </span>
+      <span class="flow type-5">Catalog</span>
+    </button>
+
+    <!-- Nav: Tags -->
+    <button class="stack-2 btn-2 type-6" data-cid="n21" data-component="button">
+      <span class="flow" data-cid="n22">
+        <svg class="icon-2 flow-4" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M4 4.5h6.8L20 13.7l-6.3 6.3L4.5 10.8V4.5Z"/><circle cx="8.4" cy="8.4" r="1.4" fill="currentColor" stroke="none"/>
+        </svg>
+      </span>
+      <span class="flow type-5">Tags</span>
+    </button>
+
+    <!-- Nav: Stats -->
+    <button class="stack-2 btn-2 type-6" data-cid="n25" data-component="button">
+      <span class="flow" data-cid="n26">
+        <svg class="icon-2 flow-4" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M5 20V11M12 20V4M19 20v-6"/>
+        </svg>
+      </span>
+      <span class="flow type-5">Stats</span>
+    </button>
+
+    <!-- Spacer -->
+    <div class="box-3 flow-5" data-cid="n29"></div>
+
+    <!-- Bottom toolbar -->
+    <div class="stack-3" data-cid="n30">
+      <button class="btn-3 grid-2 type-6" data-cid="n31" id="btn-switch" title="Switch bundle (Ctrl-K)">
+        <svg class="icon-3 flow-3" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M18 3a3 3 0 0 0-3 3v12a3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3H6a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3V6a3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3h12a3 3 0 0 0 3-3 3 3 0 0 0-3-3Z"/>
+        </svg>
+        <span class="text grid-3 type-7" id="sw-count">1</span>
+      </button>
+      <button class="btn-3 grid-2 type-6" data-cid="n34" id="btn-ws" title="Bundles (registry)">
+        <svg class="icon-3 flow-3" viewBox="0 0 24 24" fill="currentColor">
+          <circle cx="12" cy="12" r="3.1"/>
+          <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09a1.65 1.65 0 0 0-1-1.51 1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09a1.65 1.65 0 0 0 1.51-1 1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/>
+        </svg>
+      </button>
+      <button class="btn-3 grid-2 type-6" data-cid="n36" id="btn-theme" title="Toggle theme">
+        <svg class="icon-3 flow-3" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M20 14.5A8 8 0 0 1 9.5 4 8 8 0 1 0 20 14.5Z"/>
+        </svg>
+        <svg class="icon-4 flow-6" viewBox="0 0 24 24" fill="currentColor">
+          <circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2M12 19.5v2M2.5 12h2M19.5 12h2M5.2 5.2l1.5 1.5M17.3 17.3l1.5 1.5M18.8 5.2l-1.5 1.5M6.7 17.3l-1.5 1.5"/>
+        </svg>
+      </button>
+      <button class="btn-3 grid-2 type-6" data-cid="n39" id="btn-full" title="Toggle full screen">
+        <svg class="icon-3 flow-3" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M8 3H4a1 1 0 0 0-1 1v4M16 3h4a1 1 0 0 1 1 1v4M8 21H4a1 1 0 0 1-1-1v-4M16 21h4a1 1 0 0 0 1-1v-4"/>
+        </svg>
+        <svg class="icon-4 flow-6" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M4 8h4V4M20 8h-4V4M4 16h4v4M20 16h-4v4"/>
+        </svg>
+      </button>
+      <button class="btn-3 grid-2 type-6" data-cid="n42" id="btn-help" title="Keyboard shortcuts (?)">
+        <svg class="icon-3 flow-3" viewBox="0 0 24 24" fill="currentColor">
+          <circle cx="12" cy="12" r="9"/><path d="M9.2 9.4a2.9 2.9 0 0 1 5.6 1c0 1.9-2.8 2.3-2.8 3.9"/><circle cx="12" cy="17.3" r=".95" fill="currentColor" stroke="none"/>
+        </svg>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Main area -->
+  <div class="box-4 stack-4" data-cid="n44" id="main">
+
+    <!-- Topbar -->
+    <header class="header row" data-cid="n45" id="topbar">
+      <button class="btn-4 flow-7 type-8" data-cid="n46" id="btn-menu" aria-label="Menu">
+        <svg class="icon-3 flow-8" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+        <span class="text-2 flow" data-cid="n48"></span>
+      </button>
+
+      <span class="text-3 flow-9 type-9" data-cid="n49">
+        OKF
+        <span class="text-4 flow-10 type-10" data-cid="n50" id="stats-label">loading…</span>
+      </span>
+
+      <div class="box-5 flow-11" data-cid="n51" id="bar-tools">
+        <div class="row-2" data-cid="n52" id="search-wrap">
+          <label class="label row-3" data-cid="n53">
+            <svg class="icon-5 flow-3" fill="none" viewBox="0 0 24 24">
+              <circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/>
+            </svg>
+            <input class="input flow-12 type-11" data-cid="n55" id="search" placeholder="search concepts…">
+            <span class="text-5 row-4" data-cid="n56">
+              <button class="btn-5 flow type-12" id="s-cmdk">Ctrl-K</button>
+            </span>
+          </label>
+        </div>
+        <div class="row-5" data-cid="n58" id="graph-controls">
+          <button class="btn-6 row-6 type-13" data-cid="n59" id="btn-filters">
+            <svg class="icon-3 flow-3" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M3 5h18l-7 8v6l-4-2v-4Z"/>
+            </svg>
+            Filters
+            <span class="text-6 flow-13 type-14" id="filter-count">0</span>
+          </button>
+          <span class="text-7 row-7" data-cid="n62">
+            <select class="select flow-14 type-15" id="layout">
+              <option value="cose">cose</option>
+              <option value="grid">grid</option>
+              <option value="circle">circle</option>
+              <option value="concentric">concentric</option>
+              <option value="breadthfirst">breadthfirst</option>
+            </select>
+          </span>
+          <button class="btn-7 type-8 grid-4" id="btn-fit" title="Fit graph to screen">
+            <svg class="icon-3 flow-3" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M3 9V6a2 2 0 0 1 2-2h3M21 9V6a2 2 0 0 0-2-2h-3M3 15v3a2 2 0 0 0 2 2h3M21 15v3a2 2 0 0 0-2 2h-3"/>
+              <rect x="9.5" y="9.5" width="5" height="5" rx="1"/>
+            </svg>
+          </button>
+          <button class="btn-7 type-8 grid-4" id="btn-cluster" title="Cluster by directory">
+            <svg class="icon-3 flow-3" viewBox="0 0 24 24" fill="currentColor">
+              <rect x="3" y="3" width="18" height="18" rx="4" opacity=".45"/>
+              <circle cx="9" cy="9" r="1.9" fill="currentColor" stroke="none"/>
+              <circle cx="15" cy="10" r="1.9" fill="currentColor" stroke="none"/>
+              <circle cx="11" cy="15" r="1.9" fill="currentColor" stroke="none"/>
+            </svg>
+          </button>
+          <button class="btn-7 type-8 grid-4" id="btn-tree" title="File tree">
+            <svg class="icon-3 flow-3" viewBox="0 0 24 24" fill="currentColor">
+              <rect x="9" y="3" width="6" height="5" rx="1.2"/><rect x="3" y="16" width="6" height="5" rx="1.2"/><rect x="15" y="16" width="6" height="5" rx="1.2"/>
+              <path d="M12 8v4M12 12H6v4M12 12h6v4"/>
+            </svg>
+          </button>
+          <button class="btn-7 type-8 grid-4" id="btn-ix" title="Show indexes">
+            <svg class="icon-3 flow-3" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M4 5h16M4 9.6h10.5M4 14.2h16M4 18.8h7.5"/>
+            </svg>
+          </button>
+          <button class="btn-7 type-8 grid-4" id="btn-panel" title="Toggle inspector">
+            <svg class="icon-3 flow-3" viewBox="0 0 24 24" fill="currentColor">
+              <rect x="3" y="4" width="18" height="16" rx="2"/><path d="M15 4v16"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <button class="btn-4 flow-7 type-8" data-cid="n74" id="btn-controls" aria-label="View controls">
+        <svg class="icon-3 flow-8" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M4 7h9M17 7h3M4 17h3M11 17h9M14.5 4.5v5M8.5 14.5v5"/>
+        </svg>
+        <span class="text-8 flow-15 type-14" id="control-count">0</span>
+      </button>
+    </header>
+
+    <!-- Views -->
+    <div class="box-6 flow-16" data-cid="n77" id="views">
+      <section class="section stack-4" data-cid="n78" id="view-graph">
+        <div class="box-7 grid-6" data-cid="n79">
+          <div class="box-8 flow-3" data-cid="n80" id="stage">
+            <div class="section flow" data-cid="n81" id="cy-container">
+              <div class="box-9 flow-3" data-cid="n82" id="cy"></div>
+            </div>
+            <div class="box-13 flow type-16" data-cid="n86">click a concept · scroll to zoom · drag to pan</div>
+            <div id="status-bar"></div>
+          </div>
+          <!-- Inspector panel -->
+          <div id="inspector">
+            <div id="inspector-head"><h2 id="inspector-title"></h2><button id="inspector-close">&times;</button></div>
+            <div id="inspector-body"></div>
+          </div>
+        </div>
+      </section>
+    </div>
   </div>
-  <div id="cy"></div>
-  <div id="stats"></div>
-  <div id="status"></div>
-  <div id="legend">
-    <div><div class="legend-rect"></div> Project</div>
-    <div><div class="legend-dot" style="background:var(--accent)"></div> Framework</div>
-    <div><div class="legend-dot" style="background:var(--green)"></div> Database</div>
-    <div><div class="legend-dot" style="background:var(--yellow)"></div> Language</div>
-    <div><div class="legend-dot" style="background:var(--red)"></div> Deploy</div>
-    <div><div class="legend-dot" style="background:var(--purple)"></div> Other</div>
-  </div>
 </div>
-<div id="panel">
-  <div id="panel-head"><h2 id="panel-title"></h2><button id="panel-close">&times;</button></div>
-  <div id="panel-body"></div>
+
+<!-- Hello popup -->
+<div class="box-14 flow" data-cid="n87" id="hello" role="note">
+  <button class="btn-8 grid-2 type-17" id="hello-x" aria-label="Dismiss">&times;</button>
+  <span class="text-9 row-8" data-cid="n89" aria-hidden="true">
+    <i class="box-15 flow type-18"></i>
+    <i class="box-16 flow type-18"></i>
+    <i class="box-17 flow type-18"></i>
+  </span>
+  <p class="text-10 flow type-19" id="hello-h">First time here?</p>
+  <button class="btn-9 flow type-20" id="hello-go">Read the index</button>
+  <p class="text-11 flow type-21">
+    <span class="flow-17">Or click any dot to read that concept. Scroll to zoom, drag to pan.</span>
+    <span class="flow-18">Or tap any dot to read that concept. Pinch to zoom, drag to pan.</span>
+    <span class="flow-19">☰ opens the other views.</span>
+  </p>
 </div>
-</div>
+
 <script>
-const COLORS = { framework:'#58a6ff', database:'#3fb950', language:'#d29922', deployment:'#f85149', auth:'#bc8cff', 'state-management':'#f0883e', testing:'#79c0ff', storage:'#7ee787', ui:'#ffa657' };
+const COLORS = { framework:'#58a6ff', database:'#22c55e', language:'#d29922', deployment:'#e22626', auth:'#bc8cff', 'state-management':'#f0883e', testing:'#79c0ff', storage:'#7ee787', ui:'#ffa657' };
 const TYPES = ['framework','database','language','deployment','auth','state-management','testing','storage','ui'];
-let cy, DATA, activeFilters = new Set(TYPES);
+let cy, DATA, panelOpen = false;
 
 async function load(){
   try {
     const r = await fetch(new URL('../graph.json', location).href);
-    if (!r.ok) throw new Error(`HTTP ${r.status}`);
+    if(!r.ok) throw new Error('HTTP '+r.status);
     DATA = await r.json();
-    initFilters();
+    document.getElementById('stats-label').textContent = DATA.stats.projects+' projects · '+DATA.stats.entities+' entities · '+DATA.stats.edges+' edges';
+    document.getElementById('status-bar').textContent = DATA.stats.projects+' projects · '+DATA.stats.entities+' entities · '+DATA.stats.edges+' edges';
     initCy();
-    document.getElementById('stats').textContent = `${DATA.stats.projects} projects · ${DATA.stats.entities} entities · ${DATA.stats.edges} edges`;
   } catch(e) {
-    document.getElementById('status').textContent = `Error: ${e.message}`;
+    document.getElementById('stats-label').textContent = 'Error: '+e.message;
+    document.getElementById('status-bar').textContent = 'Error loading graph';
   }
-}
-
-function initFilters(){
-  const el = document.getElementById('filters');
-  TYPES.forEach(t => {
-    const b = document.createElement('button');
-    b.className = 'filter-btn on';
-    b.textContent = t;
-    b.onclick = () => { b.classList.toggle('on'); if(b.classList.contains('on')) activeFilters.add(t); else activeFilters.delete(t); updateFilter(); };
-    el.appendChild(b);
-  });
-}
-
-function updateFilter(){
-  cy.nodes().forEach(n => {
-    const t = n.data('type');
-    if(t === 'project') return;
-    n.style('display', activeFilters.has(t) ? 'element' : 'none');
-  });
 }
 
 function initCy(){
@@ -132,33 +494,32 @@ function initCy(){
     els.push({ data: { id: 'e:'+e.name, label: e.name, type: e.type, entity: e } });
   });
   DATA.edges.forEach(e => {
-    els.push({ data: { id: e.source+'>'+e.target, source: 'p:'+e.source, target: 'e:'+e.target, label: e.relation } });
+    els.push({ data: { id: e.source+'>'+e.target, source: 'p:'+e.source, target: 'e:'+e.target, label: e.relation, target_type: e.target_type } });
   });
 
   cy = cytoscape({
     container: document.getElementById('cy'),
     elements: els,
     style: [
-      { selector: 'node[type="project"]', style: { 
-        'background-color': 'var(--bg2)', 'border-color': 'var(--accent)', 'border-width': 1.5,
+      { selector: 'node[type="project"]', style: {
+        'background-color': '#1c1f26', 'border-color': '#58a6ff', 'border-width': 1.5,
         shape: 'round-round-rectangle', width: 'label', height: 24, padding: '8px 4px',
-        label: 'data(label)', 'font-size': '11px', 'color': 'var(--text)', 'text-valign': 'center', 'text-halign': 'center',
+        label: 'data(label)', 'font-size': '11px', color: '#e6edf3', 'text-valign': 'center', 'text-halign': 'center',
         'min-zoomed-font-size': 8
       }},
       { selector: 'node[type="project"]:selected', style: { 'border-color': '#fff', 'border-width': 2.5 }},
-      { selector: 'node:child', style: { 'background-color': 'var(--bg)' }},
-      ...TYPES.map(t => ({ selector: `node[type="${t}"]`, style: { 
-        'background-color': COLORS[t]||'var(--purple)', 'opacity': .85,
+      ...TYPES.map(t => ({ selector: 'node[type="'+t+'"]', style: {
+        'background-color': COLORS[t]||'#bc8cff', opacity: .85,
         width: 18, height: 18, shape: 'ellipse',
-        label: 'data(label)', 'font-size': '9px', 'color': 'var(--dim)', 'text-valign': 'top', 'text-halign': 'center', 'text-margin-y': 4,
+        label: 'data(label)', 'font-size': '9px', color: '#9298a4', 'text-valign': 'top', 'text-halign': 'center', 'text-margin-y': 4,
         'min-zoomed-font-size': 7
       }})),
-      { selector: 'edge', style: { 'line-color': 'var(--border)', 'opacity': .35, width: 1,
-        'target-arrow-color': 'var(--border)', 'target-arrow-shape': 'triangle-backcurve',
+      { selector: 'edge', style: { 'line-color': '#30363d', opacity: .35, width: 1,
+        'target-arrow-color': '#30363d', 'target-arrow-shape': 'triangle-backcurve',
         'arrow-scale': .6, 'curve-style': 'haystack'
       }},
-      { selector: 'edge.highlight', style: { 'line-color': 'var(--accent)', opacity: .7, width: 2 }},
-      { selector: 'node.highlight', style: { 'border-color': 'var(--accent)', 'border-width': 3, 'border-opacity': 1 }},
+      { selector: 'edge.highlight', style: { 'line-color': '#58a6ff', opacity: .7, width: 2 }},
+      { selector: 'node.highlight', style: { 'border-color': '#58a6ff', 'border-width': 3, 'border-opacity': 1 }},
       { selector: 'node.dim', style: { opacity: .15 }},
       { selector: 'edge.dim', style: { opacity: .05 }},
     ],
@@ -166,6 +527,7 @@ function initCy(){
     minZoom: .15, maxZoom: 4,
   });
 
+  // Tap: node → show panel, background → close
   cy.on('tap', function(evt){
     if(evt.target === cy) { closePanel(); return; }
     if(!evt.target.isNode()) return;
@@ -174,6 +536,7 @@ function initCy(){
     showPanel(n.data(isP ? 'project' : 'entity'), isP);
   });
 
+  // Hover highlight
   cy.on('mouseover', 'node', function(evt){
     evt.target.addClass('highlight');
     evt.target.connectedEdges().addClass('highlight');
@@ -189,70 +552,92 @@ function initCy(){
     const q = this.value.toLowerCase().trim();
     cy.nodes().forEach(n => {
       const label = n.data('label').toLowerCase();
-      const match = !q || label.includes(q);
-      n.style('display', match ? 'element' : 'none');
+      n.style('display', (!q || label.includes(q)) ? 'element' : 'none');
     });
   });
 
-  document.getElementById('btn-reset').onclick = () => {
-    document.getElementById('search').value = '';
-    cy.nodes().style('display', 'element');
+  // Layout switcher
+  document.getElementById('layout').addEventListener('change', function(){
+    cy.layout({ name: this.value, animate: true, animationDuration: 500 }).run();
+  });
+
+  // Fit
+  document.getElementById('btn-fit').onclick = () => {
     cy.fit(undefined, 40);
-    closePanel();
   };
 
+  // Theme toggle
   document.getElementById('btn-theme').onclick = () => {
     const html = document.documentElement;
-    html.setAttribute('data-theme', html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark');
+    const isDark = html.getAttribute('data-theme') !== 'light';
+    html.setAttribute('data-theme', isDark ? 'light' : 'dark');
   };
 
-  document.getElementById('panel-close').onclick = closePanel;
+  // Inspector toggle
+  document.getElementById('btn-panel').onclick = () => {
+    if(panelOpen) closePanel();
+    else document.getElementById('inspector').classList.add('open');
+  };
+  document.getElementById('inspector-close').onclick = closePanel;
 
-  // Fit on load
-  setTimeout(() => cy.fit(undefined, 40), 100);
+  // Hello dismiss
+  document.getElementById('hello-x').onclick = () => {
+    document.getElementById('hello').style.display = 'none';
+  };
+  document.getElementById('hello-go').onclick = () => {
+    document.getElementById('hello').style.display = 'none';
+    window.location.href = '/';
+  };
+
+  setTimeout(() => cy.fit(undefined, 40), 200);
 }
 
 function showPanel(data, isProject){
-  const panel = document.getElementById('panel');
-  const title = document.getElementById('panel-title');
-  const body = document.getElementById('panel-body');
+  panelOpen = true;
+  const panel = document.getElementById('inspector');
+  const title = document.getElementById('inspector-title');
+  const body = document.getElementById('inspector-body');
   panel.classList.add('open');
   if(isProject) renderProject(data);
   else renderEntity(data);
 }
 
 function renderProject(p){
-  document.getElementById('panel-title').textContent = p.okf_title || p.id;
-  const tags = (p.okf_tags||[]).map(t => `<span class="tag">${esc(t)}</span>`).join('');
-  const edges = DATA.edges.filter(e => e.source === p.id).map(e => `<li><span class="tag">${e.target_type}</span> ${esc(e.target)}</li>`).join('');
-  document.getElementById('panel-body').innerHTML = `
-    <div class="section"><h3>Status</h3><p><span class="tag ${p.status==='active'?'tag-green':'tag-red'}">${p.status}</span></p></div>
-    ${p.description?`<div class="section"><h3>Description</h3><p>${esc(p.description)}</p></div>`:''}
-    <div class="section"><h3>Tech Stack</h3><dl class="tech-grid">
-      ${p.frameworks?.length?`<dt>Framework</dt><dd>${esc(p.frameworks.join(', '))}</dd>`:''}
-      ${p.languages?.length?`<dt>Language</dt><dd>${esc(p.languages.join(', '))}</dd>`:''}
-      ${p.databases?.length?`<dt>DB</dt><dd>${esc(p.databases.join(', '))}</dd>`:''}
-      ${p.deployment_targets?.length?`<dt>Deploy</dt><dd>${esc(p.deployment_targets.join(', '))}</dd>`:''}
-      ${p.cloud_providers?.length?`<dt>Cloud</dt><dd>${esc(p.cloud_providers.join(', '))}</dd>`:''}
+  document.getElementById('inspector-title').textContent = p.okf_title || p.id;
+  const tags = (p.okf_tags||[]).map(t => '<span class="tag">'+esc(t)+'</span>').join('');
+  const edges = DATA.edges.filter(e => e.source === p.id).map(e => '<li><span class="tag">'+esc(e.target_type)+'</span> '+esc(e.target)+'</li>').join('');
+  document.getElementById('inspector-body').innerHTML = `
+    <div class="inspector-section"><h3>Status</h3><p><span class="tag ${p.status==='active'?'tag-green':'tag-red'}">${esc(p.status)}</span></p></div>
+    ${p.description?'<div class="inspector-section"><h3>Description</h3><p>'+esc(p.description)+'</p></div>':''}
+    <div class="inspector-section"><h3>Tech Stack</h3><dl class="tech-grid">
+      ${p.frameworks?.length?'<dt>Framework</dt><dd>'+esc(p.frameworks.join(', '))+'</dd>':''}
+      ${p.languages?.length?'<dt>Language</dt><dd>'+esc(p.languages.join(', '))+'</dd>':''}
+      ${p.databases?.length?'<dt>DB</dt><dd>'+esc(p.databases.join(', '))+'</dd>':''}
+      ${p.deployment_targets?.length?'<dt>Deploy</dt><dd>'+esc(p.deployment_targets.join(', '))+'</dd>':''}
+      ${p.cloud_providers?.length?'<dt>Cloud</dt><dd>'+esc(p.cloud_providers.join(', '))+'</dd>':''}
     </dl></div>
-    ${p.agent_personality?`<div class="section"><h3>Agent</h3><p>${esc(p.agent_personality)}</p></div>`:''}
-    ${tags?`<div class="section"><h3>Tags</h3><div>${tags}</div></div>`:''}
-    ${edges?`<div class="section"><h3>Relations (${DATA.edges.filter(e=>e.source===p.id).length})</h3><ul class="edge-list">${edges}</ul></div>`:''}
-    ${p.profile_body?`<div class="section"><h3>Profile</h3><pre>${esc(p.profile_body.slice(0,800))}</pre></div>`:''}
+    ${p.agent_personality?'<div class="inspector-section"><h3>Agent</h3><p>'+esc(p.agent_personality)+'</p></div>':''}
+    ${tags?'<div class="inspector-section"><h3>Tags</h3><div>'+tags+'</div></div>':''}
+    ${edges?'<div class="inspector-section"><h3>Relations ('+DATA.edges.filter(e=>e.source===p.id).length+')</h3><ul class="edge-list">'+edges+'</ul></div>':''}
+    ${p.profile_body?'<div class="inspector-section"><h3>Profile</h3><pre>'+esc(p.profile_body.slice(0,800))+'</pre></div>':''}
   `;
 }
 
 function renderEntity(e){
-  document.getElementById('panel-title').textContent = e.name;
+  document.getElementById('inspector-title').textContent = e.name;
   const projects = e.projects_using||[];
-  document.getElementById('panel-body').innerHTML = `
-    <div class="section"><h3>Type</h3><p><span class="tag">${esc(e.type)}</span></p></div>
-    <div class="section"><h3>Used by (${projects.length})</h3><ul class="edge-list">${projects.map(p=>`<li>${esc(p)}</li>`).join('')}</ul></div>
-    <div class="section"><h3>Usage count</h3><p>${e.usage_count}</p></div>
+  document.getElementById('inspector-body').innerHTML = `
+    <div class="inspector-section"><h3>Type</h3><p><span class="tag">${esc(e.type)}</span></p></div>
+    <div class="inspector-section"><h3>Used by (${projects.length})</h3><ul class="edge-list">${projects.map(p=>'<li>'+esc(p)+'</li>').join('')}</ul></div>
+    <div class="inspector-section"><h3>Usage count</h3><p>${e.usage_count}</p></div>
   `;
 }
 
-function closePanel(){ document.getElementById('panel').classList.remove('open'); }
+function closePanel(){
+  panelOpen = false;
+  document.getElementById('inspector').classList.remove('open');
+}
+
 function esc(s){ return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
 
 load();
