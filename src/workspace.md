@@ -1,9 +1,6 @@
 ---
-type: workspace-index
-id: okf-index
-last_updated: 2026-07-22
+okf_version: 0.1
 ---
-
 # ดัชนี Workspace (Workspace Index)
 
 ## สรุป Workspace
@@ -83,7 +80,6 @@ Local MCP server ที่ `~/OKF/mcp-server/` ใช้เครื่องม
 | `stats` | Statistics ข้ามโปรเจกต์ (framework, DB, deploy) |
 | `graph` | Mermaid knowledge graph — project → technology relationships |
 | `rebuild` | บังคับ recompile KB จาก .md ไฟล์ |
-| `render` | Export knowledge graph JSON + stats (สำหรับ graph viewer) |
 
 ## ไฟล์ระบบ (System Files)
 - [Setup](./SETUP.md) — เริ่มต้นไวสำหรับสภาพแวดล้อมใหม่
@@ -91,4 +87,17 @@ Local MCP server ที่ `~/OKF/mcp-server/` ใช้เครื่องม
 - [Glossary](./system/glossary.md) — ศัพท์เทคนิค
 - [Personalities](./system/personalities.md) — บุคลิกภาพ agent / คราวก๊อบลิน
 - [Sync Log](./system/sync-log.md) — ประวัติการเปลี่ยนแปลง
-- [TODOs Convention](./system/TODOS.md) — กระบวนการ TODOs + ตรวจสอบตอนเริ่ม (global)
+
+## Cross-links
+
+- [Clientdata](projects/clientdata/profile.md)
+- [Collage](projects/collage/profile.md)
+- [data.mcky.space](projects/data.mcky.space/profile.md)
+- [Habby](projects/habby/profile.md)
+- [mcky.space](projects/mcky.space/profile.md)
+- [Receipts DMS](projects/receipts-dms/profile.md)
+- [Truck](projects/truck/profile.md)
+- [Writer](projects/writer/profile.md)
+- [Workspace Conventions](system/conventions.md)
+- [Glossary](system/glossary.md)
+- [Personalities](system/personalities.md)

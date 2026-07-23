@@ -1,7 +1,12 @@
 ---
 type: instruction
 id: okf-setup
-last_updated: 2026-07-22
+last_updated: 2026-07-22T00:00:00.000Z
+title: OKF Setup Guide
+description: ''
+tags:
+  - SETUP
+timestamp: Wed Jul 22 2026 00:00:00 GMT+0000 (Coordinated Universal Time)T12:00:00Z
 ---
 
 # OKF Setup Guide
@@ -59,8 +64,7 @@ echo '{"jsonrpc":"2.0","id":1,"method":"initialize","params":{"protocolVersion":
 │   ├── conventions.md                ← Communication rules, Universal Prompt
 │   ├── glossary.md                   ← Terminology
 │   ├── personalities.md              ← Agent personalities
-│   ├── sync-log.md                   ← Change history
-│   └── TODOS.md                      ← TODOs convention
+│   └── sync-log.md                   ← Change history
 ├── mcp-server/                       ← Local MCP server
 │   ├── index.js
 │   ├── lib/

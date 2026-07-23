@@ -2,7 +2,7 @@
 type: project-profile
 id: clientdata-profile
 project: clientdata
-last_updated: 2026-07-21
+last_updated: 2026-07-21T00:00:00.000Z
 status: archived
 stack:
   language: TypeScript
@@ -19,8 +19,14 @@ agent_personality: data goblin (archived)
 links:
   agent: clientdata-agent
   status: clientdata-status
+title: 'Profile ของโปรเจกต์: clientdata'
+description: ''
+tags:
+  - clientdata
+  - archived
+  - profile
+timestamp: Tue Jul 21 2026 00:00:00 GMT+0000 (Coordinated Universal Time)T12:00:00Z
 ---
-
 # Profile ของโปรเจกต์: clientdata
 
 ## Identity (ข้อมูลตัวตน)
@@ -95,3 +101,8 @@ links:
 
 - `/home/clientdata/package.json`
 - `/home/OKF/projects/clientdata/agent.md`
+
+## Cross-links
+
+- [Clientdata Agent](agent.md)
+- [Clientdata Status](status.md)
