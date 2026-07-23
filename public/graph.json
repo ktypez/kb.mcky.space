@@ -1,0 +1,1497 @@
+{
+  "generated_at": "2026-07-23T00:54:48.238Z",
+  "okf_version": "0.1",
+  "stats": {
+    "projects": 8,
+    "entities": 43,
+    "edges": 78,
+    "active_projects": 7,
+    "framework_count": 8,
+    "database_count": 5,
+    "language_count": 3,
+    "deploy_count": 4
+  },
+  "projects": [
+    {
+      "id": "clientdata",
+      "name": "Next.js 16 + React 19",
+      "display_name": null,
+      "description": "ระบบจัดการลูกค้าและ CRM",
+      "purpose": "จัดการข้อมูลลูกค้าและ workflow ของ CRM",
+      "repository": "ไม่ทราบ (Unknown)",
+      "owner": "ไม่ทราบ (Unknown)",
+      "status": "archived",
+      "last_updated": "2026-07-21",
+      "languages": [
+        "TypeScript"
+      ],
+      "frameworks": [
+        "Next.js 16 + React 19"
+      ],
+      "databases": [
+        "Neon (PostgreSQL)"
+      ],
+      "deployment_targets": [
+        "Vercel"
+      ],
+      "cloud_providers": [
+        "Supabase",
+        "Vercel",
+        "Neon"
+      ],
+      "agent_personality": "data goblin (archived)",
+      "source_path": "/home/clientdata",
+      "okf_type": "project-profile",
+      "okf_title": "clientdata",
+      "okf_tags": [
+        "TypeScript",
+        "Next.js",
+        "React",
+        "Neon (PostgreSQL)",
+        "Vercel",
+        "Tailwind CSS",
+        "React hooks",
+        "Supabase Auth",
+        "none",
+        "Supabase Storage"
+      ],
+      "okf_timestamp": "2026-07-21T00:00:00Z",
+      "profile_body": "\n# Profile ของโปรเจกต์: clientdata\n\n## Identity (ข้อมูลตัวตน)\n\n- **Name:** ezzydata\n- **Display Name:** EzzyData\n- **Description:** ระบบจัดการลูกค้าและ CRM\n- **Purpose:** จัดการข้อมูลลูกค้าและ workflow ของ CRM\n- **Repository:** ไม่ทราบ (Unknown)\n- **Owner:** ไม่ทราบ (Unknown)\n\n## Technology (เทคโนโลยี)\n\n- **Languages:** TypeScript\n- **Frameworks:** Next.js 16, React 19\n- **Runtime:** Node.js\n- **Package Manager:** npm\n- **Build System:** Next.js build (webpack)\n- **Deployment Targets:** Vercel\n\n## Dependencies (การพึ่งพา)\n\n- **Major Libraries:** `drizzle-orm` (^0.45.2), `next-themes`, `tailwind-merge`, `@base-ui/react`, `maplibre-gl`\n- **External Services:** Neon Database, Cloudflare R2\n- **Databases:** Neon (PostgreSQL)\n- **Cloud Providers:** Neon, Cloudflare\n- **APIs:** Neon API, Cloudflare R2 API\n- **Core:** next 16.2.9, react 19.2.7, drizzle-orm ^0.45.2, @neondatabase/serverless ^1.1.0, @aws-sdk/client-s3 ^3.1075.0, tailwindcss ^4.3.1\n- **Dev Tools:** drizzle-kit ^0.31.10, tsx ^4.22.4, typescript ^6.0.3, eslint ^9\n\n## Development (การพัฒนา)\n\n- **Setup:** `npm install`\n- **Dev:** `npm run dev`\n- **Build:** `npm run build`\n- **Database:** `npm run db:push` (push schema to Neon), `npm run db:migrate` (run Redis-to-Neon migration)\n- **Test:** `pnpm test`\n- **Lint:** `npm run lint`\n- **Typecheck:** `npx tsc --noEmit`\n\n## Architecture (สถาปัตยกรรม)\n\n- **Structure:** Next.js App Router SPA ใช้ History API routing\n- **Directory:**\n  - `app/`: Next.js App Router (`api/` สำหรับ API routes)\n  - `components/`: React components (`ui/` สำหรับ Base UI)\n  - `hooks/`: Custom hooks (`useClients`, `useGeolocation`)\n  - `lib/`: Core logic (`db/`, `auth.ts`, `storage.ts`)\n  - `scripts/`: Maintenance scripts (`migrate-redis-to-neon.ts`)\n  - `types/`: TypeScript type definitions\n  - `public/`: PWA manifest และ icons\n- **Key Files:** `app/page.tsx` (entry), `app/c/[id]/page.tsx` (public client page), `drizzle.config.ts`, `next.config.ts\n\n## Documentation (เอกสาร)\n\n- **Agent Context:** [agent.md](./agent.md)\n- **Status:** [status.md](./status.md)\n\n## Quality (คุณภาพ)\n\n- **Tests:** Vitest (16 tests)\n- **CI:** Vercel CI\n- **Linters:** ESLint\n\n## Status (สถานะ)\n\n- **State:** archived\n- **Documentation Completeness:** สูง (High)\n- **Confidence Level:** สูง (High)\n\n**Source:**\n\n- `/home/clientdata/package.json`\n- `/home/OKF/projects/clientdata/agent.md`\n",
+      "agent_body": "\n# clientdata Agent\n\n## ภาพรวม (Overview)\n\nระบบจัดการลูกค้าและ CRM — ใช้ Next.js 16 คู่กับ Drizzle + Neon Postgres, เก็บไฟล์บน Cloudflare R2 และรองรับ PWA\n\n## บุคลิก (Personality)\n\n- **Role:** data goblin\n- หลงใหลกับ data model ที่สะอาด, โครงสร้าง CRM และ client records ที่เชื่อถือได้ ชอบขุดคุ้ย data, normalize schema ต่างๆ และรักษา client store ให้เป็นระเบียบ\n\n## Stack (สแต็ก)\n\n| เลเยอร์ (Layer) | เทคโนโลยี (Tech) |\n|-------|------|\n| Framework | Next.js 16.2.9 (App Router, webpack) |\n| Language | React 19.2.7 + TypeScript 6.0.3 |\n| Database | Neon Postgres (Drizzle ORM 0.45.2) |\n| Storage | Cloudflare R2 (via @aws-sdk/client-s3) |\n| Auth | scrypt + HMAC tokens |\n| Testing | Vitest 1.6 + @testing-library/react |\n| PWA | Custom service worker (cleanup-only, Serwist removed) |\n| Styling | Tailwind CSS 4.3.1 + shadcn/ui components (Base UI) |\n| Deployment | Vercel |\n\n## สถาปัตยกรรม (Architecture)\n\n| ไดเรกทอรี (Directory) | หน้าที่ (Purpose) |\n|-----------|---------|\n| `app/` | App Router pages, API routes, public pages, providers, CSS |\n| `components/` | UI เชิงนำกลับใช้ใหม่ — views, forms, maps, modals + `ui/` primitives |\n| `lib/` | Core logic — DB (Drizzle ORM), auth, client CRUD, R2 upload, suggestions, utilities |\n| `hooks/` | Custom React hooks |\n| `types/` | Ambient type declarations |\n| `scripts/` | One-off migration scripts |\n| `public/` | Static assets — PWA manifest, icons, service worker |\n\n### คอมโพเนนต์หลัก (Key Components)\n\n| Component | หน้าที่ (Purpose) |\n|-----------|---------|\n| PageHeader | แถบ header — ปุ่ม toggle sidebar, ค้นหา, ปุ่มเพิ่ม, สลับธีม, เลือก theme preset |\n| Sidebar | Sheet drawer แบบ collapsible groups |\n| InlineMap | แผนที่ cluster แบบเต็มหน้า พร้อม geolocation + เส้นทาง |\n| ThemePresetPicker | Dropdown สี swatch สำหรับ 14 tweakcn theme presets |\n| SuggestionDiff | แสดง diff สำหรับ suggestions แบบแชร์ใช้ |\n\n## รูปแบบสำคัญ (Key Patterns)\n\n- `lib/auth.ts` ใช้ fallback `.auth-local.json` เมื่อไม่ได้ตั้ง DATABASE_URL\n- `fetchClients` เรียก `setCachedClients(data)` เพื่อ sync localStorage cache\n- `ClientDetail` ใช้ `AbortController` สำหรับดึง suggestions\n- ลบข้อมูลทำทันที (ไม่มี undo toast)\n- หน้า `/c/[id]` ใช้ server wrapper pattern\n- ตัวช่วย `cssVarToHex` แปลง oklch/var เป็น hex สำหรับ MapLibre (ใช้ DOM `getComputedStyle` ไม่ใช่ Canvas2D)\n- สี pin ตาม style presets ผ่าน CSS var `--pin-color`\n- Dark mode ผ่าน `next-themes` + `@custom-variant dark`\n- input ทุกตัวใช้ `text-[14px] font-sans`\n\n## Commands (คำสั่ง)\n\n| Command | ทำอะไร (What it does) |\n|---------|-------------|\n| `pnpm dev` | Dev server (port 3002, -H 0.0.0.0) |\n| `pnpm build` | Production build (`next build --webpack`) |\n| `pnpm test` | รัน tests (16 tests) |\n| `pnpm lint` | ESLint |\n| `pnpm db:push` | Push Drizzle schema |\n| `pnpm db:migrate` | รัน migration |\n\n## Triggers\n\n### \"update .md\"\n\n1. อ่าน project AGENTS.md + สถานะ KB ปัจจุบัน\n2. อัปเดต `projects/clientdata/status.md` ด้วยการเปลี่ยนแปลงล่าสุด\n3. อัปเดต `projects/clientdata/agent.md` (directory map, components, patterns)\n4. ถ้า project AGENTS.md มีข้อมูลเก่า ให้อัปเดตด้วย\n\n### \"cleanup\"\n\n1. สแกน unused imports, ไฟล์ว่าง, dead exports\n2. Health check: `npm run lint` + `tsc --noEmit`\n3. Deep scan: ไดเรกทอรีที่เหลือ, `console.log`, TODO/FIXME\n4. นำผลมาแสดงให้ผู้ใช้เลือก\n5. อัปเดต STATUS.md + KB agent file\n6. ห้าม cleanup `.env*`, `node_modules/`, `.next/`, `.git/` หรือ config ที่จำเป็น\n\n### \"doctor-kb\" — Knowledge Lifecycle\n\n1. สแกนไฟล์ `.md` ใน `projects/clientdata/knowledge/`\n2. ฟลาก node ที่ `verified` เก่าเกิน 30 วัน — แจ้งให้ผู้ใช้ re-verify\n3. หา node ที่ `status: superseded` — ยืนยันว่าควรคงสถานะ archived\n4. หา node ที่ `expires` ผ่านไปแล้ว — ตั้ง `status: expired` อัตโนมัติ\n5. นำผลมาแสดง ให้ผู้ใช้เลือกการกระทำ\n\n### \"backfill\" — Seed KB from Codebase\n\n4. อ่าน package.json → ตรวจสอบความถูกต้องของ profile.md\n5. นำผลมาแสดงให้ผู้ใช้ approve ก่อนเขียน\n\n## TODOs\n\n\n## Environment Variables\n\n- `DATABASE_URL` (Neon Postgres)\n- `R2_PUBLIC_URL`, `R2_BUCKET_NAME`, `R2_ACCOUNT_ID`, `R2_ACCESS_KEY_ID`, `R2_SECRET_ACCESS_KEY`\n- `TELEGRAM_BOT_TOKEN`, `TELEGRAM_CHAT_ID`\n- `ADMIN_PASSWORD`\n\n## Rules (กฎ)\n\n- `public/sw.js` คือ cleanup-only script (Serwist removed)\n- เอาออกแล้ว sonner — ไม่มี toast library ติดตั้ง\n- UI edits ทั้งหมดต้องใช้ shadcn components — ห้ามทำ custom button/modal pattern เมื่อมี shadcn เทียบเท่า\n- `pnpm-lock.yaml` ต้อง commit เมื่อ dependencies เปลี่ยน (Vercel ใช้ `--frozen-lockfile`)\n",
+      "status_body": "\n# สถานะโปรเจกต์ — clientdata\n\n## Routes (เส้นทาง)\n\n| Path | Page |\n|------|------|\n| `/` | SPA Dashboard — maps, client list, admin panel |\n| `/c/[id]` | Public client page (no auth) |\n| `POST /api/clients` | Create client |\n| `GET /api/clients` | List clients (paginated, searchable) |\n| `GET /api/clients/search` | Search clients by keyword |\n| `GET /api/clients/suggestions` | Get/promote suggestions |\n| `GET/PUT/DELETE /api/clients/[id]` | Client CRUD |\n| `POST /api/upload` | File upload to R2 |\n| `POST /api/auth/login` | Login |\n| `POST /api/auth/logout` | Logout |\n\n## Changelog (บันทึกการเปลี่ยนแปลง)\n\n### 2026-07-13\n- Sync OKF knowledge base across all 8 projects\n- Updated workspace index with current project inventory\n- Refreshed documentation timestamps and freshness\n\n### 2026-07-11\n- fix: bump SW cache version to v2 — clean install, clear stale api-v1 cache\n- fix: remove webpack config — Next.js 16 defaults to Turbopack\n- fix: reset search/filter on browser back (popstate handler)\n- searchClients: split query into keywords (AND across words, ILIKE per keyword)\n\n### 2026-07-08\n- Remove back-navigation stack in favor of native History API\n- Combined 2 DB queries into a single join for client list performance\n- localStorage cache sync: cache only on create/update, clear on delete\n- Fix: seed.sql conflict — renamed `suggestions_userId` → `suggestions_user_id`\n\n### Earlier\n- Phone number formatting + copy in client card\n- Full-text search across name + shopName (ILIKE, not trigram)\n- Suggestion approval with transaction protection\n- theme.ts: 14 CSS variable presets, extracted from themes.css\n- shadcn/ui migration — 5 components, theme provider replaced\n- Photo upload: 3 sizes (thumb/web/original) via R2, lazy loading\n- MapLibre GL clustering + popups, lazy loaded via next/dynamic\n- scrypt + HMAC auth, server-side sessions, admin + viewer roles\n- Public client page at `/c/[id]` — no auth required\n- 16 Vitest tests (auth, suggestions, clients, upload)\n\n## Known Issues (ปัญหาที่ทราบ)\n\n- `useReducer` refactor เลื่อนไว้ — มี `useState` hooks 30+ ตัวใน component เดียว\n- ไม่มี undo เมื่อลบ client (มี trash restore แต่ไม่มี undo toast)\n- SW cache version ต้อง bump เองมือเมื่อมี breaking changes\n\n## Data Model\n\n```sql\nclients: id, name, shopName, phone, lat, lng, photoKey, note, suggestedById, createdAt\nsuggestions: id, name, shopName, phone, suggestedBy, userId, approvedAt\n```\n"
+    },
+    {
+      "id": "collage",
+      "name": "Express 4 (backend) + vanilla HTML/CSS/JS (frontend)",
+      "display_name": null,
+      "description": "เครื่องมือทำ collage รูปภาพ พร้อม LINE LIFF bot",
+      "purpose": "สร้าง collage ภาพแนวธีมแล้วแชร์ผ่าน LINE chat",
+      "repository": null,
+      "owner": null,
+      "status": "active",
+      "last_updated": "2026-07-22",
+      "languages": [
+        "JavaScript"
+      ],
+      "frameworks": [
+        "Express 4 (backend) + vanilla HTML/CSS/JS (frontend)"
+      ],
+      "databases": [
+        "none"
+      ],
+      "deployment_targets": [
+        "Render.com (backend) + Vercel (frontend)"
+      ],
+      "cloud_providers": [
+        "Cloudflare",
+        "Vercel",
+        "Render.com"
+      ],
+      "agent_personality": "barista engineer",
+      "source_path": "/home/collage",
+      "okf_type": "project-profile",
+      "okf_title": "collage",
+      "okf_tags": [
+        "JavaScript",
+        "Express 4 (backend)",
+        "vanilla HTML/CSS/JS (frontend)",
+        "none",
+        "Render.com (backend) + Vercel (frontend)",
+        "vanilla CSS",
+        "LINE Messaging API",
+        "Cloudflare R2"
+      ],
+      "okf_timestamp": "2026-07-22T00:00:00Z",
+      "profile_body": "\n# ข้อมูลโปรเจกต์: collage\n\n## ข้อมูลจำเพาะ (Identity)\n- **Name:** collage\n- **Description:** เครื่องมือทำ collage รูปภาพ พร้อม LINE LIFF bot\n- **Purpose:** สร้าง collage ภาพแนวธีมแล้วแชร์ผ่าน LINE chat\n\n## เทคโนโลยี (Technology)\n- **Languages:** JavaScript (Node.js), HTML/CSS\n- **Frameworks:** Express 4 (backend), vanilla HTML/CSS/JS (frontend)\n- **Runtime:** Node.js (ESM)\n- **Package Manager:** npm\n- **Image Processing:** sharp 0.33, opentype.js 2.0, fontkit 2.0\n- **Deployment Targets:** Render.com (backend API), Vercel (frontend + webhook)\n\n## Development\n\n| Command | Action |\n|---------|--------|\n| `node backend/server.js` | เริ่ม backend API server (พอร์ต 3000) |\n| `npm run deploy:webhook` | Deploy webhook ไป Vercel |\n| `npm run deploy:backend` | Deploy backend ไป Render.com |\n\n## API\n\n| Method | Path | Description |\n|--------|------|-------------|\n| POST | `/api/collage` | อัปโหลดรูป + สร้าง collage |\n| GET | `/api/image/:filename` | ดึงรูป collage จาก R2 |\n| GET | `/health` | ตรวจสอบสถานะ |\n| POST | `/api/cleanup` | ลบ collages ที่เก่ากว่า 30 วัน |\n\n## LINE Bot\n\n| Command | Response |\n|---------|----------|\n| `!ส่งรูป` / `!รูป` | เปิด LIFF collage maker |\n| `!เมนู` | เมนูหลัก ลิงก์ไป collage, truck, data |\n| `!ลูกค้า <query>` | ค้นหาลูกค้าใน data.mcky.space |\n\n## Dependencies\n\n### Backend\n\n| Package | Version | Purpose |\n|---------|---------|---------|\n| express | ^4.21.0 | HTTP server |\n| sharp | ^0.33.5 | ประมวลผลรูปภาพ (สร้าง collage) |\n| @aws-sdk/client-s3 | ^3.600.0 | Cloudflare R2 storage |\n| multer | ^1.4.5-lts.1 | จัดการอัปโหลดไฟล์ |\n| fontkit | ^2.0.4 | โหลดฟอนต์ |\n| opentype.js | ^2.0.0 | เรนเดอร์ฟอนต์สำหรับข้อความ overlay |\n| cors | ^2.8.5 | คำขอข้าม origin |\n\n### Frontend\n\n| Package | Version | Purpose |\n|---------|---------|---------|\n| @line/bot-sdk | ^9.0.0 | LINE Messaging API (webhook) |\n\n### External Services\n\n| Service | Purpose |\n|---------|---------|\n| Cloudflare R2 | เก็บรูปภาพ (bucket: ezzyreport) |\n| LINE Messaging API | Bot webhook + LIFF integration |\n| Render.com | โฮสต์ backend API |\n| Vercel | โฮสต์ frontend + webhook |\n\n## สถาปัตยกรรม (Architecture)\n- **Backend:** Express server บน Render.com — collage generation API\n- **Frontend:** หน้า HTML เดียวกับ LIFF SDK v2 — UI ตัวทำ collage\n- **Webhook:** Vercel Serverless Function — ตัวจัดการคำสั่งบอท LINE\n- **Storage:** Cloudflare R2 สำหรับรูป collage ที่สร้าง\n\n### Project Structure\n\n```\ncollage/\n├── backend/\n│   ├── server.js              # Express server: routes, multer, startup\n│   ├── collage.js             # Core: layout engine, header SVG, card/shadow rendering\n│   ├── r2-storage.js          # S3 client for R2: upload, get stream, cleanup old\n│   ├── NotoSansThai.ttf       # Thai font for text overlay\n│   ├── .env.example           # R2 env vars template\n│   ├── package.json\n│   └── package-lock.json\n├── frontend/\n│   ├── index.html             # LIFF app page (collage maker UI)\n│   ├── sample.html            # Theme color preview mockup\n│   ├── api/\n│   │   └── webhook.js         # LINE bot webhook (Vercel Serverless Function)\n│   ├── vercel.json            # Route /liff → /index.html\n│   ├── .env.local             # Vercel OIDC token\n│   └── package.json\n├── .gitignore\n├── .vercel/\n│   └── repo.json\n```\n\n## การ deploy (Deployment)\n| Component | Platform | URL |\n|-----------|----------|-----|\n| Backend API | Render.com | `collage-7cgv.onrender.com` |\n| Frontend + Webhook | Vercel | collage.vercel.app |\n| Image storage | Cloudflare R2 | pub-737d7924b2654190843ce35c45f973b6.r2.dev |\n| Source | GitHub | `github.com/ktypez/collage` |\n\n## สถานะ (Status)\n- **State:** active\n- **Role:** พัฒนาอยู่\n- **LINE LIFF ID:** `2010606328-7UnH1Yre`\n",
+      "agent_body": "\n# collage Agent\n\n## ภาพรวม (Overview)\n\nเครื่องมือทำ collage รูปภาพ + LINE LIFF bot — ผู้ใช้สร้าง collage ภาพแนวธีมใน LINE แล้วแชร์เข้าแชท\n\n## เทคโนโลยี (Stack)\n\n- **Backend**: Express 4 + sharp (ประมวลผลรูปภาพ) + opentype.js (เรนเดอร์ฟอนต์ไทย)\n- **Frontend**: Vanilla HTML/CSS/JS + LIFF SDK v2\n- **Webhook**: Vercel Serverless Function (@line/bot-sdk)\n- **Storage**: Cloudflare R2\n- **Deploy**: Render.com (backend) + Vercel (frontend/webhook)\n\n## ข้อมูลสำคัญ (Key Context)\n\n- Path: `/home/collage`\n- Backend: `node backend/server.js` (พอร์ต 3000)\n- Frontend: หน้าเดียว `index.html` กับ LIFF SDK\n- ธีมสี 7 วันในสัปดาห์ (ไทย), ตรวจจับวันปัจจุบันอัตโนมัติ\n- Canvas: กว้าง 1080px, JPEG q90 (mozjpeg), **masonry layout สูงสุด 3 คอลัมน์** (ไม่ยุบคอลัมน์)\n- Image sharpening: `roundImage` ใช้ `withoutEnlargement` + `lanczos3` (ไม่ upscale รูปเล็ก), รูปเล็กจัดกึ่งกลางการ์ด\n- NaN-safe: metadata รูปหายมี fallback (iw square) กัน layout พัง\n- R2 auto-cleanup: **30 วัน**\n- LINE LIFF ID: `2010606328-7UnH1Yre`\n- Backend API base: `https://collage-7cgv.onrender.com`\n- R2 bucket: `ezzyreport`, public ที่ `pub-737d7924b2654190843ce35c45f973b6.r2.dev`\n\n## คำสั่งบอท LINE (LINE Bot Commands)\n\n| Command | Action |\n|---------|--------|\n| `!ส่งรูป` / `!รูป` | Send LIFF collage maker |\n| `!เมนู` | Main menu (collage, truck, data) |\n| `!ลูกค้า <query>` | Search clients on data.mcky.space |\n\n## งานค้าง (TODOs)\n\n\n## ความสัมพันธ์ (Relationships)\n\n- `data.mcky.space` — คำสั่ง `!ลูกค้า` เรียก client search API\n- `truck.mcky.space` — เมนูหลักลิงก์ไป PWA ของ truck\n",
+      "status_body": "\n# สถานะโปรเจกต์ — collage\n\n## Routes\n\n### Backend (Express, Render.com)\n| Path | Description |\n|------|-------------|\n| `POST /api/collage` | สร้าง collage จากรูปที่อัปโหลด |\n| `GET /api/image/:filename` | ดึง collage จาก R2 |\n| `GET /health` | ตรวจสอบสถานะ |\n| `POST /api/cleanup` | ลบ collages เก่า (>30 วัน) |\n\n### Frontend (Vercel)\n| Path | Description |\n|------|-------------|\n| `/liff` | UI ตัวทำ collage (LIFF) |\n| `/api/webhook` | LINE bot webhook |\n\n## ระบบดีไซน์ (Design System)\n\n- ธีมสี 7 วันในสัปดาห์ (อา=แดง, จ=เบจ, อ=ชมพู, พ=เขียว, พฤ=ส้ม, ศ=น้ำเงิน, ส=ม่วง)\n- Collage: กว้าง 1080px, หัวกระดาษ gradient สูง 220px, การ์ดขาวมุมมน, เงาตก\n- Layout: masonry, สูงสุด 3 คอลัมน์ (ไม่ยุบคอลัมน์)\n- Output: JPEG คุณภาพ 90 (mozjpeg)\n- ปฏิทินไทย (ปี พ.ศ. +543), ชื่อเดือนไทย\n\n## ฟีเจอร์ (Features)\n\n- [x] LIFF integration — เปิดจาก LINE, เลือกรูป, สร้าง collage\n- [x] ธีมสี 7 วันในสัปดาห์, ตรวจจับวันนี้ให้อัตโนมัติ\n- [x] Masonry layout (สูงสุด 3 คอลัมน์, ไม่ยุบ) — รูปสั้นเติมช่องว่าง\n- [x] NaN-safe กับขนาดรูป\n- [x] เรนเดอร์ฟอนต์ไทยผ่าน opentype.js\n- [x] คำสั่งบอท LINE (!ส่งรูป, !เมนู, !ลูกค้า)\n- [x] Cloudflare R2 storage พร้อมลบอัตโนมัติทุก 30 วัน\n- [x] Dark mode (prefers-color-scheme)\n- [x] ชื่อผู้ใช้คงอยู่ (localStorage)\n- [x] รูปต้นทางคมขึ้น — ไม่ upscaling, ลดขนาด lanczos3, Q90 mozjpeg\n\n## บันทึกการเปลี่ยนแปลง (Changelog)\n\n### 2026-07-13\n- Sync OKF knowledge base across all 8 projects\n- Updated workspace index with current project inventory\n- Refreshed documentation timestamps and freshness\n\n### 2026-07-12 (3)\n- กลับเป็น masonry (max 3 คอลัมน์) แทน row-wrapping grid — รูปสั้นเติมช่องว่าง ลดความยาว collage\n- ลบ isSmallLayout ห้ามยุบคอลัมน์ (ผู้ใช้: ไม่ควรยุบ มีแต่จะเพิ่ม)\n- คง guard NaN ตามไอเดีย \"วัดความสูงจากรูปแรกของแถว\"\n\n### 2026-07-12 (2)\n- Fix บั๊ก layout รูปกระจกข้างบน (rowTops สะสม Y)\n- Auto-cleanup R2: 90 -> 30 วัน\n\n### 2026-07-12 (1)\n- Fix blur: withoutEnlargement + lanczos3 + Q90 mozjpeg\n- Layout: masonry -> row-wrapping grid 3 คอลัมน์ (ชั่วคราว)\n- Fix บั๊ก NaN\n\n### 2026-07-11\n- Initial KB documentation\n- Theme system: 7 day-of-week colors\n- Smart grid layout, centered last row\n- Persistent name via localStorage\n- Canvas auto-fits content height\n- Main menu: added truck.mcky.space button\n- Webhook: URLSearchParams for + encoding\n- Shrink preset buttons to 34px\n- Sample mockup\n- gitignore cleanup\n"
+    },
+    {
+      "id": "data.mcky.space",
+      "name": "Vite 8 + React 19",
+      "display_name": null,
+      "description": "ระบบจัดการลูกค้า & CRM — production deployment",
+      "purpose": "production deployment ของ clientdata, สร้างใหม่ด้วย Vite + Cloudflare Pages",
+      "repository": "`ktypez/data.mcky.space` (branch main)",
+      "owner": null,
+      "status": "active",
+      "last_updated": "2026-07-22",
+      "languages": [
+        "TypeScript"
+      ],
+      "frameworks": [
+        "Vite 8 + React 19"
+      ],
+      "databases": [
+        "Cloudflare D1 (SQLite)"
+      ],
+      "deployment_targets": [
+        "Cloudflare Pages"
+      ],
+      "cloud_providers": [
+        "Cloudflare"
+      ],
+      "agent_personality": "data goblin (stable)",
+      "source_path": "/home/data.mcky.space",
+      "okf_type": "project-profile",
+      "okf_title": "data.mcky.space",
+      "okf_tags": [
+        "TypeScript",
+        "Vite",
+        "React",
+        "Cloudflare D1 (SQLite)",
+        "Cloudflare Pages",
+        "Tailwind CSS 4",
+        "Zustand",
+        "password (admin/viewer)",
+        "health-check script",
+        "Cloudflare R2"
+      ],
+      "okf_timestamp": "2026-07-22T00:00:00Z",
+      "profile_body": "\n# ข้อมูลโปรเจกต์: data.mcky.space\n\n## ข้อมูลจำเพาะ (Identity)\n- **Name:** data.mcky.space\n- **Display Name:** data.mcky.space (Production)\n- **Description:** ระบบจัดการลูกค้า & CRM — production deployment\n- **Purpose:** production deployment ของ clientdata, สร้างใหม่ด้วย Vite + Cloudflare Pages\n- **Repository:** `ktypez/data.mcky.space` (branch main)\n\n## เทคโนโลยี (Technology)\n- **Languages:** TypeScript\n- **Frameworks:** Vite 8, React 19, Tailwind CSS 4\n- **Animation:** Motion (Framer Motion) v12\n- **Runtime:** Node.js\n- **Package Manager:** pnpm\n- **Build System:** Vite\n- **Deployment Targets:** Cloudflare Pages\n\n## Dependencies\n\n### Runtime\n\n| Package | Version | Purpose |\n|---------|---------|---------|\n| react / react-dom | 19.2.7 | UI framework |\n| react-router-dom | ^7.6.0 | เราติ้งฝั่ง client |\n| drizzle-orm | ^0.45.2 | Database ORM |\n| zustand | ^5.0.14 | จัดการ state |\n| maplibre-gl | ^5.24.0 | เรนเดอร์แผนที่ |\n| @phosphor-icons/react | ^2.1.10 | Icons |\n| class-variance-authority | ^0.7.1 | สร้าง CSS variants |\n| tailwind-merge | ^3.6.0 | Merge Tailwind classes |\n| open-location-code | ^1.0.3 | Plus Codes (Open Location Code) |\n| cookie | ^2.0.1 | จัดการ cookies |\n\n### Dev\n\n| Package | Version | Purpose |\n|---------|---------|---------|\n| vite | ^8.0.0 | Build tool |\n| @vitejs/plugin-react | ^5.0.0 | Vite React plugin |\n| typescript | ^6.0.3 | ตรวจสอบ type |\n| tailwindcss | ^4.3.1 | CSS framework |\n| @tailwindcss/vite | ^4.3.1 | Tailwind Vite plugin |\n| wrangler | ^4.0.0 | Deploy Cloudflare Pages |\n\n## การพัฒนา (Development)\n\n### คำสั่ง (Commands)\n\n| Command | Action |\n|---------|--------|\n| `pnpm dev` | เริ่ม dev server |\n| `pnpm run build` | สร้าง production build |\n| `pnpm exec wrangler pages deploy ./dist --project-name=data-mcky-space` | Deploy ไป Cloudflare Pages (git auto-deploy ปิดอยู่) |\n| `pnpm exec wrangler pages dev --port 8788 ./dist` | รัน Pages Functions บน local |\n| `node scripts/health-check.mjs` | ตรวจสภาพ production (หน้าขาว/refresh loop/SW v2/bare spec) |\n\n### หมายเหตุ deploy\n- Git auto-deploy **ปิด** (production_deployments_enabled:false) → `wrangler pages deploy` คือผู้คุมเดียว\n- ใช้ `--project-name=data-mcky-space` (ไม่ใช่ `data`)\n- ไม่ใช้ `--branch` flag\n- ถ้า build พังด้วย UNRESOLVED_IMPORT ให้เช็ค `vite.config.ts` resolve.alias (pnpm strict layout)\n\n## สถาปัตยกรรม (Architecture)\n\n### โครงสร้างโฟลเดอร์\n\n```\ndata.mcky.space/\n├── functions/                    # Cloudflare Pages Functions\n│   └── api/\n│       ├── _middleware.ts        # Auth middleware\n│       ├── clients.ts            # GET /api/clients\n│       ├── clients/\n│       │   ├── [id].ts           # GET/PUT/DELETE /api/clients/:id\n│       │   ├── search.ts         # GET /api/clients/search\n│       │   ├── suggestions.ts    # GET/POST /api/clients/suggestions\n│       │   └── trash/\n│       │       ├── index.ts      # GET /api/clients/trash\n│       │       └── [id].ts       # POST/DELETE /api/clients/trash/:id\n│       ├── auth/\n│       │   ├── login.ts          # POST /api/auth/login\n│       │   └── logout.ts         # POST /api/auth/logout\n│       └── upload.ts             # POST /api/upload\n├── src/\n│   ├── App.tsx                   # Root: router + providers\n│   ├── main.tsx                  # Entry point\n│   ├── index.css                 # Tailwind + CSS variables\n│   ├── components/\n│   │   ├── layout/\n│   │   ├── ui/\n│   │   └── ...\n│   ├── lib/\n│   │   ├── db.ts                 # Drizzle ORM client\n│   │   └── ...\n│   ├── pages/\n│   │   ├── Dashboard.tsx\n│   │   ├── Clients.tsx\n│   │   └── ...\n│   └── stores/\n│       └── ...                   # Zustand stores\n├── wrangler.toml                 # Cloudflare Pages config\n├── vite.config.ts\n├── package.json\n└── tsconfig.json\n```\n\n### สรุปสถาปัตยกรรม\n- **Structure:** Vite SPA กับ Cloudflare Pages Functions backend\n- **Animation:** Motion (Framer Motion) — AnimatePresence for mount/unmount, spring transitions, stagger containers, shared variants in `src/lib/motion.ts`\n- **State:** Zustand\n- **Source:** `ktypez/data.mcky.space` (branch main), ย้ายจาก Next.js มา Vite\n- **Maps:** MapLibre GL JS — `InlineMap.tsx` lazy-loaded แยก chunk (`React.lazy` + `Suspense`) ถ้าพังจะไม่กระทบหน้าอื่น\n- **PWA/SW:** มี service worker (`public/sw.js` v2) ทำแค่ cache app shell อย่างปลอดภัย, network-first, **ไม่มี auto-reload**\n\n## การ deploy (Deployment)\n- **Branch:** `main`\n- **Domain:** `data.mcky.space`\n- **Platform:** Cloudflare Pages (project: `data-mcky-space`)\n- **Auto-deploy (git):** ปิด (production_deployments_enabled:false)\n- **Deploy command:** `pnpm exec wrangler pages deploy ./dist --project-name=data-mcky-space` (ไม่ใช้ --branch)\n\n## สถานะ (Status)\n- **State:** active (STABLE — 2026-07-17 เพิ่ม Motion animations)\n- **Role:** Production deployment\n- **Source:** `clientdata` (branch master — ทดลอง), ย้ายมา Vite แล้ว\n",
+      "agent_body": "\n# data.mcky.space Agent\n\n## ภาพรวม (Overview)\n\nproduction deployment ของ clientdata — ย้ายจาก Next.js มา Vite 8 + Cloudflare Pages\n\n## บุคลิกภาพ (Personality)\n\n- **Role:** data goblin (stable)\n- มีนิสัยคลั่งข้อมูลเหมือน clientdata แต่ conservative กว่า — ย้าย framework อย่างระมัดระวัง คงความทนทานของ production clone ไว้ชัวร์ก่อน เลือกวินัยของ branch `main` มากกว่าการทดลองที่เปลี่ยนไปเรื่อยๆ\n\n## Stack\n\n- **Framework**: Vite 8 + React 19 + TypeScript\n- **Animation**: Motion (Framer Motion) v12 — AnimatePresence, spring transitions, stagger\n- **State**: Zustand\n- **Database**: **Cloudflare D1 (SQLite)** ผ่าน Drizzle ORM (migrated from Neon — ไม่ใช่ Neon แล้ว)\n- **Storage**: Cloudflare R2\n- **Maps**: MapLibre GL JS (lazy-loaded chunk)\n- **Deploy**: Cloudflare Pages (serverless functions) — project `data-mcky-space`\n\n## ความต่างจาก clientdata (Key Differences from clientdata)\n\n- **Framework**: Vite 8 แทน Next.js 16 (App Router → react-router-dom)\n- **Animation**: Motion (Framer Motion) — ไม่มีใน clientdata\n- **State**: Zustand แทน React useState (30+ hooks → centralized stores)\n- **Deploy**: Cloudflare Pages แทน Vercel\n- **PWA**: มี service worker (`v2` ปลอดภัย, network-first, ไม่ auto-reload)\n- **Source**: `ktypez/data.mcky.space` (branch `main`), ย้าย framework มา\n\n## คำสั่ง (Commands)\n\n| Command | What it does |\n|---------|-------------|\n| `pnpm dev` | Dev server |\n| `pnpm run build` | Production build |\n| `pnpm exec wrangler pages deploy ./dist --project-name=data-mcky-space` | Deploy (git auto-deploy ปิด) |\n| `node scripts/health-check.mjs` | ตรวจสภาพ production |\n\n## งานค้าง (TODOs)\n\n\n\n## การทำงานกับ Git (Git Workflow)\n\n- `~/data.mcky.space` ติดตาม `origin/main`\n- การเปลี่ยนแปลงทดลองผ่าน `clientdata` (master) → ทดสอบ → merge เข้า `main`\n- การย้าย framework ทำบน branch `main` โดยตรง\n\n\n- หน้าขาว = build พังจาก pnpm strict layout (bare specifier) + `'use client'` ใน Vite → แก้ด้วย resolve.alias\n- spam refresh = SW v1 triggerHeal loop → แก้ด้วย SW v2 ที่ไม่ auto-reload + main.tsx unregister เก่า\n- เช็คเสมอด้วย `node scripts/health-check.mjs`\n",
+      "status_body": "\n\n# สถานะโปรเจกต์ — data.mcky.space\n\n## Routes\n\nมีชุดฟีเจอร์เหมือน clientdata (branch master), ย้ายมาเป็น Vite SPA\n\n## การ deploy (Deployment)\n\n| Detail | Value |\n|--------|-------|\n| Branch | `main` |\n| Domain | `data.mcky.space` |\n| Platform | Cloudflare Pages (project: `data-mcky-space`) |\n| Source repo | `ktypez/data.mcky.space` |\n| Auto-deploy (git) | **ปิด** (production_deployments_enabled:false) — deploy ด้วย `pnpm exec wrangler pages deploy ./dist --project-name=data-mcky-space` |\n\n## การตรวจสภาพ (Health Check)\n\n`node scripts/health-check.mjs` ตรวจ 4 จุดที่เคยพัง:\n1. หน้าแรกโหลดได้ ไม่มี error ไม่ spam refresh\n2. `/maps` SPA fallback 200 + map chunk ถูก serve\n3. SW live = `v2` (ไม่มี auto-reload loop)\n4. bundle ไม่มี bare specifier (สาเหตุหน้าขาว)\n\nหมายเหตุ: WebGL error ใน headless เกิดจากเครื่องไม่มี GPU ไม่ใช่ bug\n\n## บันทึกการเปลี่ยนแปลง (Changelog)\n\n### 2026-07-22\n- ✅ **Motion: แก้ route exit animation + wire useReducedMotion()**\n  - `PageTransition` ใน `App.tsx` — เพิ่ม `exit=\"hidden\"` ที่หายไป ทำให้ route exit animation ทำงาน (ก่อนหน้าหมดวูบ)\n  - เพิ่ม `useMotion()` hook ใน `motion.ts` — ส่ง variants + transitions กลับมาโดยนับ reduced motion อัตโนมัติ\n  - ถ้า user เปิด reduced motion: transitions กลายเป็น `instant` (duration 0), variants เป็น `{hidden: {}, visible: {}}` (ไม่ขยับ)\n  - อัปเดต `App.tsx`, `Dialog`, `Sheet` ให้ใช้ `useMotion()` แทน constant imports\n  - 4 ไฟล์ modified\n- ✅ **Location search: รองรับหลายรูปแบบ + feedback ชัดเจน**\n  - แยก `parseCoords()` helper — รองรับ DMS (`13°45'23\"N 100°29'31\"E`), hemisphere suffix (`13.7563 N, 100.5018 E`), และ decimal degrees\n  - เพิ่ม `locFeedback` state — success message 🟢 (clear input + `📍 lat, lng`) หรือ error 🔴 เมื่อไม่รู้จักพิกัด\n  - อัปเดต placeholder เป็น \"ละติจูด, ลองจิจูด หรือ Plus Code\"\n  - feedback หายอัตโนมัติเมื่อ user พิมพ์ใหม่\n  - 1 ไฟล์ modified\n\n### 2026-07-19\n- ❌ **ลบ Void theme ออกทั้งหมด** — หลังจากสร้างและปรับแต่ง frosted glass + atmosphere layers (orbs, grid, noise texture)\n  - ลบ liquid-glass dependency, CSS atmosphere layers, theme definition, theme-provider references\n  - กลับไป 11 themes (obsidian, ivory, meridian, synthwave, frost, ember, moss, neo-brutalism, slate, coral, bubblegum)\n\n### 2026-07-18\n- ✅ **Void theme: frosted glass + atmosphere layers** (ถูกลบ 2026-07-19)\n- ✅ **เพิ่ม Void theme preset** (ถูกลบ 2026-07-19)\n\n### 2026-07-17\n- ✅ **เพิ่ม Motion animations** — dialog/sheet exit, dropdowns, card stagger, route transitions, view transitions, micro-interactions\n  - ติดตั้ง `motion` v12.42.2 (Framer Motion)\n  - สร้าง `src/lib/motion.ts` — shared variants (fadeIn, slideUp, scaleIn, staggerContainer), transitions (spring, smooth, snappy), useReducedMotion hook\n  - **Dialog/Sheet**: AnimatePresence + motion.div — backdrop fade + panel scale-in/slide-in, exit animation ทำงานแล้ว\n  - **Dropdowns (4 ตัว)**: NavDropdown, FilterDropdown, ThemePresetPicker, CopyDropdown — scale-in menu + fade backdrop\n  - **Card stagger**: DesktopCardView (0.03s), DesktopTableView (0.02s), MobileCardList (0.02s) — fade-up entrance\n  - **Route transitions**: AnimatePresence mode=\"wait\" — slide-up on enter, fade on exit\n  - **View transitions**: List ↔ Detail slide-left/right\n  - **Micro-interactions**: FAB spring entrance, SW toast motion, button CSS active state\n  - **Accessibility**: `prefers-reduced-motion: reduce` CSS media query + useReducedMotion() hook\n  - **Performance tuning**: stiffness 400/damping 30 (crisp springs), 180ms smooth, 25ms stagger, reduced travel distance (6-16px)\n  - 16 files modified, ~580 lines added\n- ✅ **แก้ \"หน้าแรก\" link ในเมนูไม่กลับหน้าหลัก**\n- สาเหตุ: `NavDropdown` เรียก `navigate('/')` อย่างเดียวไม่ได้ reset `viewState` ใน Zustand — ถ้าผู้ใช้อยู่ใน detail view (URL ยังเป็น `/`), `viewState.view === 'detail'` ค้างอยู่ → ไม่แสดง list\n- แก้: เพิ่ม `resetView()` จาก `useUIStore` ใน onClick handler ของปุ่ม \"หน้าแรก\" ก่อน `navigate('/')`\n\n### 2026-07-13\n"
+    },
+    {
+      "id": "habby",
+      "name": "Vite 8 + Express 5",
+      "display_name": null,
+      "description": "แอปติดตาม habit แบบ gamified — public mode พร้อม localStorage + owner mode พร้อม Redis",
+      "purpose": null,
+      "repository": "https://github.com/ktypez/habby",
+      "owner": null,
+      "status": "active",
+      "last_updated": "2026-07-21",
+      "languages": [
+        "JavaScript"
+      ],
+      "frameworks": [
+        "Vite 8 + Express 5"
+      ],
+      "databases": [
+        "Redis (owner mode)"
+      ],
+      "deployment_targets": [
+        "Vercel (static + serverless)"
+      ],
+      "cloud_providers": [
+        "Vercel"
+      ],
+      "agent_personality": "trophy goblin",
+      "source_path": "/home/habby",
+      "okf_type": "project-profile",
+      "okf_title": "habby",
+      "okf_tags": [
+        "JavaScript",
+        "Vite",
+        "Express",
+        "Redis (owner mode)",
+        "Vercel (static + serverless)",
+        "vanilla CSS (neobrutalist)",
+        "none",
+        "SHA-256",
+        "Vitest (18 tests)",
+        "localStorage (guest mode)"
+      ],
+      "okf_timestamp": "2026-07-21T00:00:00Z",
+      "profile_body": "\n# โปรไฟล์โปรเจกต์: habby\n\n## ข้อมูลตัวตน (Identity)\n\n- **Name:** habby\n- **Display Name:** Habby\n- **Description:** แอปติดตาม habit แบบ gamified — public mode พร้อม localStorage + owner mode พร้อม Redis\n- **Repository:** https://github.com/ktypez/habby\n\n## เทคโนโลยี (Technology)\n\n- **Languages:** JavaScript\n- **Frameworks:** Vite 8, Express 5\n- **Runtime:** Node.js\n- **Package Manager:** yarn\n- **Build System:** Vite build\n- **Deployment Targets:** Vercel (static + serverless)\n- **Font:** JetBrains Mono (self-hosted)\n\n## Dependencies\n\n### Core Dependencies\n\n| Package | Version | หน้าที่ |\n|---------|---------|--------|\n| `express` | ^5.2.1 | HTTP server + API routes |\n| `ioredis` | ^5.11.1 | Redis client (Upstash) |\n| `cors` | ^2.8.6 | CORS middleware |\n\n### Dev Dependencies\n\n| Package | Version | หน้าที่ |\n|---------|---------|--------|\n| `vite` | ^8.0.0 | Build tool + dev server |\n| `vitest` | ^4.1.9 | Testing framework |\n\n### External Services\n\n- **Redis** (Upstash) — สำหรับ owner mode data storage\n- **Vercel** — static hosting + serverless functions\n\n### หมายเหตุ\n\n- ไม่มี frontend framework (vanilla JS)\n- ไม่มี UI library\n- ไม่มี linting tools\n- ไม่มี TypeScript\n\n## Development\n\n| คำสั่ง | ทำอะไร |\n|--------|--------|\n| `yarn install` | ติดตั้ง dependencies |\n| `yarn dev` | Vite dev server (proxy /api → localhost:3001) |\n| `yarn dev:server` | Express backend (port 3001) |\n| `yarn build` | build frontend ด้วย Vite → `dist/` |\n| `yarn preview` | preview production build |\n| `yarn start` | เริ่ม production server |\n| `node node_modules/.bin/vitest run` | รันชุดทดสอบ (18 tests — streak + XP logic) |\n\n### Deployment\n\npush to GitHub → Vercel auto-deploys\n\n## Architecture\n\n```\nhabby/\n├── api/              # Backend API routes (serverless)\n├── css/              # Global styles (neobrutalist theme)\n├── js/               # Frontend logic (main.js)\n├── lib/              # Shared utilities (logic.js — streak/XP calculations)\n├── public/           # Static assets + service worker\n│   ├── sw.js         # Service Worker (caching + notification clicks)\n│   └── fonts/        # JetBrains Mono (self-hosted woff2)\n├── scripts/          # Tool scripts (cleanup-archived.mjs)\n├── tests/            # Vitest tests (streak + XP logic)\n├── dist/             # Build output\n├── index.html        # SPA entry point\n├── server.js         # Express server (API + static hosting)\n├── vite.config.js    # Vite configuration\n├── vitest.config.js  # Vitest configuration\n├── vercel.json       # Vercel deployment config\n└── package.json\n```\n\n### Key Files\n\n| ไฟล์ | หน้าที่ |\n|------|--------|\n| `index.html` | SPA entry point |\n| `js/main.js` | Frontend logic ทั้งหมด (SPA routing, UI, Storage adapter) |\n| `lib/logic.js` | Pure functions — calculateStreak, calcXpForCheckin, calcLevel |\n| `server.js` | Express server + API routes |\n| `api/` | Serverless API handlers สำหรับ Vercel |\n| `public/sw.js` | Service Worker — cache-first strategy + notification click handler |\n| `css/style.css` | Global styles — neobrutalist theme |\n| `vite.config.js` | Vite build + dev server proxy config |\n\n### Storage\n\nDual-mode — localStorage (guest) + Redis API (owner)\n\n### PWA\n\nService worker สำหรับ caching + notification clicks (ไม่มี manifest — ไม่รองรับ install prompt)\n\n### Entry Points\n\n`index.html` (Vite), `server.js` (Express)\n",
+      "agent_body": "\n# Habby Agent\n\n## ภาพรวม\n\nแอปติดตาม habit แบบ gamified — frontend ใช้ Vite 8 + vanilla HTML/CSS/JS, backend ใช้ Express 5 + Redis (Upstash) มีดีไซน์แนว neobrutalist รองรับ 2 themes (light/dark) ใช้ฟอนต์ JetBrains Mono แบบ self-hosted เปิดให้ใช้งานได้เลยแบบ public (localStorage) โดยไม่ต้อง login\n\n## บุคลิก\n\n- **Role:** trophy goblin\n- ขับเคลื่อนด้วย streak, XP และการ level up ฉลองชัยชนะเล็กๆ ไล่ล่าสถิติความสำเร็จ และรักษาลูป habit ให้สนุก\n\n## เทคโนโลยี (Stack)\n\n| ชั้น (Layer) | เทคโนโลยี |\n|-------|------|\n| Frontend | Vite 8 + vanilla HTML/CSS/JS |\n| Backend | Express 5 (serverless ผ่าน Vercel) |\n| Database | Redis (ioredis → Upstash) — owner mode เท่านั้น |\n| Storage | localStorage (guest mode) + Redis API (owner mode) |\n| Auth | SHA-256 header-based access password (owner mode) |\n| Deploy | Vercel (static + serverless function) |\n| PWA | Service Worker (caching + notification clicks, ไม่มี manifest) |\n\n## สถาปัตยกรรม\n\n### โหมดการใช้งาน (Modes)\n\n| Mode | Trigger | Storage | Auth |\n|------|---------|---------|------|\n| **Guest** (default) | เปิด app ไม่มี stored password | localStorage | ไม่มี |\n| **Owner** | Triple-tap 🎯 logo → password | Redis via API | SHA-256 |\n\n### StorageAdapter\n\nใช้ `Storage` object ที่ routing ทุก operation ไป localStorage หรือ Redis API ตาม mode:\n- `Storage.getHabits()`, `Storage.addHabit()`, `Storage.deleteHabit()`\n- `Storage.checkin()`, `Storage.undoCheckin()`\n- `Storage.saveNote()`, `Storage.startTimer()`, `Storage.stopTimer()`\n- `Storage.getStats()`, `Storage.getDigest()`\n- `Storage.getNotifSettings()`, `Storage.saveNotifSettings()`\n\n### ฟีเจอร์\n\n- **Public mode** — ใช้ได้เลยไม่ต้อง login, ข้อมูลเก็บใน localStorage\n- **Owner mode** — triple-tap logo เพื่อเข้าสู่ Redis-backed mode\n- **Habits**: CRUD พร้อม emoji picker, ชื่อ, สี\n- **Check-ins**: toggle รายวัน, คำนวณ streak, ให้ XP rewards\n- **XP/Levels**: +10-40 XP ต่อการ check-in (มี streak bonus), level up ทุก 100 XP\n- **Notes**: note รายวันต่อ habit, แก้ไข/ลบได้\n- **Timer**: stopwatch ต่อ habit พร้อมสะสมเวลารวม\n- **Stats**: จำนวน habit ทั้งหมด, XP, best streak, % ทำได้รายสัปดาห์, bar chart\n- **Digest**: สรุปรายวันพร้อมนับ done/pending และ streak\n- **Notifications**: ตั้งเตือนรายวันได้ (browser notif)\n- **Themes**: 2 themes — light + dark ผ่าน attribute `data-theme`\n- **Auth**: access password เก็บใน Redis (SHA-256), login ค้างผ่าน localStorage\n- **Design**: neobrutalist, card entrance animations, backdrop blur modals, spring easing\n\n### โมเดลข้อมูล (Data Model)\n\n#### Owner mode (Redis)\n```\nhabit:{id} → hash { name, emoji, color, archived, created_at }\nhabit:{id}:dates → set of ISO date strings\nhabit:{id}:note:{date} → string\nhabit:{id}:timer:running → timestamp\nhabit:{id}:timer:total → seconds\nhabits:all → sorted set (ordered by creation)\nuser:xp → integer\napp:password → SHA-256 hash string\nnotifications:enabled → boolean\nnotifications:time → HH:MM string\n```\n\n#### Guest mode (localStorage)\n```\nhabby:habits → Array of habit objects\nhabby:habit:{id}:dates → Array of ISO date strings\nhabby:habit:{id}:note:{date} → string\nhabby:habit:{id}:timer:total → number (seconds)\nhabby:habit:{id}:timer:running → number|null (timestamp)\nhabby:xp → number\nhabby:notif:enabled → boolean\nhabby:notif:time → HH:MM string\n```\n\n## คำสั่ง (Commands)\n\n| คำสั่ง (Command) | ทำอะไร |\n|---------|-------------|\n| `yarn dev` | Dev server (Vite + Express proxy) |\n| `yarn build` | Production build (Vite) |\n| `node server.js` | Local full-stack (port 3001) |\n| push to GitHub | Vercel auto-deploys |\n\n## ตัวกระตุ้น (Triggers)\n\n### \"update .md\"\n\n1. อ่าน project AGENTS.md + สถานะ KB ปัจจุบัน\n2. อัปเดต `projects/habby/status.md` ด้วยการเปลี่ยนแปลงล่าสุด\n3. อัปเดต `projects/habby/agent.md` (ฟีเจอร์, โมเดลข้อมูล)\n\n### \"cleanup\"\n\n1. สแกนไฟล์ที่ไม่ได้ใช้, ไฟล์ว่าง, export ที่ตาย\n2. ตรวจสุขภาพ: `yarn build`\n3. นำผลมาให้ user เลือก\n4. อัปเดต STATUS.md + ไฟล์ agent ใน KB\n5. ห้าม cleanup `.env*`, `node_modules/`, `dist/`, `.git/` หรือ config ที่จำเป็น\n",
+      "status_body": "\n# สถานะโปรเจกต์ — habby\n\n## Routes\n\n| Path | หน้า (Page) | คำอธิบาย (Description) |\n|------|------|-------------|\n| `/` | Dashboard | ตาราง habit พร้อม streak, XP, มุมมองรายวัน |\n| `/stats` | Stats | กราฟความก้าวหน้า, streak, ประวัติ level |\n| `/settings` | Settings | Auth, notifications, สลับ theme |\n\n## Changelog\n\n### 2026-07-17\n- **feat: public localStorage mode** — เปิดให้ใช้งานได้เลยโดยไม่ต้อง login, ข้อมูลเก็บใน localStorage\n- **feat: hidden owner login** — triple-tap บน 🎯 เพื่อเข้า owner mode (Redis)\n- **refactor: StorageAdapter** — abstraction ที่ routing ไป localStorage หรือ Redis API ตาม mode\n- **style: design refinements** — card entrance animations, backdrop blur modals, spring easing, refined spacing/typography\n- **fix: dark theme** — เปลี่ยน palette เป็น neutral charcoal (#121212), ลบ purple tint\n- **fix: add habit button** — แก้ปุ่ม \"+ ADD\" ที่ไม่ trigger click (Enter ทำงานแต่ button ไม่)\n- Guest data ถูกลบเมื่อ owner login\n\n### 2026-07-13\n- **KB refresh**: แก้ไข frontmatter ซ้ำซ้อน, แก้คำสั่งเป็น `yarn` (commands.md), อัปเดต timestamps\n- Sync OKF knowledge base across all 8 projects\n- Updated workspace index with current project inventory\n- Refreshed documentation timestamps and freshness\n\n### 2026-07-11\n- chore: เพิ่ม AGENTS.md, ทำความสะอาด gitignore\n\n### 2026-07-04\n- feat: เพิ่มชุดทดสอบ — Vitest + testing-library, 18 tests ครอบคลุมตรรกะ streak/XP/check-in\n\n### 2026-06 (สัปดาห์ที่ 2)\n- ยึดระบบดีไซน์ mcky.space: JetBrains Mono, 2-theme (light/dark), token แนว neobrutalist\n- สคริปต์ migration: เคลียร์ archived habit ที่เป็น orphan ออกจาก Redis\n- ลบ helper `$$` ที่ไม่ได้ใช้, แก้ indent, ความเข้ากันได้ของ digest badge ใน dark theme, กฎ CSS ที่ตาย\n\n## Design\n\n- แนว neobrutalist, รูปแบบ `.neo-card`\n- 2 themes (light/dark) — dark ใช้ neutral charcoal palette\n- JetBrains Mono (self-hosted)\n- Card entrance animations (staggered, spring easing)\n- Backdrop blur on modals\n- Spring easing on XP bar, level-up overlay, toast notifications\n\n## Features\n\n- [x] Public mode — ใช้ได้เลยไม่ต้อง login, ข้อมูลใน localStorage\n- [x] Owner mode — triple-tap logo → login → ข้อมูลใน Redis\n- [x] Habit แบบ gamified พร้อมระบบ XP/leveling\n- [x] Stopwatch timer ต่อ habit\n- [x] ติดตาม streak พร้อม bonus XP\n- [x] Daily digest\n- [x] Browser push notifications (notification click handler)\n- [x] Service worker สำหรับ offline caching\n- [x] SHA-256 header-based auth (owner mode)\n"
+    },
+    {
+      "id": "mcky.space",
+      "name": "Astro 7",
+      "display_name": null,
+      "description": "เว็บไซต์ส่วนตัวสไตล์ terminal",
+      "purpose": "Portfolio และบล็อกส่วนตัว",
+      "repository": "mcky.space",
+      "owner": "ktypez (https://github.com/ktypez/mcky.space)",
+      "status": "active",
+      "last_updated": "2026-07-22",
+      "languages": [
+        "JavaScript"
+      ],
+      "frameworks": [
+        "Astro 7"
+      ],
+      "databases": [
+        "Supabase (PostgreSQL, not actively used)"
+      ],
+      "deployment_targets": [
+        "Vercel"
+      ],
+      "cloud_providers": [
+        "Supabase",
+        "Vercel"
+      ],
+      "agent_personality": "terminal hipster",
+      "source_path": "/home/mcky.space",
+      "okf_type": "project-profile",
+      "okf_title": "mcky.space",
+      "okf_tags": [
+        "JavaScript",
+        "Astro",
+        "Supabase (PostgreSQL, not actively used)",
+        "Vercel",
+        "Vanilla CSS",
+        "none",
+        "SHA-256 header-based",
+        "Supabase Storage"
+      ],
+      "okf_timestamp": "2026-07-22T00:00:00Z",
+      "profile_body": "\n## ข้อมูลตัวตน\n- **Name:** mcky.space\n- **Display Name:** mcky.space\n- **Description:** เว็บไซต์ส่วนตัวสไตล์ terminal\n- **Purpose:** Portfolio และบล็อกส่วนตัว\n- **Repository:** mcky.space\n- **Owner:** ktypez (https://github.com/ktypez/mcky.space)\n\n## เทคโนโลยี\n- **Languages:** TypeScript, JavaScript\n- **Frameworks:** Astro 7\n- **Runtime:** Node.js\n- **Package Manager:** npm\n- **Build System:** Astro build\n- **Deployment Targets:** Vercel\n\n## Dependencies\n\n| Package | Version | Type |\n|---------|---------|------|\n| `astro` | ^7.0.2 | production |\n| `@supabase/supabase-js` | ^2.108.2 | production |\n| `marked` | ^18.0.5 | production |\n| `@astrojs/vercel` | ^11.0.0 | production |\n| `highlight.js` | ^11.11.1 | production |\n| `marked-highlight` | ^2.2.4 | production |\n| `prismjs` | ^1.30.0 | production |\n| `typescript` | ^5 | dev |\n| `@types/node` | ^20 | dev |\n\n## Development\n\n| Command | Description |\n|---------|-------------|\n| `npm run dev` | เริ่ม Astro dev server |\n| `npm run build` | build เว็บไซต์ Astro |\n| `npm run build-blog` | สร้างโพสต์บล็อกด้วยตนเอง |\n| `npm run start` | เริ่ม Astro production server |\n| `npm run preview` | ดูตัวอย่าง production build |\n\n## Architecture\n\n```\nsrc/\n├── pages/        # route definitions\n├── components/   # Astro components\n├── layouts/      # page layouts\n├── lib/          # helper functions (posts.ts)\n├── api/          # empty (routes removed)\n└── data/         # static data files (blog/)\npublic/           # static assets (fonts, etc.)\nscripts/          # build scripts (build-blog-posts.mjs)\n```\n\n**Key files:** `astro.config.mjs`, `setup.sql`, `vercel.json`\n\n## Changelog\n\n### 2026-07-17\n- **blog**: เขียนโพสต์ \"Building Collage: A Small Adventure\"\n- **bilingual blog**: รองรับ `.th.md` — จับคู่ภาษาไทยกับอังกฤษผ่าน slug เดียวกัน\n- **lang toggle**: ปุ่ม EN/TH ที่มุมล่างขวา ใช้ `data-lang` attribute + vanilla JS (ไม่พึ่ง Alpine store)\n- **lang toggle CSS**: ย้ายไป `globals.css` แก้ปัญหา Astro scoped CSS\n- **lang toggle visibility**: แสดงเฉพาะหน้า `/blog` และ `/blog/*`\n- **floating buttons**: ย้ายจาก bottom-right → top-right → กลับ bottom-right (หลัง user feedback)\n- **build script**: `build-blog-posts.mjs` รองรับ `.th.md` pairing, Post interface เพิ่ม `bodyTh` + `lang`\n\n### 2026-07-13\n- **KB refresh**: แก้ไข frontmatter ซ้ำซ้อน, อัปเดต timestamps\n- Sync OKF knowledge base across all 8 projects\n- Updated workspace index with current project inventory\n- Refreshed documentation timestamps and freshness\n\n### 2026-07-11\n- refactor: นำ API routes ออก, อัปเดตบล็อก, ทำความสะอาด gitignore\n- fix: สภาพแวดล้อม dev ท้องถิ่น — prism syntax highlighting, patch os.networkInterfaces, LAN access (host 0.0.0.0)\n- homepage: ย้ายบล็อกไปยัง blog.txt section ของตัวเอง, แสดงโพสต์เป็นรายการย่อยใต้ลิงก์บล็อก\n- homepage tags: ข้อความสีขาวบน neo-tag ทั้ง 4\n\n### 2026-07-08\n- นำ route `/api/auth` และ `/api/habits/*` ที่ไม่ได้ใช้ทิ้ง\n- แก้ XSS + CSP + Prism syntax highlighting + แก้ไขเนื้อหา\n\n### Earlier\n- แก้ RSK-001 แล้ว (สลับ shiki → prism)\n- เปิดใช้ LAN access, patch Termux ESM binding\n- นำ auth ออกทั้งหมด, รีเฟรช dark mode (navy → deep grey)\n- ส่วนบล็อกบนหน้าแรก, ดีไซน์สไตล์ terminal\n\n## การออกแบบ\n\n- Neobrutalism — เส้นขอบ 3px, เงา offset แข็ง, สีสันสดใส\n- shimmer skeletons ด้วย CSS ล้วนสำหรับสถานะโหลด\n- JetBrains Mono ตลอดทั้งเว็บ\n- ARIA landmarks, safe-area-insets, `prefers-reduced-motion`\n- Bilingual toggle: `[data-lang=\"en\"] .lang-th { display:none }` และกลับกัน\n",
+      "agent_body": "\n## ภาพรวม\n\nเว็บไซต์ส่วนตัวสไตล์ terminal ดีไซน์ neobrutalism แบบ responsive (320px–1440px+) ใช้ vanilla JS สำหรับ client interactivity และ Astro 7 แบบ server output ไม่มี auth\n\n## บุคลิก\n\n- **Role:** terminal hipster\n- ขับเคลื่อนด้วยความสวยงาม แบบ minimal ชอบ terminal ให้ความสำคัญกับ neobrutalism ฟอนต์ monospace และการทำ interaction ด้วย CSS/vanilla JS\n\n## สแต็ก\n\n| เลเยอร์ | เทคโนโลยี |\n|-------|------|\n| Framework | Astro 7.0.2 (server output, Vercel adapter) |\n| Language | TypeScript |\n| Styling | Pure CSS — Neobrutalism (globals.css, no Tailwind) |\n| Font | JetBrains Mono (self-hosted WOFF2 variable font) |\n| Database | Supabase (ไม่ได้ใช้แล้ว) |\n| Blog | .md files compiled to TS at build time, รองรับ bilingual `.th.md` |\n| Client UI | Vanilla JS (ไม่มี Alpine.js, ไม่มี React) |\n| Markdown | `marked` + `marked-highlight` + `highlight.js` |\n| Auth | None (removed) |\n| Deployment | Vercel with cache + security headers |\n\n## สถาปัตยกรรม\n\n| เส้นทาง | รายละเอียด |\n|-------|-------------|\n| `/` | หน้าแรกสไตล์ terminal — header card พร้อม scan-line reveal, nav grid magnetic hover |\n| `/about` | หน้า About — terminal-style whoami/neofetch/skills/env พร้อม typewriter effect |\n| `/blog` | รายการบล็อก — neo-card ต่อโพสต์ |\n| `/blog/[slug]` | โพสต์บล็อก — รองรับ bilingual EN/TH, lang toggle ด้วย `data-lang` attribute + CSS |\n| `/projects` | แกลลอรี่โปรเจกต์ — 8 projects |\n| `/404` | หน้า 404 สไตล์ terminal |\n\n### คอมโพเนนต์\n\n| คอมโพเนนต์ | ไฟล์ | หมายเหตุ |\n|-----------|------|-------|\n| `PageHeader` | `src/components/PageHeader.astro` | header มี back link + title |\n| `Layout` | `src/layouts/Layout.astro` | Layout พื้นฐาน มี sidebar, floating buttons (lang + dark toggle), noscript |\n\n## รูปแบบหลัก\n\n- Vanilla JS สำหรับ client interactivity (theme toggle, lang toggle, magnetic hover)\n- `data-lang` attribute บน `<html>` สำหรับ bilingual toggle (`data-lang=\"en\"` / `data-lang=\"th\"`)\n- CSS toggle: `[data-lang=\"en\"] .lang-th { display:none }` และกลับกัน\n- `.th.md` naming convention สำหรับ bilingual blog posts (จับคู่กับ .md หลักที่ slug เดียวกัน)\n- ใช้ `marked` เรนเดอร์ markdown — highlight.js สำหรับ syntax highlighting\n- หน้าคงที่ Astro HTML ล้วน — ไม่ต้องใช้ JS\n- บล็อก .md คอมไพล์เป็น TS ตอน build (`scripts/build-blog-posts.mjs`)\n- โหลด skeleton ด้วย CSS ล้วน (.skel class พร้อม shimmer keyframe)\n- ฟอนต์ self-host พร้อม font-display:swap\n- รองรับ prefers-reduced-motion ทุกแอนิเมชัน\n- :focus-visible บนองค์ประกอบที่โต้ตอบได้ทั้งหมด\n- ARIA landmarks บน navigation และเนื้อหาหลัก\n- env(safe-area-inset-*) สำหรับอุปกรณ์แบบมีรอยบาก\n\n## คำสั่ง\n\n| คำสั่ง | ทำอะไร |\n|---------|-------------|\n| `npm run dev` | เซิร์ฟเวอร์ dev (bind 0.0.0.0 สำหรับเข้าถึงผ่าน LAN) |\n| `npm run dev -- --host 127.0.0.1` | เซิร์ฟเวอร์ dev (เฉพาะ localhost) |\n| `npm run build` | Build (prebuild blog index + astro build) |\n| `node scripts/build-blog-posts.mjs` | สร้าง blog index ด้วยตนเอง |\n| `npm run start` | เริ่ม production server |\n\n## ตัวกระตุ้น\n\n### \"update .md\"\n\n1. อ่าน AGENTS.md ของโปรเจกต์ + สถานะ KB ปัจจุบัน\n2. อัปเดต `projects/mcky.space/status.md` ด้วยการเปลี่ยนแปลงล่าสุด\n3. อัปเดต `projects/mcky.space/agent.md` (routes, components, design system)\n4. ถ้า AGENTS.md ของโปรเจกต์เก่า ก็อัปเดตด้วย\n\n### \"cleanup\"\n\n1. สแกนไฟล์ที่ไม่ได้ใช้ ไฟล์ว่าง exports ตายใน `src/`\n2. นำผลมาเสนอให้ผู้ใช้เลือก\n3. อัปเดต STATUS.md + ไฟล์ agent ของ KB\n4. ห้ามลบ `.env*`, `node_modules/`, `dist/`, `.next/`, `.git/`, หรือ config ที่จำเป็น\n\n## รายการที่ต้องทำ\n\n\n## กฎ\n\n- ให้ความสำคัญกับ reference design เมื่อมีให้\n- route ใหม่ต้องตรงกับสไตล์ neobrutalism เดิม\n- หน้าคงที่เป็น Astro HTML ล้วน — ไม่ต้องใช้ JS\n- หน้าที่มี interaction ใช้ vanilla JS (pattern เดียวกับ theme toggle)\n- บล็อกอ่านอย่างเดียว — แก้ไขผ่าน Git (.md files + rebuild)\n- bilingual blog: ไฟล์ `.th.md` ต้องมี `slug` เดียวกับไฟล์ `.md` หลัก\n- `npm run dev` bind `0.0.0.0` เป็นค่าเริ่มต้น (เข้าถึงผ่าน LAN) บน Termux มีการ patch os.networkInterfaces ใน astro.config.mjs เพื่อป้องกัน crash แบบ EACCES\n- ห้ามรัน `npm install` ถ้า node_modules ยังครบ (android-arm64 จะทิ้งไฟล์ ESM/binding)\n- ห้ามลบ `node_modules/` (มี native binding shims + ESM wrappers ที่ถูกสร้างอยู่)\n- ข้ามการเทส — ไม่มีคำสั่งเทส\n",
+      "status_body": "\n## เส้นทาง\n\n| Path | Page |\n|------|------|\n| `/` | หน้าแรกสไตล์ terminal พร้อมส่วนบล็อก |\n| `/about` | หน้า About |\n| `/blog` | รายการบล็อก |\n| `/blog/[slug]` | โพสต์บล็อก (รองรับ bilingual EN/TH) |\n| `/projects` | แกลลอรี่โปรเจกต์ |\n| `/404` | หน้า 404 |\n\n## บันทึกการเปลี่ยนแปลง\n\n### 2026-07-17\n- **blog**: เขียนโพสต์ \"Building Collage: A Small Adventure\"\n- **bilingual blog**: รองรับ `.th.md` — จับคู่ภาษาไทยกับอังกฤษผ่าน slug เดียวกัน\n- **lang toggle**: ปุ่ม EN/TH ที่มุมล่างขวา ใช้ `data-lang` attribute + vanilla JS (ไม่พึ่ง Alpine store)\n- **lang toggle CSS**: ย้ายไป `globals.css` แก้ปัญหา Astro scoped CSS\n- **lang toggle visibility**: แสดงเฉพาะหน้า `/blog` และ `/blog/*`\n- **floating buttons**: ย้ายจาก bottom-right → top-right → กลับ bottom-right (หลัง user feedback)\n- **build script**: `build-blog-posts.mjs` รองรับ `.th.md` pairing, Post interface เพิ่ม `bodyTh` + `lang`\n\n### 2026-07-13\n- **KB refresh**: แก้ไข frontmatter ซ้ำซ้อน, อัปเดต timestamps\n- Sync OKF knowledge base across all 8 projects\n- Updated workspace index with current project inventory\n- Refreshed documentation timestamps and freshness\n\n### 2026-07-11\n- refactor: นำ API routes ออก, อัปเดตบล็อก, ทำความสะอาด gitignore\n- fix: สภาพแวดล้อม dev ท้องถิ่น — prism syntax highlighting, patch os.networkInterfaces, LAN access (host 0.0.0.0)\n- homepage: ย้ายบล็อกไปยัง blog.txt section ของตัวเอง, แสดงโพสต์เป็นรายการย่อยใต้ลิงก์บล็อก\n- homepage tags: ข้อความสีขาวบน neo-tag ทั้ง 4\n\n### 2026-07-08\n- นำ route `/api/auth` และ `/api/habits/*` ที่ไม่ได้ใช้ทิ้ง\n- แก้ XSS + CSP + Prism syntax highlighting + แก้ไขเนื้อหา\n\n### Earlier\n- แก้ RSK-001 แล้ว (สลับ shiki → prism)\n- เปิดใช้ LAN access, patch Termux ESM binding\n- นำ auth ออกทั้งหมด, รีเฟรช dark mode (navy → deep grey)\n- ส่วนบล็อกบนหน้าแรก, ดีไซน์สไตล์ terminal\n\n## การออกแบบ\n\n- Neobrutalism — เส้นขอบ 3px, เงา offset แข็ง, สีสันสดใส\n- shimmer skeletons ด้วย CSS ล้วนสำหรับสถานะโหลด\n- JetBrains Mono ตลอดทั้งเว็บ\n- ARIA landmarks, safe-area-insets, `prefers-reduced-motion`\n- Bilingual toggle: `[data-lang=\"en\"] .lang-th { display:none }` และกลับกัน\n"
+    },
+    {
+      "id": "receipts-dms",
+      "name": "Vite 8 + React 19",
+      "display_name": null,
+      "description": null,
+      "purpose": null,
+      "repository": null,
+      "owner": null,
+      "status": "active",
+      "last_updated": "2026-07-21",
+      "languages": [
+        "TypeScript"
+      ],
+      "frameworks": [
+        "Vite 8 + React 19"
+      ],
+      "databases": [
+        "Cloudflare D1 (SQLite)"
+      ],
+      "deployment_targets": [
+        "Cloudflare Pages"
+      ],
+      "cloud_providers": [
+        "Cloudflare"
+      ],
+      "agent_personality": "paper goblin",
+      "source_path": "/home/paper/receipts-dms",
+      "okf_type": "project-profile",
+      "okf_title": "receipts-dms",
+      "okf_tags": [
+        "TypeScript",
+        "Vite",
+        "React",
+        "Cloudflare D1 (SQLite)",
+        "Cloudflare Pages",
+        "Radix UI + Tailwind CSS 4",
+        "React hooks",
+        "password + HMAC-SHA256",
+        "none",
+        "Cloudflare R2"
+      ],
+      "okf_timestamp": "2026-07-21T00:00:00Z",
+      "profile_body": "\n# receipts-dms\n\n**Role:** production\n**Framework:** Vite 8 + React 19 + TypeScript\n**Backend:** Cloudflare Pages Functions (D1 + R2)\n**Deployment:** Cloudflare Pages (paper.mcky.space)\n**Stack:** shadcn/ui, Tailwind v4, lucide-react, react-router v7\n\n## คำอธิบาย\n\nระบบจัดการเอกสารใบเสร็จ สำหรับจัดระเบียบและจัดการรูปภาพใบเสร็จ รองรับการอัปโหลดพร้อมบีบอัดรูปภาพ (WebP 2048px / 80%), จัดการหมวดหมู่, บันทึกโน้ต, ค้นหาแบบเต็มข้อความ, และ auth แบบรหัสผ่านเดียว\n\n## เทคโนโลยี\n\n| เลเยอร์ | เทคโนโลยี |\n|-------|-----------|\n| Frontend | Vite 8, React 19, TypeScript 7, Tailwind 4 |\n| UI | shadcn/ui (Radix primitives), lucide-react, framer-motion |\n| Routing | react-router v7 |\n| Auth | รหัสผ่านเดียว (env var) + HMAC-SHA256 cookie |\n| Backend | Cloudflare Pages Functions (Workers runtime) |\n| Database | Cloudflare D1 (receipts_db) |\n| Storage | Cloudflare R2 (BUCKET) |\n| Image Processing | Client-side WebP via Canvas API |\n\n## สถาปัตยกรรม\n\n```\nreceipts-dms/\n├── functions/                    # Cloudflare Pages Functions\n│   └── api/\n│       ├── _middleware.js        # Auth middleware (เช็ค HMAC cookie)\n│       ├── auth/\n│       │   ├── check.js          # GET /api/auth/check\n│       │   ├── login.js          # POST /api/auth/login\n│       │   └── logout.js         # POST /api/auth/logout\n│       ├── categories.js         # GET/POST /api/categories\n│       ├── categories/\n│       │   └── [id].js           # PUT/DELETE /api/categories/:id\n│       ├── file/\n│       │   └── [id].js           # GET /api/file/:id (เสิร์ฟจาก R2)\n│       ├── receipts.js           # GET /api/receipts\n│       ├── receipts/\n│       │   └── [id].js           # GET/PUT/DELETE /api/receipts/:id\n│       └── upload.js             # POST /api/upload\n├── src/\n│   ├── App.tsx                   # Root: BrowserRouter, AuthProvider, routes\n│   ├── main.tsx                  # จุดเริ่มต้น\n│   ├── index.css                 # Tailwind + CSS variables theme\n│   ├── components/\n│   │   ├── bottom-nav.tsx        # Mobile bottom nav (ป้ายภาษาไทย)\n│   │   ├── layout.tsx            # App shell (sidebar/bottom-nav + content)\n│   │   ├── sidebar.tsx           # Desktop sidebar nav\n│   │   ├── topbar.tsx            # Top bar (ปุ่มสลับ theme)\n│   │   ├── theme-toggle.tsx      # สลับ dark/light\n│   │   └── ui/                   # คอมโพเนนต์ shadcn/ui\n│   ├── hooks/\n│   │   ├── use-categories.ts     # hook ข้อมูลหมวดหมู่\n│   │   └── use-receipts.ts       # hook ข้อมูลใบเสร็จ\n│   ├── lib/\n│   │   ├── api.ts                # API client\n│   │   ├── auth-context.tsx      # Auth state provider\n│   │   ├── theme-provider.tsx    # Theme context\n│   │   ├── use-media-query.ts    # hook media query\n│   │   └── utils.ts              # ฟังก์ชันช่วย (stripExtension, cn)\n│   ├── pages/\n│   │   ├── categories.tsx        # Category CRUD\n│   │   ├── dashboard.tsx         # สถิติ + ใบเสร็จล่าสุด\n│   │   ├── login.tsx             # เข้าสู่ระบบด้วยรหัสผ่าน\n│   │   ├── receipt-detail.tsx    # preview + แก้ไขใบเสร็จ\n│   │   ├── receipts.tsx          # รายการใบเสร็จ (มุมมอง table/card)\n│   │   ├── settings.tsx          # Theme, สถิติการจัดเก็บ, logout\n│   │   └── upload.tsx            # อัปโหลดพร้อมบีบอัด + ความคืบหน้า\n│   ├── types/\n│   │   └── index.ts              # interface ของ TypeScript\n│   └── vite-env.d.ts             # Vite type declarations\n├── schema.sql                    # นิยามตาราง D1\n├── wrangler.toml                 # config Cloudflare Pages\n├── vite.config.ts                # config Vite\n└── package.json\n```\n\nSPA พร้อม Cloudflare Pages Functions เป็น backend เส้นทาง API ทั้งหมดใต้ `/api/*` ถูกป้องกันโดย `_middleware.js` ยกเว้น `/api/auth/*` Auth ใช้ HttpOnly cookie ที่เซ็นด้วย HMAC\n\n## จุดเริ่มต้น (Entry Points)\n\n| ไฟล์ | หน้าที่ |\n|------|---------|\n| `src/main.tsx` | App bootstrap |\n| `src/App.tsx` | Root component, routing, auth guard |\n| `src/lib/auth-context.tsx` | Auth state management |\n| `src/lib/api.ts` | API client (fetch helper) |\n| `functions/api/_middleware.js` | Auth middleware สำหรับเส้นทาง `/api/*` ทั้งหมด |\n\n## การจัดการสถานะ\n\nReact state ผ่าน hooks (`useReceipts`, `useCategories`) Theme ผ่าน React context Auth ผ่าน `AuthProvider` context\n\n## การตัดสินใจหลัก\n\n- auth แบบรหัสผ่านเดียว (ไม่มีลงทะเบียนผู้ใช้) สำหรับใช้ส่วนตัว\n- บีบอัดรูปภาพฝั่ง client เป็น WebP ก่อนอัปโหลด (ลดการใช้พื้นที่)\n- HttpOnly cookie ที่เซ็นด้วย HMAC สำหรับรักษาสถานะ session\n- bottom nav บนมือถือ, sidebar บนเดสก์ท็อป\n\n## Development\n\n| คำสั่ง | การทำงาน |\n|---------|--------|\n| `npm run dev` | เริ่ม dev server |\n| `npm run build` | Production build ไปยัง `./dist` |\n| `npm run preview` | Preview build ผลลัพธ์ |\n| `npx wrangler pages deploy --project-name receipts-dms ./dist` | Deploy ไป Cloudflare Pages |\n| `npx wrangler pages dev --port 8788 ./dist` | รัน Pages Functions แบบท้องถิ่น |\n| `npx wrangler d1 execute receipts-db --local --file=schema.sql` | ประยุกต์ schema แบบท้องถิ่น |\n| `npx wrangler d1 execute receipts-db --file=schema.sql` | ประยุกต์ schema บน Cloudflare |\n| `npx wrangler pages secret put AUTH_PASSWORD --project-name receipts-dms` | ตั้งรหัสผ่าน auth |\n| `npx wrangler pages secret put AUTH_SECRET --project-name receipts-dms` | ตั้ง HMAC secret สำหรับ auth |\n\n### ตัวแปรสภาพแวดล้อม (Secrets)\n\n| ตัวแปร | หน้าที่ |\n|----------|---------|\n| `AUTH_PASSWORD` | รหัสผ่านเดียวสำหรับเข้าสู่ระบบ |\n| `AUTH_SECRET` | คีย์ HMAC สำหรับเซ็น/ตรวจสอบ auth token |\n\n## Dependencies\n\n### Runtime\n\n| แพ็กเกจ | เวอร์ชัน | หน้าที่ |\n|---------|---------|---------|\n| react | ^19.2.7 | UI framework |\n| react-dom | ^19.2.7 | DOM renderer |\n| react-router | ^7.18.1 | Client routing |\n| @radix-ui/react-dialog | ^1.1.19 | Modal dialogs |\n| @radix-ui/react-dropdown-menu | ^2.1.20 | Dropdown menus |\n| @radix-ui/react-label | ^2.1.11 | Form labels |\n| @radix-ui/react-progress | ^1.1.12 | Upload progress bar |\n| @radix-ui/react-select | ^2.3.3 | Category select |\n| @radix-ui/react-separator | ^1.1.11 | Visual separators |\n| @radix-ui/react-slot | ^1.3.0 | Slot/as-child pattern |\n| @radix-ui/react-tooltip | ^1.2.12 | Tooltips |\n| class-variance-authority | ^0.7.1 | shadcn/ui utility |\n| clsx | ^2.1.1 | Class name merging |\n| cookie | ^1.1.1 | Cookie parsing |\n| framer-motion | ^12.42.2 | Animation library |\n| lucide-react | ^1.24.0 | Icons |\n| sonner | ^2.0.7 | Toast notifications |\n| tailwind-merge | ^3.6.0 | Tailwind class merging |\n\n### Dev\n\n| แพ็กเกจ | เวอร์ชัน | หน้าที่ |\n|---------|---------|---------|\n| vite | ^8.0.0 | Build tool |\n| @vitejs/plugin-react | ^5.0.0 | React plugin for Vite |\n| typescript | ^7.0.2 | Type checking |\n| tailwindcss | ^4.3.1 | CSS framework |\n| @tailwindcss/vite | ^4.3.1 | Tailwind Vite plugin |\n| @types/react | ^19.2.17 | React types |\n| @types/react-dom | ^19.2.3 | React DOM types |\n\n### Cloudflare\n\n| บริการ | Binding | หน้าที่ |\n|---------|---------|---------|\n| D1 | `receipts_db` | ฐานข้อมูล SQL (receipts, categories) |\n| R2 | `BUCKET` | การเก็บไฟล์ (รูปภาพใบเสร็จ) |\n\n### ภายนอก\n\n| บริการ | หน้าที่ |\n|---------|---------|\n| Cloudflare Pages | Hosting + Functions runtime |\n| paper.mcky.space | Custom domain |\n\n## ที่เกี่ยวข้อง\n\n| ประเภท | ลิงก์ |\n|------|------|\n| Status | [status.md](./status.md) |\n\n## หลักฐาน\n\n- `package.json`\n- `wrangler.toml`\n- `vite.config.ts`\n- `schema.sql`\n- `src/lib/auth-context.tsx`\n",
+      "agent_body": "\n# receipts-dms Agent\n\n## Overview\n\nReceipt document management system — Vite 8 + React 19 SPA with Cloudflare Pages Functions (D1 + R2). Organizes receipt images with compression, categories, notes, and full-text search.\n\n## Personality\n\n- **Role:** paper goblin\n- Tidy-minded archivist of receipts. Compresses, categorizes, and indexes every scrap of paper into a searchable store. Obsessed with clean D1 schemas and R2 storage hygiene.\n\n## Stack\n\n| Layer | Tech |\n|-------|------|\n| Frontend | Vite 8 + React 19 + TypeScript 7 |\n| UI | shadcn/ui (Radix), lucide-react, framer-motion, Tailwind 4 |\n| Routing | react-router v7 |\n| Auth | Single password + HMAC-SHA256 HttpOnly cookie |\n| Backend | Cloudflare Pages Functions |\n| Database | Cloudflare D1 (receipts_db) |\n| Storage | Cloudflare R2 |\n| Image | Client-side WebP (Canvas API, 2048px / 80%) |\n\n## Architecture\n\nSPA with Cloudflare Pages Functions backend. All `/api/*` routes protected by `_middleware.js` except `/api/auth/*`. Auth uses HMAC-signed HttpOnly cookies.\n\n## Key Context\n\n- Path: `/home/paper/receipts-dms/`\n- Deploy: Cloudflare Pages (paper.mcky.space)\n- Thai-language UI labels, responsive, dark/light theme\n\n## Relationships\n\n- `mcky.space` — sibling project under the paper ecosystem\n",
+      "status_body": "\n# สถานะ\n\n**Last deploy:** 2026-07-10\n\n## ฟีเจอร์\n\n- [x] อัปโหลดพร้อมบีบอัดรูปภาพ (WebP 2048px / 80%)\n- [x] แถบความคืบหน้า XHR upload\n- [x] รายการใบเสร็จ (สลับมุมมอง table + card)\n- [x] รายละเอียดใบเสร็จ (preview, lightbox, แก้ไข filename/category/notes)\n- [x] Category CRUD (แบบ card, แก้ไขแบบยุบได้)\n- [x] ค้นหาแบบเต็มข้อความ (filename + notes)\n- [x] กรองตามหมวดหมู่\n- [x] การแบ่งหน้า (20 ต่อหน้า)\n- [x] บันทึกโน้ต (upload textarea, แสดงผล, แก้ไข)\n- [x] auth แบบรหัสผ่านเดียว (HMAC cookie)\n- [x] สลับธีม dark/light\n- [x] สถิติการจัดเก็บ (จำนวนใบเสร็จ + ขนาดรวม)\n- [x] bottom nav (มือถือ) + sidebar (เดสก์ท็อป)\n- [x] ป้าย UI ภาษาไทย\n- [x] การออกแบบ responsive\n\n## ที่นำออก\n\n- ระบบ tags (เคยเพิ่มแล้วลบออกทั้งหมด)\n- การแสดงนามสกุลไฟล์ (ซ่อนผ่าน `stripExtension`)\n- คอลัมน์ action ในมุมมอง table\n\n## ฐานข้อมูล\n\n```sql\nreceipts: id, filename, category, content_type, size, uploaded_at, notes\ncategories: id, name, created_at\n```\n\n## เส้นทาง\n\n| Path | Page |\n|------|------|\n| `/` | Dashboard |\n| `/receipts` | รายการใบเสร็จ |\n| `/receipts/:id` | รายละเอียดใบเสร็จ |\n| `/upload` | อัปโหลด |\n| `/categories` | จัดการหมวดหมู่ |\n| `/settings` | ตั้งค่า |\n| `/login` | เข้าสู่ระบบ (ไม่ต้อง auth) |\n\n## บันทึกการเปลี่ยนแปลง\n\n### 2026-07-21\n- Rebuild OKF files — standardized frontmatter to new schema\n- Removed deprecated freshness/verified/expires/superseded_by fields\n\n### 2026-07-13\n- Sync OKF knowledge base across all 8 projects\n- Updated workspace index with current project inventory\n- Refreshed documentation timestamps and freshness\n\n### 2026-07-10\n- Last production deploy to paper.mcky.space\n- Full feature set implemented\n"
+    },
+    {
+      "id": "truck",
+      "name": "React 19 + Vite 8",
+      "display_name": null,
+      "description": "Shift logging & income app สำหรับคนขับรถบรรทุก",
+      "purpose": "ช่วยคนขับรถบรรทุกบันทึกกะการทำงานและติดตามรายได้",
+      "repository": "https://github.com/ktypez/truck",
+      "owner": "ktypez",
+      "status": "active",
+      "last_updated": "2026-07-21",
+      "languages": [
+        "TypeScript"
+      ],
+      "frameworks": [
+        "React 19 + Vite 8"
+      ],
+      "databases": [
+        "Supabase (PostgreSQL)"
+      ],
+      "deployment_targets": [
+        "Vercel"
+      ],
+      "cloud_providers": [
+        "Supabase",
+        "Vercel"
+      ],
+      "agent_personality": "overtime enthusiast",
+      "source_path": "/home/truck",
+      "okf_type": "project-profile",
+      "okf_title": "truck",
+      "okf_tags": [
+        "TypeScript",
+        "React",
+        "Vite",
+        "Supabase (PostgreSQL)",
+        "Vercel",
+        "Tailwind CSS",
+        "TanStack Query v5",
+        "Supabase Auth",
+        "Vitest",
+        "Supabase Storage"
+      ],
+      "okf_timestamp": "2026-07-21T00:00:00Z",
+      "profile_body": "\n# โปรไฟล์โปรเจกต์: Truck\n\n## ข้อมูลตัวตน (Identity)\n- **Name:** ezzy-truck\n- **Display Name:** EzzyTruck\n- **Description:** Shift logging & income app สำหรับคนขับรถบรรทุก\n- **Purpose:** ช่วยคนขับรถบรรทุกบันทึกกะการทำงานและติดตามรายได้\n- **Repository:** https://github.com/ktypez/truck\n- **Owner:** ktypez\n\n## เทคโนโลยี (Technology)\n- **Languages:** TypeScript\n- **Frameworks:** React 19, Vite 8\n- **Runtime:** Node.js\n- **Package Manager:** npm\n- **Build System:** Vite build\n- **Deployment Targets:** Vercel\n\n## Dependencies\n- `react`: 19.2.7\n- `react-dom`: 19.2.7\n- `react-router-dom`: ^7.18.0\n- `@supabase/supabase-js`: ^2.108.2\n- `@tanstack/react-query`: ^5.101.1\n- `motion`: ^12.42.2\n- `@phosphor-icons/react`: ^2.1.10\n\n### Dev Tools\n- `vite`: ^8.0.16\n- `vitest`: ^3.2.6\n- `typescript`: ^6.0.3\n- `eslint`: ^10.4.1\n- `prettier`: ^3.8.4\n- `@vitejs/plugin-react`: ^6.0.2\n- `@testing-library/react`: ^16.3.2\n- `@testing-library/dom`: ^10.4.1\n- `@testing-library/jest-dom`: ^6.9.1\n- `@testing-library/user-event`: ^14.6.1\n- `jsdom`: ^29.1.1\n- `typescript-eslint`: ^8.61.1\n\n### External Services\n- **Database:** Supabase (PostgreSQL)\n- **Storage:** Supabase Storage\n- **Auth:** Supabase Auth\n- **Integrations:** Telegram Bot API\n\n## การพัฒนา (Development)\n- `npm install` — ติดตั้ง dependencies\n- `npm run dev` — เริ่ม Vite dev server\n- `npm run build` — build สำหรับ production\n- `npm run preview` — ดูตัวอย่าง production build\n- `npm run test` — รัน Vitest tests\n- `npm run test:watch` — รัน tests แบบ watch mode\n- `npm run lint` — รัน ESLint\n- `npm run typecheck` — ตรวจสอบ TypeScript type\n- `npm run format` — จัดรูปแบบโค้ดด้วย Prettier\n\n## สถาปัตยกรรม (Architecture)\n- **Structure:** React SPA ที่ใช้ lazy-loaded routes\n- **Entry Points:** `src/main.tsx`\n- **Key Files:**\n  - `src/main.tsx` — จุดเริ่มต้นแอป\n  - `src/App.tsx` — Root component\n  - `vite.config.ts` — การตั้งค่า Vite\n  - `vitest.config.ts` — การตั้งค่า test\n\n### Directory Layout\n- `src/` — โค้ด React source\n  - `components/` — UI components (25 files)\n  - `hooks/` — Custom React hooks\n  - `lib/` — Utility และ API logic\n  - `utils/` — Helper functions\n  - `styles/` — CSS และไฟล์ theme\n  - `themes/` — 16 theme files (dynamic loading)\n  - `test/` — Vitest tests\n- `public/` — Static assets (favicon.svg, files/)\n- `supabase/` — Supabase functions และ migrations\n- `api/` — External API integrations (เช่น `telegram.ts`)\n\n## เอกสาร (Documentation)\n- **Agent Context:** [agent.md](./agent.md)\n- **Status:** [status.md](./status.md)\n\n## คุณภาพ (Quality)\n- **Tests:** Vitest, Testing Library\n- **CI:** GitHub Actions (deploy edge functions)\n- **Linters:** ESLint, Prettier\n\n## สถานะ (Status)\n- **State:** active\n- **Documentation Completeness:** High\n- **Confidence Level:** High\n\n**Source:**\n- `/home/truck/package.json`\n- `/home/OKF/projects/truck/agent.md`\n",
+      "agent_body": "\n# Agent ของ Truck\n\n## ภาพรวม (Overview)\n\nแอปสำหรับบันทึกกะการทำงานและรายได้สำหรับคนขับรถบรรทุก ใช้ React 19 + Supabase มี 16 themes และรองรับ Telegram bot integration\n\n## บุคลิก (Personality)\n\n- **Role:** overtime enthusiast\n- ขยันขันแข็งกับ shift logs, รายละเอียดรายได้ และ edge cases ยอมทุ่มเวลา extra hours เพื่อให้ data model และ offline queue ถูกต้อง เคร่งครัดเรื่อง mutation-invalidation contracts\n\n## สแต็กเทคโนโลยี (Stack)\n\n| Layer | Tech |\n|-------|------|\n| Framework | React 19 + Vite 8 + TypeScript 6 |\n| Routing | react-router-dom v7 |\n| Data Fetching | tanstack/react-query v5 |\n| Database | Supabase (Postgres) |\n| Auth | Supabase Auth |\n| Styling | Custom themes.css (16 themes) |\n| Animations | motion (Framer Motion) — route transitions, modal exits, toast exits |\n| Notifications | Telegram Bot API |\n| Deployment | Vercel (SPA rewrite via git push) |\n\n## สถาปัตยกรรม (Architecture)\n\n```\nmain.tsx → App.tsx (auth gate + session + theme)\n         → AppRoutes.tsx (AnimatePresence + motion.div route transitions)\n         → lazy-loaded: DailyView, ShiftCalendar, History, IncomeView, ProfilePage, Changelog, AdminPanel, UserManagement, IncomeSettings\n         → ErrorBoundary wrapper per route\n         → Supabase (sb) + ReactQuery (monthly-logs, day-log, income, yearly-logs)\n          → offlineQueue (localStorage mutation queue, auto-replay on reconnect)\n         → AuthScreen (sign-in / request account via Telegram)\n```\n\n### แผนที่โครงสร้างโฟลเดอร์ (Directory Map)\n\n| Directory | Responsibility |\n|-----------|---------------|\n| `src/lib/` | Supabase client (`sb`), offline mutation queue (`offlineQueue`) |\n| `src/hooks/` | `useOnlineStatus`, `useFocusTrap`, `usePendingSyncCount` |\n| `src/utils/` | `calculateIncome()`, shift helpers |\n| `src/components/` | UI — 6 views + shared components |\n| `src/components/daily/` | Daily logging (DateSlider, ShiftBadge, OdometerCard, CounterCard, LeaveCard) |\n| `src/components/shifts/` | Monthly calendar (CalendarGrid, ShiftModal, ShiftSummary) |\n| `src/components/history/` | Historical browsing |\n| `src/components/income/` | Salary breakdown (HeroCard, SalaryBreakdown, TaxSummary) |\n| `src/components/profile/` | Profile management modals |\n| `src/components/skeletons/` | Loading skeletons (DailyView, ShiftCalendar, IncomeView) |\n| `supabase/functions/` | Edge functions (approve-user, get-all-users, notify-telegram) |\n\n## รูปแบบหลัก (Key Patterns)\n\n- **Route transitions**: `<AnimatePresence mode=\"wait\">` + `<motion.div>` — fade+slide (0.2s, custom easing `[0.16, 1, 0.3, 1]`), key=`location.pathname`\n- **Modal exit animations**: `<AnimatePresence>` wrapping modals — backdrop fades out, content scales down (0.18s). CSS `fadeIn`/`scaleIn` removed from globals.css, motion handles enter+exit\n- **Toast exit animation**: `<AnimatePresence>` in ToastContext — slide right + fade out (0.25s). CSS `slideIn`/`slideOut` removed\n- **Nav tab micro-interaction**: `whileTap={{ scale: 0.9 }}` on motion.div tab buttons\n- **Auth gate**: ตรวจสอบ Supabase session → แสดง ModalWrapper กับ AuthScreen overlay บนแอปหลัก (z-index 9999, ปิดไม่ได้)\n- **Toast**: `useToast()` จาก ToastContext — ห้ามใช้ `alert()` หรือ `console.log()`\n- **Modal pattern**: motion handles enter+exit — no more CSS animation classes on `.modal-backdrop`/`.modal-content`\n- **Admin gate**: query DB `user_profiles.is_admin` (ไม่ hardcode email)\n- **Offline queue**: เก็บ mutations ลง localStorage, replay เมื่อ reconnect ด้วย exponential backoff (ไม่มี service worker — ทำงานอิสระ)\n- **Focus trap**: `useFocusTrap(active, ref, onClose?)` ใน modals\n- **Skeleton loaders**: CSS skeleton ที่รองรับ theme สำหรับ 3 views\n- **Mutation invalidation contract**: การ save ที่ mutates `logs` ต้อง invalidate ทั้งหมดของ: `['monthly-logs', userId, year, month]`, `['yearly-logs', userId, year]`, `['income', userId, year, month]`\n- **Performance ref pattern**: `formRef` object + `useCallback` ด้วย deps น้อยที่สุด เพื่อไม่ให้ memo'd children re-render\n\n## คำสั่ง (Commands)\n\n| Command | What it does |\n|---------|-------------|\n| `node node_modules/.bin/vite` | Dev server |\n| `node node_modules/vite/bin/vite.js build` | Production build |\n| `node node_modules/.bin/vitest run` | Run tests (101 tests) |\n| `node node_modules/.bin/eslint src/` | Lint |\n| `node node_modules/.bin/prettier --write src/` | Format |\n\n## ทริกเกอร์ (Triggers)\n\n### \"deploy\"\n\n`git push` — Vercel auto-deploys from git. ไม่ต้อง run vercel deploy ตรง ๆ.\n\n### \"update .md\"\n\n1. อ่าน project AGENTS.md + สถานะ KB ปัจจุบัน\n2. อัปเดต `projects/truck/status.md` ด้วยการเปลี่ยนแปลงล่าสุด\n3. อัปเดต `projects/truck/agent.md` (architecture, patterns)\n4. ถ้า project AGENTS.md มีข้อมูลเก่า ให้อัปเดตด้วย\n\n### \"wrap-day\"\n\n1. อ่าน diff, Changelog, STATUS.md\n2. เพิ่มสรุปภาษาไทยใน `src/components/Changelog.tsx` เป็นรายการ `v{YYYY.MM.DD}` ใหม่\n3. อัปเดต STATUS.md — Components / Data Flow / Constraints\n4. `git add` + commit `\"docs: wrap-day {YYYY-MM-DD}\"`\n5. แตะเฉพาะ Changelog.tsx และ STATUS.md เท่านั้น\n\n### \"cleanup\"\n\n1. สแกน unused imports, ไฟล์ว่าง, dead exports\n2. ตรวจสอบสุขภาพ: `tsc --noEmit` + build\n3. สแกนลึก: โฟลเดอร์ที่เหลือ, `vite.log`, `console.log`, TODO/FIXME\n4. นำผลมาเสนอให้ user เลือก\n5. อัปเดต STATUS.md + project AGENTS.md\n6. ห้าม cleanup `.env*`, `node_modules/`, `dist/`, `.git/`, หรือ config จำเป็น\n\n## งานที่ต้องทำ (TODOs)\n\n\n## Environment Variables\n\n- `VITE_SUPABASE_URL`\n- `VITE_SUPABASE_ANON_KEY`\n- `VITE_TELEGRAM_BOT_TOKEN`\n- `VITE_TELEGRAM_CHAT_ID`\n\n## กฎ (Rules)\n\n- `oldString` ต้องสั้นและแม่นยำ — หลีกเลี่ยง code blocks ยาวใน edit\n- อ่านไฟล์เวอร์ชันล่าสุดเสมอก่อนแก้ไข\n- **Deploy = `git push`** — ไม่ต้อง run vercel deploy ตรง ๆ. Vercel auto-deploy จาก git.\n\n### สภาพแวดล้อม Termux (Termux Environment)\n\n| Tool | Notes |\n|------|-------|\n| Node.js | v22.14.0 (ARM64) — ใช้ `node`ตรง ๆ ไฟล์ `.bin/` เป็น shell scripts |\n| Supabase CLI | CI เท่านั้น: `supabase/setup-cli@v1` ใน GitHub Actions |\n| cwebp | มีให้ใช้ — `cwebp -q 80 input.jpg -o output.webp` |\n| sharp / ffmpeg | ไม่มีให้ใช้ |\n",
+      "status_body": "\n# สถานะโปรเจกต์ — Truck\n\n## Changelog\n\n### 2026-07-17 (animations)\n- **Animation**: เพิ่ม motion (Framer Motion) สำหรับ route transitions — `<AnimatePresence mode=\"wait\">` + `<motion.div>` fade+slide (0.2s, custom easing)\n- **Animation**: เพิ่ม exit animations สำหรับ modals ทั้งหมด — backdrop fade out + content scale down (0.18s) ใน ModalWrapper, ConfirmModal, Modals (theme picker), ShiftModal, MonthYearPopup\n- **Animation**: เพิ่ม toast exit animation — slide right + fade out (0.25s) ผ่าน `<AnimatePresence>` ใน ToastContext\n- **Animation**: เพิ่ม `whileTap={{ scale: 0.9 }}` บน NavTabs ปุ่ม\n- **Cleanup**: เอา CSS animations (fadeIn, scaleIn, slideIn, slideOut) ออกจาก globals.css สำหรับ modals/toasts ที่ motion จัดการแล้ว\n- **Fix**: เอา pnpm-lock.yaml ออกจาก git (Vercel detect แล้วใช้ pnpm แทน npm)\n- **Fix**: ย้าย `@rolldown/binding-linux-arm64-gnu` ไป optionalDependencies (ARM64-only dep ไม่ fail บน x64)\n\n### 2026-07-13 (perf + refactor)\n- **Loading/Perf**: แตก themes.css (16 ธีม ~36KB) → ไฟล์ต่อธีม โหลด dynamic เฉพาะธีมที่ใช้ (ลด dead CSS ~94%)\n- **Loading/Perf**: CalendarGrid ย้าย inline styles → CSS classes + memoize cells; DateSlider scrollIntoView behavior auto (เลิก smooth)\n- **Bandwidth**: ShiftCalendar ตัด query yearly-logs → yearly-leave-counts (เลือกเฉพาะ leave_type)\n- **Memory**: แก้ retryTimer leak ใน offlineQueue (module singleton → Map ราย user + clearRetryTimer ตอน logout)\n- **Refactor**: แตก calculateIncome (170+ บรรทัด) → aggregate/calcPartTime/calcFullTime/buildResult/finalize\n- **Bandwidth**: recompress background images ด้วย cwebp q82 ย่อเหลือ 1200×1400 — รวม 976KB → 412KB (~58%) ยังชัดเท่าเดิม\n- **Caching**: vercel.json ตั้ง Cache-Control max-age 7 วัน + must-revalidate สำหรับ /files/*.webp\n- Tests: calculator 23/23, offlineQueue 40/40, shift-helpers 20/20 ผ่าน; tsc clean\n\n### 2026-07-13 (KB)\n- **KB refresh**: อัปเดต dependencies (ลบ vite-plugin-pwa), อัปเดต test count (101 tests), แก้ไข frontmatter ซ้ำซ้อน\n- Sync OKF knowledge base across all 8 projects\n- Updated workspace index with current project inventory\n- Refreshed documentation timestamps and freshness\n\n### 2026-07-11\n- ลบ PWA ทั้งหมด: ลบ vite-plugin-pwa, sw.js, SwUpdateToast, public/icons/\n- เพิ่ม SVG truck favicon (public/favicon.svg)\n- แทนที่ motorbike favicon ด้วย truck SVG (หัวรถ + หลังคาโหลด + ล้อ)\n\n### 2026-07-08\n- wrap-day: changelog + อัปเดตสถานะสำหรับ 8 กรกฎาคม\n- คุณภาพโค้ด: typed interfaces, ลบ eslint-disable blocks, ตรวจสอบ env var, async cancellation flags\n- ทำความสะอาด gitignore\n- Admin user card: ลบ type badge, เรียง type + reset ซ้อนกัน\n- แก้ไข: เงินวันหยุดถูกนับเป็นเงินเดือน (incomeBase), ช่วงสัปดาห์ จ.-อา.\n\n### 2026-07-06\n- Auth modal overlay (ModalWrapper) — สกัดการนำทางเมื่อ session หมดอายุ\n\n## การออกแบบ (Design)\n\n- 16 themes พร้อมพื้นหลังไล่ระดับ + ลวดลาย SVG noise\n- ตัวแปร Neobrutalist (เงาแข็ง ขอบหนา)\n- เอฟเฟกต์แก้วสำหรับธีม shinchan\n- CSS custom properties ด้วยสเกล `--space-*` (2px ถึง 30px)\n- `toBuddhistYear()` สำหรับแสดงปฏิทินไทย\n- Motion animations — fade/slide/scale ด้วย custom easing `[0.16, 1, 0.3, 1]`\n\n## ปัญหาที่ทราบ (Known Issues)\n\n- ต้อง reauthentication ก่อน `sb.auth.updateUser()`\n- Mutation invalidation: การ save ที่ mutates `logs` ต้อง invalidate ทั้งหมดของ: `monthly-logs`, `yearly-logs`, `income`\n- Avatar upload: Supabase Storage `avatars/{userId}/avatar.{ext}`, ≤2MB\n- ห้ามใช้ `@ts-ignore` หรือ `@ts-expect-error` (ใช้ `as Record<string, any>` แทน)\n"
+    },
+    {
+      "id": "writer",
+      "name": "AI agent system",
+      "display_name": null,
+      "description": "ผู้เขียนคอนเทนต์และสรุปเนื้อหาให้โปรเจกต์ทั้งหมด",
+      "purpose": "จัดการการเขียนแบบกระชับ, สรุป, changelog และเอกสาร",
+      "repository": "ไม่มี",
+      "owner": null,
+      "status": "active",
+      "last_updated": "2026-07-21",
+      "languages": [
+        "Markdown"
+      ],
+      "frameworks": [
+        "AI agent system"
+      ],
+      "databases": [
+        "none"
+      ],
+      "deployment_targets": [
+        "none"
+      ],
+      "cloud_providers": [],
+      "agent_personality": "word goblin",
+      "source_path": "/home",
+      "okf_type": "project-profile",
+      "okf_title": "writer",
+      "okf_tags": [
+        "Markdown",
+        "AI agent system",
+        "none",
+        "file-based"
+      ],
+      "okf_timestamp": "2026-07-21T00:00:00Z",
+      "profile_body": "\n# โปรไฟล์โปรเจกต์: writer\n\n## ข้อมูลตัวตน (Identity)\n\n- **Name:** writer\n- **Display Name:** Writer Agent\n- **Description:** ผู้เขียนคอนเทนต์และสรุปเนื้อหาให้โปรเจกต์ทั้งหมด\n- **Purpose:** จัดการการเขียนแบบกระชับ, สรุป, changelog และเอกสาร\n- **Repository:** ไม่มี\n\n## เทคโนโลยี (Technology)\n\n- **Languages:** Markdown, YAML\n- **Frameworks:** ไม่มี\n- **Runtime:** ไม่มี (AI tool)\n\n## เอกสาร (Documentation)\n\n- **Agent Context:** [agent.md](./agent.md)\n\n## สถานะ (Status)\n\n- **State:** active\n- **Documentation Completeness:** สูง (High)\n- **Confidence Level:** สูง (High)\n",
+      "agent_body": "\n# Writer Agent\n\n## ภาพรวม\n\nword goblin ที่เชี่ยวชาญการเขียนแบบกระชับ, สรุปเนื้อหา, และเขียนคำแนะนำแบบ step-by-step จัดการ changelog เป็นภาษาไทยและเขียนเอกสารให้โปรเจกต์ทั้งหมด\n\n## บุคลิก\n\n- **Role:** word goblin\n- กระชับ ไม่เยิ่นเย้อ ตอบก่อน อธิบายที after เขียน changelog ภาษาไทย, สรุป, และเอกสารแบบมีโครงสร้างให้โปรเจกต์ทั้งหมด\n\n## เทคโนโลยี (Stack)\n\n| ชั้น (Layer) | เทคโนโลยี |\n|-------|------|\n| Format | ไฟล์ Markdown (YAML frontmatter + body) |\n| Platform | ระบบ AI agent (opencode) |\n| Scope | โปรเจกต์ทั้งหมด |\n\n## รูปแบบหลัก (Key Patterns)\n\n- **Concise Writing**: สั้นและตรงประเด็น\n- **Summaries**: สรุปข้อมูลซับซ้อนให้เข้าใจง่าย\n- **Step-by-Step Instructions**: แตกงานซับซ้อนเป็นขั้นตอนที่ลงมือทำได้\n- **Changelogs**: เขียน changelog เป็นภาษาไทย (สำหรับ wrap-day ของ truck)\n- **Documentation**: เขียนเอกสารที่ชัดเจน มีโครงสร้างดี\n\n## คำสั่ง (Commands)\n\n| การเรียกใช้ (Invocation) | ทำอะไร |\n|------------|-------------|\n| \"summarize\" | สรุปเนื้อหาที่ให้มาอย่างกระชับ |\n| \"wrap-day\" | เขียน changelog ภาษาไทยให้โปรเจกต์ truck |\n| \"step-by-step\" | แตกงานซับซ้อนเป็นคำแนะนำทีละขั้น |\n| \"docs\" | เขียนเอกสารแบบชัดเจน มีโครงสร้าง |\n\n## ตัวกระตุ้น (Triggers)\n\n### \"summarize\"\n\n1. อ่านเนื้อหาที่จะสรุป\n2. หาประเด็นหลัก (สูงสุด 5-7 ข้อ)\n3. เขียนสรุปกระชับไม่เกิน 4 บรรทัดเมื่อทำได้\n4. ใช้ภาษาไทยหรืออังกฤษตามที่ขอ\n\n### \"wrap-day\"\n\n1. อ่าน diff/changelog\n2. เขียนรายการ changelog เป็นภาษาไทย\n3. เก็บรายการให้กระชับ และจำกัด scope ตามสิ่งที่เปลี่ยน\n\n### \"step-by-step\"\n\n1. เข้าใจงานที่ซับซ้อน\n2. แตกเป็นขั้นตอนเรียงลำดับตามตรรกะ\n3. เขียนคำแนะนำทีละขั้นที่ชัดเจน ลงมือทำได้\n\n## งานที่ต้องทำ (TODOs)\n\n\n## บันทึกการเปลี่ยนแปลง (Changelog)\n\n### 2026-07-21\n- Rebuild OKF files with standardized frontmatter\n- Fix agent.md: add missing `status_ref` field\n- Fix commands.md: remove references to non-existent scripts\n- Align all files to schema template\n\n### 2026-07-13\n- Sync OKF knowledge base across all 8 projects\n- Updated workspace index with current project inventory\n- Refreshed documentation timestamps and freshness\n\n## กฎ (Rules)\n\n- ใช้ contracted form (I'll, don't)\n- ไม่ใช้ emoji หากไม่ได้ขอ\n- ใช้ภาษาไทยหรืออังกฤษเท่านั้น\n- ไม่เกิน 4 บรรทัดเมื่อทำได้\n- ไม่มี intro ที่ไม่จำเป็น — ตอบก่อน\n",
+      "status_body": ""
+    }
+  ],
+  "entities": [
+    {
+      "id": 18,
+      "name": "LINE Messaging API",
+      "type": "auth",
+      "usage_count": 3,
+      "projects_using": [
+        "collage"
+      ]
+    },
+    {
+      "id": 38,
+      "name": "SHA-256",
+      "type": "auth",
+      "usage_count": 3,
+      "projects_using": [
+        "habby"
+      ]
+    },
+    {
+      "id": 47,
+      "name": "SHA-256 header-based",
+      "type": "auth",
+      "usage_count": 3,
+      "projects_using": [
+        "mcky.space"
+      ]
+    },
+    {
+      "id": 8,
+      "name": "Supabase Auth",
+      "type": "auth",
+      "usage_count": 5,
+      "projects_using": [
+        "clientdata",
+        "truck"
+      ]
+    },
+    {
+      "id": 28,
+      "name": "password (admin/viewer)",
+      "type": "auth",
+      "usage_count": 3,
+      "projects_using": [
+        "data.mcky.space"
+      ]
+    },
+    {
+      "id": 57,
+      "name": "password + HMAC-SHA256",
+      "type": "auth",
+      "usage_count": 3,
+      "projects_using": [
+        "receipts-dms"
+      ]
+    },
+    {
+      "id": 24,
+      "name": "Cloudflare D1 (SQLite)",
+      "type": "database",
+      "usage_count": 5,
+      "projects_using": [
+        "data.mcky.space",
+        "receipts-dms"
+      ]
+    },
+    {
+      "id": 4,
+      "name": "Neon (PostgreSQL)",
+      "type": "database",
+      "usage_count": 3,
+      "projects_using": [
+        "clientdata"
+      ]
+    },
+    {
+      "id": 34,
+      "name": "Redis (owner mode)",
+      "type": "database",
+      "usage_count": 3,
+      "projects_using": [
+        "habby"
+      ]
+    },
+    {
+      "id": 63,
+      "name": "Supabase (PostgreSQL)",
+      "type": "database",
+      "usage_count": 3,
+      "projects_using": [
+        "truck"
+      ]
+    },
+    {
+      "id": 43,
+      "name": "Supabase (PostgreSQL, not actively used)",
+      "type": "database",
+      "usage_count": 3,
+      "projects_using": [
+        "mcky.space"
+      ]
+    },
+    {
+      "id": 25,
+      "name": "Cloudflare Pages",
+      "type": "deployment",
+      "usage_count": 5,
+      "projects_using": [
+        "data.mcky.space",
+        "receipts-dms"
+      ]
+    },
+    {
+      "id": 15,
+      "name": "Render.com (backend) + Vercel (frontend)",
+      "type": "deployment",
+      "usage_count": 3,
+      "projects_using": [
+        "collage"
+      ]
+    },
+    {
+      "id": 5,
+      "name": "Vercel",
+      "type": "deployment",
+      "usage_count": 7,
+      "projects_using": [
+        "clientdata",
+        "mcky.space",
+        "truck"
+      ]
+    },
+    {
+      "id": 35,
+      "name": "Vercel (static + serverless)",
+      "type": "deployment",
+      "usage_count": 3,
+      "projects_using": [
+        "habby"
+      ]
+    },
+    {
+      "id": 71,
+      "name": "AI agent system",
+      "type": "framework",
+      "usage_count": 3,
+      "projects_using": [
+        "writer"
+      ]
+    },
+    {
+      "id": 42,
+      "name": "Astro",
+      "type": "framework",
+      "usage_count": 3,
+      "projects_using": [
+        "mcky.space"
+      ]
+    },
+    {
+      "id": 33,
+      "name": "Express",
+      "type": "framework",
+      "usage_count": 3,
+      "projects_using": [
+        "habby"
+      ]
+    },
+    {
+      "id": 12,
+      "name": "Express 4 (backend)",
+      "type": "framework",
+      "usage_count": 3,
+      "projects_using": [
+        "collage"
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Next.js",
+      "type": "framework",
+      "usage_count": 3,
+      "projects_using": [
+        "clientdata"
+      ]
+    },
+    {
+      "id": 3,
+      "name": "React",
+      "type": "framework",
+      "usage_count": 9,
+      "projects_using": [
+        "clientdata",
+        "data.mcky.space",
+        "receipts-dms",
+        "truck"
+      ]
+    },
+    {
+      "id": 22,
+      "name": "Vite",
+      "type": "framework",
+      "usage_count": 9,
+      "projects_using": [
+        "data.mcky.space",
+        "habby",
+        "receipts-dms",
+        "truck"
+      ]
+    },
+    {
+      "id": 13,
+      "name": "vanilla HTML/CSS/JS (frontend)",
+      "type": "framework",
+      "usage_count": 3,
+      "projects_using": [
+        "collage"
+      ]
+    },
+    {
+      "id": 11,
+      "name": "JavaScript",
+      "type": "language",
+      "usage_count": 7,
+      "projects_using": [
+        "collage",
+        "habby",
+        "mcky.space"
+      ]
+    },
+    {
+      "id": 70,
+      "name": "Markdown",
+      "type": "language",
+      "usage_count": 3,
+      "projects_using": [
+        "writer"
+      ]
+    },
+    {
+      "id": 1,
+      "name": "TypeScript",
+      "type": "language",
+      "usage_count": 9,
+      "projects_using": [
+        "clientdata",
+        "data.mcky.space",
+        "receipts-dms",
+        "truck"
+      ]
+    },
+    {
+      "id": 7,
+      "name": "React hooks",
+      "type": "state-management",
+      "usage_count": 5,
+      "projects_using": [
+        "clientdata",
+        "receipts-dms"
+      ]
+    },
+    {
+      "id": 66,
+      "name": "TanStack Query v5",
+      "type": "state-management",
+      "usage_count": 3,
+      "projects_using": [
+        "truck"
+      ]
+    },
+    {
+      "id": 27,
+      "name": "Zustand",
+      "type": "state-management",
+      "usage_count": 3,
+      "projects_using": [
+        "data.mcky.space"
+      ]
+    },
+    {
+      "id": 20,
+      "name": "Cloudflare R2",
+      "type": "storage",
+      "usage_count": 7,
+      "projects_using": [
+        "collage",
+        "data.mcky.space",
+        "receipts-dms"
+      ]
+    },
+    {
+      "id": 10,
+      "name": "Supabase Storage",
+      "type": "storage",
+      "usage_count": 7,
+      "projects_using": [
+        "clientdata",
+        "mcky.space",
+        "truck"
+      ]
+    },
+    {
+      "id": 78,
+      "name": "file-based",
+      "type": "storage",
+      "usage_count": 3,
+      "projects_using": [
+        "writer"
+      ]
+    },
+    {
+      "id": 40,
+      "name": "localStorage (guest mode)",
+      "type": "storage",
+      "usage_count": 3,
+      "projects_using": [
+        "habby"
+      ]
+    },
+    {
+      "id": 68,
+      "name": "Vitest",
+      "type": "testing",
+      "usage_count": 3,
+      "projects_using": [
+        "truck"
+      ]
+    },
+    {
+      "id": 39,
+      "name": "Vitest (18 tests)",
+      "type": "testing",
+      "usage_count": 3,
+      "projects_using": [
+        "habby"
+      ]
+    },
+    {
+      "id": 29,
+      "name": "health-check script",
+      "type": "testing",
+      "usage_count": 3,
+      "projects_using": [
+        "data.mcky.space"
+      ]
+    },
+    {
+      "id": 9,
+      "name": "none",
+      "type": "testing",
+      "usage_count": 29,
+      "projects_using": [
+        "clientdata",
+        "collage",
+        "mcky.space",
+        "receipts-dms",
+        "writer"
+      ]
+    },
+    {
+      "id": 55,
+      "name": "Radix UI + Tailwind CSS 4",
+      "type": "ui",
+      "usage_count": 3,
+      "projects_using": [
+        "receipts-dms"
+      ]
+    },
+    {
+      "id": 6,
+      "name": "Tailwind CSS",
+      "type": "ui",
+      "usage_count": 5,
+      "projects_using": [
+        "clientdata",
+        "truck"
+      ]
+    },
+    {
+      "id": 26,
+      "name": "Tailwind CSS 4",
+      "type": "ui",
+      "usage_count": 3,
+      "projects_using": [
+        "data.mcky.space"
+      ]
+    },
+    {
+      "id": 45,
+      "name": "Vanilla CSS",
+      "type": "ui",
+      "usage_count": 3,
+      "projects_using": [
+        "mcky.space"
+      ]
+    },
+    {
+      "id": 16,
+      "name": "vanilla CSS",
+      "type": "ui",
+      "usage_count": 3,
+      "projects_using": [
+        "collage"
+      ]
+    },
+    {
+      "id": 36,
+      "name": "vanilla CSS (neobrutalist)",
+      "type": "ui",
+      "usage_count": 3,
+      "projects_using": [
+        "habby"
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "source": "clientdata",
+      "source_type": "project",
+      "target": "Supabase Auth",
+      "target_type": "auth",
+      "relation": "uses"
+    },
+    {
+      "source": "clientdata",
+      "source_type": "project",
+      "target": "Neon (PostgreSQL)",
+      "target_type": "database",
+      "relation": "uses"
+    },
+    {
+      "source": "clientdata",
+      "source_type": "project",
+      "target": "Vercel",
+      "target_type": "deployment",
+      "relation": "uses"
+    },
+    {
+      "source": "clientdata",
+      "source_type": "project",
+      "target": "Next.js",
+      "target_type": "framework",
+      "relation": "uses"
+    },
+    {
+      "source": "clientdata",
+      "source_type": "project",
+      "target": "React",
+      "target_type": "framework",
+      "relation": "uses"
+    },
+    {
+      "source": "clientdata",
+      "source_type": "project",
+      "target": "TypeScript",
+      "target_type": "language",
+      "relation": "uses"
+    },
+    {
+      "source": "clientdata",
+      "source_type": "project",
+      "target": "React hooks",
+      "target_type": "state-management",
+      "relation": "uses"
+    },
+    {
+      "source": "clientdata",
+      "source_type": "project",
+      "target": "Supabase Storage",
+      "target_type": "storage",
+      "relation": "uses"
+    },
+    {
+      "source": "clientdata",
+      "source_type": "project",
+      "target": "none",
+      "target_type": "testing",
+      "relation": "uses"
+    },
+    {
+      "source": "clientdata",
+      "source_type": "project",
+      "target": "Tailwind CSS",
+      "target_type": "ui",
+      "relation": "uses"
+    },
+    {
+      "source": "collage",
+      "source_type": "project",
+      "target": "LINE Messaging API",
+      "target_type": "auth",
+      "relation": "uses"
+    },
+    {
+      "source": "collage",
+      "source_type": "project",
+      "target": "none",
+      "target_type": "database",
+      "relation": "uses"
+    },
+    {
+      "source": "collage",
+      "source_type": "project",
+      "target": "Render.com (backend) + Vercel (frontend)",
+      "target_type": "deployment",
+      "relation": "uses"
+    },
+    {
+      "source": "collage",
+      "source_type": "project",
+      "target": "Express 4 (backend)",
+      "target_type": "framework",
+      "relation": "uses"
+    },
+    {
+      "source": "collage",
+      "source_type": "project",
+      "target": "vanilla HTML/CSS/JS (frontend)",
+      "target_type": "framework",
+      "relation": "uses"
+    },
+    {
+      "source": "collage",
+      "source_type": "project",
+      "target": "JavaScript",
+      "target_type": "language",
+      "relation": "uses"
+    },
+    {
+      "source": "collage",
+      "source_type": "project",
+      "target": "none",
+      "target_type": "state-management",
+      "relation": "uses"
+    },
+    {
+      "source": "collage",
+      "source_type": "project",
+      "target": "Cloudflare R2",
+      "target_type": "storage",
+      "relation": "uses"
+    },
+    {
+      "source": "collage",
+      "source_type": "project",
+      "target": "none",
+      "target_type": "testing",
+      "relation": "uses"
+    },
+    {
+      "source": "collage",
+      "source_type": "project",
+      "target": "vanilla CSS",
+      "target_type": "ui",
+      "relation": "uses"
+    },
+    {
+      "source": "data.mcky.space",
+      "source_type": "project",
+      "target": "password (admin/viewer)",
+      "target_type": "auth",
+      "relation": "uses"
+    },
+    {
+      "source": "data.mcky.space",
+      "source_type": "project",
+      "target": "Cloudflare D1 (SQLite)",
+      "target_type": "database",
+      "relation": "uses"
+    },
+    {
+      "source": "data.mcky.space",
+      "source_type": "project",
+      "target": "Cloudflare Pages",
+      "target_type": "deployment",
+      "relation": "uses"
+    },
+    {
+      "source": "data.mcky.space",
+      "source_type": "project",
+      "target": "React",
+      "target_type": "framework",
+      "relation": "uses"
+    },
+    {
+      "source": "data.mcky.space",
+      "source_type": "project",
+      "target": "Vite",
+      "target_type": "framework",
+      "relation": "uses"
+    },
+    {
+      "source": "data.mcky.space",
+      "source_type": "project",
+      "target": "TypeScript",
+      "target_type": "language",
+      "relation": "uses"
+    },
+    {
+      "source": "data.mcky.space",
+      "source_type": "project",
+      "target": "Zustand",
+      "target_type": "state-management",
+      "relation": "uses"
+    },
+    {
+      "source": "data.mcky.space",
+      "source_type": "project",
+      "target": "Cloudflare R2",
+      "target_type": "storage",
+      "relation": "uses"
+    },
+    {
+      "source": "data.mcky.space",
+      "source_type": "project",
+      "target": "health-check script",
+      "target_type": "testing",
+      "relation": "uses"
+    },
+    {
+      "source": "data.mcky.space",
+      "source_type": "project",
+      "target": "Tailwind CSS 4",
+      "target_type": "ui",
+      "relation": "uses"
+    },
+    {
+      "source": "habby",
+      "source_type": "project",
+      "target": "SHA-256",
+      "target_type": "auth",
+      "relation": "uses"
+    },
+    {
+      "source": "habby",
+      "source_type": "project",
+      "target": "Redis (owner mode)",
+      "target_type": "database",
+      "relation": "uses"
+    },
+    {
+      "source": "habby",
+      "source_type": "project",
+      "target": "Vercel (static + serverless)",
+      "target_type": "deployment",
+      "relation": "uses"
+    },
+    {
+      "source": "habby",
+      "source_type": "project",
+      "target": "Express",
+      "target_type": "framework",
+      "relation": "uses"
+    },
+    {
+      "source": "habby",
+      "source_type": "project",
+      "target": "Vite",
+      "target_type": "framework",
+      "relation": "uses"
+    },
+    {
+      "source": "habby",
+      "source_type": "project",
+      "target": "JavaScript",
+      "target_type": "language",
+      "relation": "uses"
+    },
+    {
+      "source": "habby",
+      "source_type": "project",
+      "target": "none",
+      "target_type": "state-management",
+      "relation": "uses"
+    },
+    {
+      "source": "habby",
+      "source_type": "project",
+      "target": "localStorage (guest mode)",
+      "target_type": "storage",
+      "relation": "uses"
+    },
+    {
+      "source": "habby",
+      "source_type": "project",
+      "target": "Vitest (18 tests)",
+      "target_type": "testing",
+      "relation": "uses"
+    },
+    {
+      "source": "habby",
+      "source_type": "project",
+      "target": "vanilla CSS (neobrutalist)",
+      "target_type": "ui",
+      "relation": "uses"
+    },
+    {
+      "source": "mcky.space",
+      "source_type": "project",
+      "target": "SHA-256 header-based",
+      "target_type": "auth",
+      "relation": "uses"
+    },
+    {
+      "source": "mcky.space",
+      "source_type": "project",
+      "target": "Supabase (PostgreSQL, not actively used)",
+      "target_type": "database",
+      "relation": "uses"
+    },
+    {
+      "source": "mcky.space",
+      "source_type": "project",
+      "target": "Vercel",
+      "target_type": "deployment",
+      "relation": "uses"
+    },
+    {
+      "source": "mcky.space",
+      "source_type": "project",
+      "target": "Astro",
+      "target_type": "framework",
+      "relation": "uses"
+    },
+    {
+      "source": "mcky.space",
+      "source_type": "project",
+      "target": "JavaScript",
+      "target_type": "language",
+      "relation": "uses"
+    },
+    {
+      "source": "mcky.space",
+      "source_type": "project",
+      "target": "none",
+      "target_type": "state-management",
+      "relation": "uses"
+    },
+    {
+      "source": "mcky.space",
+      "source_type": "project",
+      "target": "Supabase Storage",
+      "target_type": "storage",
+      "relation": "uses"
+    },
+    {
+      "source": "mcky.space",
+      "source_type": "project",
+      "target": "none",
+      "target_type": "testing",
+      "relation": "uses"
+    },
+    {
+      "source": "mcky.space",
+      "source_type": "project",
+      "target": "Vanilla CSS",
+      "target_type": "ui",
+      "relation": "uses"
+    },
+    {
+      "source": "receipts-dms",
+      "source_type": "project",
+      "target": "password + HMAC-SHA256",
+      "target_type": "auth",
+      "relation": "uses"
+    },
+    {
+      "source": "receipts-dms",
+      "source_type": "project",
+      "target": "Cloudflare D1 (SQLite)",
+      "target_type": "database",
+      "relation": "uses"
+    },
+    {
+      "source": "receipts-dms",
+      "source_type": "project",
+      "target": "Cloudflare Pages",
+      "target_type": "deployment",
+      "relation": "uses"
+    },
+    {
+      "source": "receipts-dms",
+      "source_type": "project",
+      "target": "React",
+      "target_type": "framework",
+      "relation": "uses"
+    },
+    {
+      "source": "receipts-dms",
+      "source_type": "project",
+      "target": "Vite",
+      "target_type": "framework",
+      "relation": "uses"
+    },
+    {
+      "source": "receipts-dms",
+      "source_type": "project",
+      "target": "TypeScript",
+      "target_type": "language",
+      "relation": "uses"
+    },
+    {
+      "source": "receipts-dms",
+      "source_type": "project",
+      "target": "React hooks",
+      "target_type": "state-management",
+      "relation": "uses"
+    },
+    {
+      "source": "receipts-dms",
+      "source_type": "project",
+      "target": "Cloudflare R2",
+      "target_type": "storage",
+      "relation": "uses"
+    },
+    {
+      "source": "receipts-dms",
+      "source_type": "project",
+      "target": "none",
+      "target_type": "testing",
+      "relation": "uses"
+    },
+    {
+      "source": "receipts-dms",
+      "source_type": "project",
+      "target": "Radix UI + Tailwind CSS 4",
+      "target_type": "ui",
+      "relation": "uses"
+    },
+    {
+      "source": "truck",
+      "source_type": "project",
+      "target": "Supabase Auth",
+      "target_type": "auth",
+      "relation": "uses"
+    },
+    {
+      "source": "truck",
+      "source_type": "project",
+      "target": "Supabase (PostgreSQL)",
+      "target_type": "database",
+      "relation": "uses"
+    },
+    {
+      "source": "truck",
+      "source_type": "project",
+      "target": "Vercel",
+      "target_type": "deployment",
+      "relation": "uses"
+    },
+    {
+      "source": "truck",
+      "source_type": "project",
+      "target": "React",
+      "target_type": "framework",
+      "relation": "uses"
+    },
+    {
+      "source": "truck",
+      "source_type": "project",
+      "target": "Vite",
+      "target_type": "framework",
+      "relation": "uses"
+    },
+    {
+      "source": "truck",
+      "source_type": "project",
+      "target": "TypeScript",
+      "target_type": "language",
+      "relation": "uses"
+    },
+    {
+      "source": "truck",
+      "source_type": "project",
+      "target": "TanStack Query v5",
+      "target_type": "state-management",
+      "relation": "uses"
+    },
+    {
+      "source": "truck",
+      "source_type": "project",
+      "target": "Supabase Storage",
+      "target_type": "storage",
+      "relation": "uses"
+    },
+    {
+      "source": "truck",
+      "source_type": "project",
+      "target": "Vitest",
+      "target_type": "testing",
+      "relation": "uses"
+    },
+    {
+      "source": "truck",
+      "source_type": "project",
+      "target": "Tailwind CSS",
+      "target_type": "ui",
+      "relation": "uses"
+    },
+    {
+      "source": "writer",
+      "source_type": "project",
+      "target": "none",
+      "target_type": "auth",
+      "relation": "uses"
+    },
+    {
+      "source": "writer",
+      "source_type": "project",
+      "target": "none",
+      "target_type": "database",
+      "relation": "uses"
+    },
+    {
+      "source": "writer",
+      "source_type": "project",
+      "target": "none",
+      "target_type": "deployment",
+      "relation": "uses"
+    },
+    {
+      "source": "writer",
+      "source_type": "project",
+      "target": "AI agent system",
+      "target_type": "framework",
+      "relation": "uses"
+    },
+    {
+      "source": "writer",
+      "source_type": "project",
+      "target": "Markdown",
+      "target_type": "language",
+      "relation": "uses"
+    },
+    {
+      "source": "writer",
+      "source_type": "project",
+      "target": "none",
+      "target_type": "state-management",
+      "relation": "uses"
+    },
+    {
+      "source": "writer",
+      "source_type": "project",
+      "target": "file-based",
+      "target_type": "storage",
+      "relation": "uses"
+    },
+    {
+      "source": "writer",
+      "source_type": "project",
+      "target": "none",
+      "target_type": "testing",
+      "relation": "uses"
+    },
+    {
+      "source": "writer",
+      "source_type": "project",
+      "target": "none",
+      "target_type": "ui",
+      "relation": "uses"
+    }
+  ],
+  "tags_index": {
+    "typescript": [
+      "clientdata",
+      "data.mcky.space",
+      "receipts-dms",
+      "truck"
+    ],
+    "next.js": [
+      "clientdata"
+    ],
+    "react": [
+      "clientdata",
+      "data.mcky.space",
+      "receipts-dms",
+      "truck"
+    ],
+    "neon (postgresql)": [
+      "clientdata"
+    ],
+    "vercel": [
+      "clientdata",
+      "mcky.space",
+      "truck"
+    ],
+    "tailwind css": [
+      "clientdata",
+      "truck"
+    ],
+    "react hooks": [
+      "clientdata",
+      "receipts-dms"
+    ],
+    "supabase auth": [
+      "clientdata",
+      "truck"
+    ],
+    "none": [
+      "clientdata",
+      "collage",
+      "habby",
+      "mcky.space",
+      "receipts-dms",
+      "writer"
+    ],
+    "supabase storage": [
+      "clientdata",
+      "mcky.space",
+      "truck"
+    ],
+    "javascript": [
+      "collage",
+      "habby",
+      "mcky.space"
+    ],
+    "express 4 (backend)": [
+      "collage"
+    ],
+    "vanilla html/css/js (frontend)": [
+      "collage"
+    ],
+    "render.com (backend) + vercel (frontend)": [
+      "collage"
+    ],
+    "vanilla css": [
+      "collage",
+      "mcky.space"
+    ],
+    "line messaging api": [
+      "collage"
+    ],
+    "cloudflare r2": [
+      "collage",
+      "data.mcky.space",
+      "receipts-dms"
+    ],
+    "vite": [
+      "data.mcky.space",
+      "habby",
+      "receipts-dms",
+      "truck"
+    ],
+    "cloudflare d1 (sqlite)": [
+      "data.mcky.space",
+      "receipts-dms"
+    ],
+    "cloudflare pages": [
+      "data.mcky.space",
+      "receipts-dms"
+    ],
+    "tailwind css 4": [
+      "data.mcky.space"
+    ],
+    "zustand": [
+      "data.mcky.space"
+    ],
+    "password (admin/viewer)": [
+      "data.mcky.space"
+    ],
+    "health-check script": [
+      "data.mcky.space"
+    ],
+    "express": [
+      "habby"
+    ],
+    "redis (owner mode)": [
+      "habby"
+    ],
+    "vercel (static + serverless)": [
+      "habby"
+    ],
+    "vanilla css (neobrutalist)": [
+      "habby"
+    ],
+    "sha-256": [
+      "habby"
+    ],
+    "vitest (18 tests)": [
+      "habby"
+    ],
+    "localstorage (guest mode)": [
+      "habby"
+    ],
+    "astro": [
+      "mcky.space"
+    ],
+    "supabase (postgresql, not actively used)": [
+      "mcky.space"
+    ],
+    "sha-256 header-based": [
+      "mcky.space"
+    ],
+    "radix ui + tailwind css 4": [
+      "receipts-dms"
+    ],
+    "password + hmac-sha256": [
+      "receipts-dms"
+    ],
+    "supabase (postgresql)": [
+      "truck"
+    ],
+    "tanstack query v5": [
+      "truck"
+    ],
+    "vitest": [
+      "truck"
+    ],
+    "markdown": [
+      "writer"
+    ],
+    "ai agent system": [
+      "writer"
+    ],
+    "file-based": [
+      "writer"
+    ]
+  }
+}

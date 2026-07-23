@@ -25,6 +25,7 @@ function buildSidebar() {
   const sidebar: any[] = [
     { text: 'Home', link: '/' },
     { text: 'Setup', link: '/setup' },
+    { text: 'Explore', link: '/explore/' },
   ]
   // Workspace (OKF workspace index)
   if (existsSync(resolve(SRC, 'workspace.md'))) {
