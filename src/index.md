@@ -11,7 +11,7 @@ hero:
   actions:
     - theme: brand
       text: Browse Projects
-      link: /projects/truck/profile
+      link: /workspace
     - theme: alt
       text: Setup
       link: /setup
@@ -38,14 +38,11 @@ features:
   - title: collage
     details: Express 4 + sharp · Cloudflare R2 · LINE Bot SDK
     link: /projects/collage/profile
-  - title: receipts-dms
+  - title: paper
     details: Vite 8 + React 19 · Radix UI · Cloudflare D1/R2
-    link: /projects/receipts-dms/profile
-  - title: writer
-    details: Markdown + AI agent system
-    link: /projects/writer/profile
+    link: /projects/paper/profile
   - title: System Docs
-    details: Conventions · Glossary · Personalities · TODOs
+    details: Conventions · Glossary · Personalities
     link: /system/conventions
 ---
 
